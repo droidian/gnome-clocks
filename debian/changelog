@@ -1,0 +1,5 @@
+jhbuild (0.0.svn.r1372-1) unstable; urgency=low
+
+  * Initial upload to Debian; closes: #410881.
+
+ -- Loic Minier <lool@dooz.org>  Tue, 13 Feb 2007 19:37:29 +0100
