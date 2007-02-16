@@ -15,7 +15,8 @@ DATADIR = $(PREFIX)/share/jhbuild
 SYSCONFDIR = /etc
 
 # build and clean documentation manually
-build/jhbuild::
+build/jhbuild:: doc/jhbuild.html
+doc/jhbuild.html:: doc/custom.xsl doc/jhbuild.css doc/jhbuild.xml
 	cd doc && xmlto xhtml-nochunks -m custom.xsl jhbuild.xml
 clean::
 	rm -f doc/jhbuild.html
