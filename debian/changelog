@@ -6,13 +6,14 @@ jhbuild (0.0.svn.r1377-1) unstable; urgency=low
     - The obsolescence of the user manual.
     - Some configuration tips.
     - Why scripts/ isn't shipped.
+    - Disk space usage.
   * Drop most TODOs from debian/rules.
   * New upstream snapshot to fix gnome-2.16 and gnome-2.18 build failures with
     Ekiga/CVS which needs a fresher pwlib and opal: now use tarballs instead.
     - Drop .cvsignore handling as these were removed upstream.
   * Fix doc build to not run multiple times.
 
- -- Loic Minier <lool@dooz.org>  Fri, 16 Feb 2007 16:04:43 +0100
+ -- Loic Minier <lool@dooz.org>  Fri, 16 Feb 2007 16:33:24 +0100
 
 jhbuild (0.0.svn.r1372-1) unstable; urgency=low
 

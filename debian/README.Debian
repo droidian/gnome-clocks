@@ -15,6 +15,14 @@ Using development snapshots along of your Debian system might corrupt
 your configuration or data files.  Use at your own risk.
 
 
+Size matters
+============
+
+Building the full GNOME moduleset uses a lot of disk space: the GNOME
+2.16 moduleset uses between 5 and 6 GB for the checkouted data, build
+dirs, and installed files.
+
+
 User Manual -- slightly obsolete
 ================================
 
