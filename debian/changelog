@@ -1,4 +1,4 @@
-jhbuild (0.0.svn.r1372-2) unstable; urgency=low
+jhbuild (0.0.svn.r1377-1) unstable; urgency=low
 
   * Build, install, and clean the user manual; build-depend on xmlto.
   * Add a README.Debian documenting:
