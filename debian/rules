@@ -42,8 +42,6 @@ install/jhbuild::
 	cp -a contrib/jhbuild_completion.bash $(DESTDIR)$(SYSCONFDIR)/bash_completion.d/jhbuild
 	# make files with a shebang executable
 	egrep -rlZ '^#!(.*)(python|bash)' $(DESTDIR)$(DATADIR) $(DESTDIR)$(SYSCONFDIR) | xargs -0 chmod a+x --
-	# cleanup .cvsignore files
-	find $(DESTDIR)$(DATADIR) -name .cvsignore -exec rm -f {} \;
 
 binary-install/jhbuild::
 	# (should find /usr/share/<package> automatically)
