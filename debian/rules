@@ -14,6 +14,12 @@ BINDIR = $(PREFIX)/bin
 DATADIR = $(PREFIX)/share/jhbuild
 SYSCONFDIR = /etc
 
+# build and clean documentation manually
+build/jhbuild::
+	cd doc && xmlto xhtml-nochunks -m custom.xsl jhbuild.xml
+clean::
+	rm -f doc/jhbuild.html
+
 # install files manually
 install/jhbuild::
 	# data dir holding most stuff
@@ -21,15 +27,12 @@ install/jhbuild::
 	# Python code
 	cp -a jhbuild $(DESTDIR)$(DATADIR)
 	# command line wrapper
-	# XXX switch from a jhbuild private module to a public (site-package)
-	# module?
 	install -d $(DESTDIR)$(BINDIR)
 	sed "s,@jhbuilddir@,$(DATADIR),g" < jhbuild.in > $(DESTDIR)$(BINDIR)/jhbuild
 	# modulesets
 	cp -a modulesets $(DESTDIR)$(DATADIR)
 	# patches
 	cp -a patches $(DESTDIR)$(DATADIR)
-	# TODO doc, scripts
 	# TODO install-check (arch: any)
 	# Desktop file
 	install -d $(DESTDIR)$(PREFIX)/share/applications

@@ -2,3 +2,6 @@ HACKING
 # sample configs
 jamesh.jhbuildrc
 sample.jhbuildrc
+# user manual
+doc/jhbuild.html
+doc/jhbuild.css
