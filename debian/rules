@@ -47,7 +47,7 @@ install/jhbuild::
 	install -d $(DESTDIR)$(DOCDIR)
 	cp -a scripts $(DESTDIR)$(DOCDIR)
 	# make files with a shebang executable
-	# XXX might need some dh_fixperms excludes
+	# XXX might need some dh_fixperms and dh_compress excludes
 	egrep -rlZ '^#!(.*)(python|bash)' \
 		$(DESTDIR)$(DATADIR) \
 		$(DESTDIR)$(SYSCONFDIR) \
