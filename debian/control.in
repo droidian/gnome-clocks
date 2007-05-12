@@ -4,20 +4,30 @@ Priority: optional
 Maintainer: Loic Minier <lool@dooz.org>
 Uploaders: @GNOME_TEAM@
 Build-Depends: cdbs,
-        debhelper (>= 5)
+               debhelper (>= 5)
 Build-Depends-Indep: python-central (>= 0.5.6),
-        gnome-pkg-tools,
-        xmlto
+                     gnome-pkg-tools,
+                     xmlto
 Standards-Version: 3.7.2
 XS-Python-Version: >= 2.2
 
 Package: jhbuild
 Architecture: all
 Depends: ${misc:Depends},
-        ${python:Depends}
-Recommends: cvs, subversion, bzr, patch, wget | curl, autoconf,
-        automake, gettext, pkg-config
-Suggests: tla, darcs, git-core, python-pygraphviz
+         ${python:Depends}
+Recommends: cvs,
+            subversion,
+            bzr,
+            patch,
+            wget | curl,
+            autoconf,
+            automake,
+            gettext,
+            pkg-config
+Suggests: tla,
+          darcs,
+          git-core,
+          python-pygraphviz
 XB-Python-Version: ${python:Versions}
 Description: flexible build script for package collections
  Jhbuild is a program that can be used to pull a number of modules from

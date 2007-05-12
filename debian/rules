@@ -5,7 +5,6 @@ include /usr/share/cdbs/1/rules/simple-patchsys.mk
 include /usr/share/cdbs/1/rules/utils.mk
 include /usr/share/gnome-pkg-tools/1/rules/uploaders.mk
 -include /usr/share/gnome-pkg-tools/1/rules/gnome-get-source.mk
-
 GNOME_MODULE := jhbuild
 
 DESTDIR = debian/jhbuild
@@ -29,7 +28,9 @@ install/jhbuild::
 	cp -a jhbuild $(DESTDIR)$(DATADIR)
 	# command line wrapper
 	install -d $(DESTDIR)$(BINDIR)
-	sed "s,@jhbuilddir@,$(DATADIR),g" < jhbuild.in > $(DESTDIR)$(BINDIR)/jhbuild
+	sed "s,@jhbuilddir@,$(DATADIR),g" \
+		<jhbuild.in \
+		>$(DESTDIR)$(BINDIR)/jhbuild
 	# modulesets
 	cp -a modulesets $(DESTDIR)$(DATADIR)
 	# patches
