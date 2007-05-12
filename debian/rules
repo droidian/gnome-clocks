@@ -12,6 +12,7 @@ PREFIX = /usr
 BINDIR = $(PREFIX)/bin
 DATADIR = $(PREFIX)/share/jhbuild
 SYSCONFDIR = /etc
+DOCDIR = $(PREFIX)/share/doc/jhbuild
 
 # build and clean documentation manually
 build/jhbuild:: doc/jhbuild.html
@@ -42,8 +43,16 @@ install/jhbuild::
 	# bash completion
 	install -d $(DESTDIR)$(SYSCONFDIR)/bash_completion.d
 	cp -a contrib/jhbuild_completion.bash $(DESTDIR)$(SYSCONFDIR)/bash_completion.d/jhbuild
+	# scripts
+	install -d $(DESTDIR)$(DOCDIR)
+	cp -a scripts $(DESTDIR)$(DOCDIR)
 	# make files with a shebang executable
-	egrep -rlZ '^#!(.*)(python|bash)' $(DESTDIR)$(DATADIR) $(DESTDIR)$(SYSCONFDIR) | xargs -0 chmod a+x --
+	# XXX might need some dh_fixperms excludes
+	egrep -rlZ '^#!(.*)(python|bash)' \
+		$(DESTDIR)$(DATADIR) \
+		$(DESTDIR)$(SYSCONFDIR) \
+		$(DESTDIR)$(DOCDIR) \
+		| xargs -0 chmod a+x --
 
 binary-install/jhbuild::
 	# (should find /usr/share/<package> automatically)

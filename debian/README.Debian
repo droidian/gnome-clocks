@@ -57,6 +57,5 @@ Scripts
 
 The upstream scripts/ dir has many small utilities which were mostly
 useful in the days where GNOME modules were kept in CVS.  Nowadays,
-these scripts are quite obsolete, and hence are not shipped in the
-package.
+some scripts are quite obsolete.
 
