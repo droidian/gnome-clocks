@@ -1,0 +1,27 @@
+From 108505537887cf341c875f69012d00a0ea1222d3 Mon Sep 17 00:00:00 2001
+From: Emilio Pozuelo Monfort <pochu27@gmail.com>
+Date: Mon, 9 Nov 2009 14:20:32 +0100
+Subject: [PATCH] Bug 601251: Import jhbuild from pkgdatadir
+
+---
+ scripts/jhbuild.in |    4 ++++
+ 1 files changed, 4 insertions(+), 0 deletions(-)
+
+diff --git a/scripts/jhbuild.in b/scripts/jhbuild.in
+index dc9ccdf..dfb4450 100644
+--- a/scripts/jhbuild.in
++++ b/scripts/jhbuild.in
+@@ -22,6 +22,10 @@ else:
+         import jhbuild
+     except ImportError:
+         sys.path.insert(0, srcdir)
++        try:
++            import jhbuild
++        except ImportError:
++            sys.path.insert(0, pkgdatadir)
+ 
+ __builtin__.__dict__['PKGDATADIR'] = pkgdatadir
+ __builtin__.__dict__['DATADIR'] = datadir
+-- 
+1.6.5.2
+

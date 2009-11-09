@@ -1,10 +1,43 @@
-jhbuild (0.0.svn.r1378-2) UNRELEASED; urgency=low
+jhbuild (2.28.0-1) unstable; urgency=low
 
+  [ Loic Minier ]
   * Cleanups.
   * Ship scripts.
   * Don't set GNOME_MODULE as it equals the name of the source package.
 
- -- Loic Minier <lool@dooz.org>  Sat, 12 May 2007 14:24:19 +0200
+  [ Emilio Pozuelo Monfort ]
+  * New upstream release. Closes: #524504.
+    - Use 'git rev-parse' rather than 'git-rev-parse'. Closes: #544642.
+  * Ship install-check. Closes: #441008.
+  * Uploaders list regenerated. Closes: #523542, #554071.
+  * debian/control.in,
+    debian/rules:
+    - Stop shipping a copy of subprocess.py. Require python >= 2.4.
+    - Switch to python-support.
+  * debian/control.in:
+    - Bump Standards-Version to 3.8.3, no changes needed.
+    - Build depend on intltool >= 0.35.0.
+    - Build depend on pkg-config, gnome-doc-utils and rarian-compat to build
+      the documentation.
+    - Make jhbuild arch any since install-check is a binary. Depend on
+      ${shlibs:Depends}.
+    - Recommend, and not suggest, git-core. Also recommend mercurial.
+  * debian/watch:
+    - Added.
+  * debian/patches/01_import_from_pkgdatadir.patch:
+    - Added, import jhbuild from pkgdatadir if everything else fails.
+      This way we can ship the jhbuild private modules in /usr/sharejhbuild.
+  * debian/jhbuild.docs:
+    - Removed, the necessary docs are now installed by the upstream Makefile.
+  * debian/rules:
+    - Include autotools.mk and gnome.mk.
+    - Remove all the manual build process, autotools.mk does everything now.
+    - Install the jhbuild modules in /usr/share/jhbuild.
+  * debian/install:
+    - Install the modulesets and patches from here since the upstream build
+      system doesn't install them.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 09 Nov 2009 20:28:48 +0100
 
 jhbuild (0.0.svn.r1378-1) unstable; urgency=low
 

@@ -1,58 +1,20 @@
 #!/usr/bin/make -f
 
+include /usr/share/cdbs/1/class/autotools.mk
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/rules/simple-patchsys.mk
 include /usr/share/cdbs/1/rules/utils.mk
+include /usr/share/cdbs/1/class/gnome.mk
 include /usr/share/gnome-pkg-tools/1/rules/uploaders.mk
 -include /usr/share/gnome-pkg-tools/1/rules/gnome-get-source.mk
 
-DESTDIR = debian/jhbuild
-PREFIX = /usr
-BINDIR = $(PREFIX)/bin
-DATADIR = $(PREFIX)/share/jhbuild
-SYSCONFDIR = /etc
-DOCDIR = $(PREFIX)/share/doc/jhbuild
+DEB_CONFIGURE_EXTRA_FLAGS += --enable-doc-installation=yes
 
-# build and clean documentation manually
-build/jhbuild:: doc/jhbuild.html
-doc/jhbuild.html:: doc/custom.xsl doc/jhbuild.css doc/jhbuild.xml
-	cd doc && xmlto xhtml-nochunks -m custom.xsl jhbuild.xml
-clean::
-	rm -f doc/jhbuild.html
-
-# install files manually
 install/jhbuild::
-	# data dir holding most stuff
-	install -d $(DESTDIR)$(DATADIR)
-	# Python code
-	cp -a jhbuild $(DESTDIR)$(DATADIR)
-	# command line wrapper
-	install -d $(DESTDIR)$(BINDIR)
-	sed "s,@jhbuilddir@,$(DATADIR),g" \
-		<jhbuild.in \
-		>$(DESTDIR)$(BINDIR)/jhbuild
-	# modulesets
-	cp -a modulesets $(DESTDIR)$(DATADIR)
-	# patches
-	cp -a patches $(DESTDIR)$(DATADIR)
-	# TODO install-check (arch: any)
-	# Desktop file
-	install -d $(DESTDIR)$(PREFIX)/share/applications
-	cp -a jhbuild.desktop $(DESTDIR)$(PREFIX)/share/applications
-	# bash completion
-	install -d $(DESTDIR)$(SYSCONFDIR)/bash_completion.d
-	cp -a contrib/jhbuild_completion.bash $(DESTDIR)$(SYSCONFDIR)/bash_completion.d/jhbuild
-	# scripts
-	install -d $(DESTDIR)$(DOCDIR)
-	cp -a scripts $(DESTDIR)$(DOCDIR)
-	# make files with a shebang executable
-	# XXX might need some dh_fixperms and dh_compress excludes
-	egrep -rlZ '^#!(.*)(python|bash)' \
-		$(DESTDIR)$(DATADIR) \
-		$(DESTDIR)$(SYSCONFDIR) \
-		$(DESTDIR)$(DOCDIR) \
-		| xargs -0 chmod a+x --
+	mv debian/jhbuild/usr/lib/python*/*-packages/jhbuild \
+	   debian/jhbuild/usr/share/jhbuild
+	cd debian/jhbuild/usr && rmdir -p lib/python*/*-packages
+	rm -r debian/jhbuild/usr/share/jhbuild/jhbuild/cut_n_paste
 
 binary-install/jhbuild::
-	# (should find /usr/share/<package> automatically)
-	dh_pycentral -p$(cdbs_curpkg)
+	dh_pysupport -p$(cdbs_curpkg)
