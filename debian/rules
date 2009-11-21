@@ -10,10 +10,9 @@ include /usr/share/gnome-pkg-tools/1/rules/uploaders.mk
 
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-doc-installation=yes
 
+DEB_MAKE_ENVVARS += MAKEFLAGS=pythondir=/usr/share/jhbuild
+
 install/jhbuild::
-	mv debian/jhbuild/usr/lib/python*/*-packages/jhbuild \
-	   debian/jhbuild/usr/share/jhbuild
-	cd debian/jhbuild/usr && rmdir -p lib/python*/*-packages
 	rm -r debian/jhbuild/usr/share/jhbuild/jhbuild/cut_n_paste
 
 binary-install/jhbuild::
