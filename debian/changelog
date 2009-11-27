@@ -1,12 +1,16 @@
-jhbuild (2.28.0-2) UNRELEASED; urgency=low
+jhbuild (2.29.2-1) unstable; urgency=low
 
   * debian/patches/01_import_from_pkgdatadir.patch,
     debian/rules:
     - Remove hack to install the python modules in /usr/share/jhbuild
       and the patch to make jhbuild import them from that location.
       Set pythondir=/usr/share/jhbuild instead and pass it to make install.
+  * New upstream release.
+  * debian/watch: Also track unstable releases, jhbuild is mostly used
+    to build unreleased software (like GNOME from master) so it makes sense
+    to have the latest release that is updated for software changes.
 
- -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 17 Nov 2009 10:25:45 +0100
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Fri, 27 Nov 2009 13:01:16 +0100
 
 jhbuild (2.28.0-1) unstable; urgency=low
 
