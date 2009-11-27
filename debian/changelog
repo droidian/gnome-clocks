@@ -1,3 +1,12 @@
+jhbuild (2.29.2-2) UNRELEASED; urgency=low
+
+  * debian/install:
+    - Removed, let's not ship the modulesets and patches so that they
+      are downloaded as needed from the intertubes, where they should be
+      up to date.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Fri, 27 Nov 2009 19:49:13 +0100
+
 jhbuild (2.29.2-1) unstable; urgency=low
 
   * debian/patches/01_import_from_pkgdatadir.patch,
