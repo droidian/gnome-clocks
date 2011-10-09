@@ -12,7 +12,7 @@ Build-Depends: cdbs,
                debhelper (>= 5),
                python-support,
                gnome-pkg-tools,
-               intltool (>= 0.35.0),
+               intltool (>= 0.40.0),
                pkg-config,
                gnome-doc-utils,
                rarian-compat
