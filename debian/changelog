@@ -9,6 +9,7 @@ jhbuild (3.2.1-1) UNRELEASED; urgency=low
     - Bump intltool minimum build-dependency
     - Update long description to mention Git (Closes: #597801)
     - Add Vcs and Homepage fields
+  * debian/watch: Watch for .xz releases
 
  -- Jeremy Bicha <jbicha@ubuntu.com>  Sat, 08 Oct 2011 23:24:19 -0400
 
