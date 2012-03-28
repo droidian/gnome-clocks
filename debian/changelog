@@ -1,4 +1,4 @@
-jhbuild (3.2.1-1) UNRELEASED; urgency=low
+jhbuild (3.2.1-1) unstable; urgency=low
 
   [ Jeremy Bicha ]
   * New upstream release.
@@ -11,7 +11,7 @@ jhbuild (3.2.1-1) UNRELEASED; urgency=low
     - Add Vcs and Homepage fields
   * debian/watch: Watch for .xz releases
 
- -- Jeremy Bicha <jbicha@ubuntu.com>  Tue, 27 Mar 2012 23:00:19 -0400
+ -- Jordi Mallach <jordi@debian.org>  Wed, 28 Mar 2012 22:17:26 +0200
 
 jhbuild (2.29.2-2) unstable; urgency=low
 
