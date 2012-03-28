@@ -5,13 +5,13 @@ jhbuild (3.2.1-1) UNRELEASED; urgency=low
   * Switch to dh_python2
   * Use 3.0 (quilt)
   * debian/control.in:
-    - Bump debhelper minimum to 8 and Standards-Version to 3.9.2
+    - Bump debhelper minimum to 8 and Standards-Version to 3.9.3
     - Bump intltool minimum build-dependency
     - Update long description to mention Git (Closes: #597801)
     - Add Vcs and Homepage fields
   * debian/watch: Watch for .xz releases
 
- -- Jeremy Bicha <jbicha@ubuntu.com>  Sat, 08 Oct 2011 23:24:19 -0400
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Tue, 27 Mar 2012 23:00:19 -0400
 
 jhbuild (2.29.2-2) unstable; urgency=low
 

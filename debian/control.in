@@ -11,7 +11,7 @@ Build-Depends: cdbs (>= 0.4.90~),
                gnome-doc-utils,
                rarian-compat,
                python (>= 2.6.6-3~)
-Standards-Version: 3.9.2
+Standards-Version: 3.9.3
 Vcs-Svn: svn://anonscm.debian.org/svn/pkg-gnome/packages/unstable/jhbuild
 Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/packages/unstable/jhbuild/
 Homepage: https://live.gnome.org/Jhbuild
