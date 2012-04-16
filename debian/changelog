@@ -1,3 +1,10 @@
+jhbuild (3.4.0-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+  * Build-depend on yelp-tools instead of gnome-doc-utils
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Mon, 16 Apr 2012 09:22:32 -0400
+
 jhbuild (3.2.1-1) unstable; urgency=low
 
   [ Jeremy Bicha ]
