@@ -2,6 +2,7 @@ jhbuild (3.4.0-1) UNRELEASED; urgency=low
 
   * New upstream release.
   * Build-depend on yelp-tools instead of gnome-doc-utils
+  * debian/control.in: Allow DM uploads
 
  -- Jeremy Bicha <jbicha@ubuntu.com>  Mon, 16 Apr 2012 09:22:32 -0400
 

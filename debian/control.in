@@ -3,6 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Loic Minier <lool@dooz.org>
 Uploaders: @GNOME_TEAM@
+DM-Upload-Allowed: yes
 Build-Depends: cdbs (>= 0.4.90~),
                debhelper (>= 8),
                gnome-pkg-tools,

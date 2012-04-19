@@ -8,6 +8,7 @@ Section: devel
 Priority: optional
 Maintainer: Loic Minier <lool@dooz.org>
 Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Emilio Pozuelo Monfort <pochu@debian.org>
+DM-Upload-Allowed: yes
 Build-Depends: cdbs (>= 0.4.90~),
                debhelper (>= 8),
                gnome-pkg-tools,
