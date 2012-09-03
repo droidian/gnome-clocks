@@ -1,0 +1,43 @@
+From f9fd6e54006a4a4d16b9259583ab08319ae21b1d Mon Sep 17 00:00:00 2001
+From: Jeremy Bicha <jbicha@ubuntu.com>
+Date: Sun, 2 Sep 2012 22:32:54 -0400
+Subject: [PATCH] Images aren't actually installed in
+ /usr/share/gnome-clocks/pixmaps
+
+Fixes this crash:
+
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/gnomeclocks/app.py", line 397, in do_activate
+    self.win = Window(self)
+  File "/usr/lib/python2.7/dist-packages/gnomeclocks/app.py", line 65, in __init__
+    self.alarm = Alarm()
+  File "/usr/lib/python2.7/dist-packages/gnomeclocks/alarm.py", line 340, in __init__
+    self.load_alarms()
+  File "/usr/lib/python2.7/dist-packages/gnomeclocks/alarm.py", line 388, in load_alarms
+    self.add_alarm_widget(alarm)
+  File "/usr/lib/python2.7/dist-packages/gnomeclocks/alarm.py", line 399, in add_alarm_widget
+    widget = AlarmWidget(self, alarm, alert)
+  File "/usr/lib/python2.7/dist-packages/gnomeclocks/alarm.py", line 297, in __init__
+    self.drawing.render(timestr, img, isDay, repeat)
+  File "/usr/lib/python2.7/dist-packages/gnomeclocks/widgets.py", line 37, in render
+    self.surface = cairo.ImageSurface.create_from_png(img)
+cairo.Error: file not found
+
+https://bugzilla.gnome.org/show_bug.cgi?id=683233
+---
+ gnome-clocks |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gnome-clocks b/gnome-clocks
+index ebae4a6..287db9e 100755
+--- a/gnome-clocks
++++ b/gnome-clocks
+@@ -33,7 +33,7 @@ if os.path.exists("gnome-clocks.doap"):
+ else:
+     ENV_PATHS = {
+         "GNOME_CLOCKS_DATA_PATH": "/usr/share/gnome-clocks/",
+-        "GNOME_CLOCKS_IMAGE_PATH": "/usr/share/gnome-clocks/pixmaps/",
++        "GNOME_CLOCKS_IMAGE_PATH": "/usr/share/gnome-clocks/",
+         "GNOME_CLOCKS_LOCALE_PATH": "/usr/share/locale/",
+     }
+ 
