@@ -1,6 +1,5 @@
 gnome-clocks (0.1.0-1) UNRELEASED; urgency=low
 
   * Initial release
-  * TODO: figure out why Clocks can't find libcanberra.so
 
  -- Jeremy Bicha <jbicha@ubuntu.com>  Sun, 02 Sep 2012 20:40:09 -0400
