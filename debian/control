@@ -1,9 +1,8 @@
 Source: gnome-clocks
 Section: gnome
 Priority: optional
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-XSBC-Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Jeremy Bicha <jbicha@ubuntu.com>
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Uploaders: Jeremy Bicha <jbicha@ubuntu.com>
 Build-Depends: debhelper (>= 9),
                python (>= 2.6.6-3~),
                python-distutils-extra
@@ -21,8 +20,9 @@ Depends: ${shlibs:Depends},
          gir1.2-gweather-3.0,
          gir1.2-gtkclutter-1.0,
          gir1.2-notify-0.7,
-         libcanberra-gtk3-0,
-         python-cairo
-Description: Simple GNOME app to show the time, date, and alarms
+         libcanberra0,
+         python-cairo,
+         python-gi (>= 3.3.91)
+Description: Simple GNOME app with stopwatch, timer, and world clock support
  GNOME Clocks is a simple application to show the time and date in multiple
- locations and to set alarms.
+ locations and set alarms or timers. A stopwatch is also included.
