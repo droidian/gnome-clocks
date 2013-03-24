@@ -20,7 +20,7 @@ Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/packages/experimental/gn
 Homepage: https://live.gnome.org/GnomeClocks
 
 Package: gnome-clocks
-Architecture: all
+Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends}
 Description: Simple GNOME app with stopwatch, timer, and world clock support
