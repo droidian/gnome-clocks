@@ -1,5 +1,10 @@
-gnome-clocks (0.1.1-1) UNRELEASED; urgency=low
+gnome-clocks (3.7.92-1) UNRELEASED; urgency=low
 
+  [ Jeremy Bicha ]
   * Initial release
 
- -- Jeremy Bicha <jbicha@ubuntu.com>  Sun, 02 Sep 2012 20:40:09 -0400
+  [ Sjoerd Simons ]
+  * New upstream release (Update build-depends)
+  * debian/control: Use standard gnome-pkg-tools rules
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sun, 24 Mar 2013 10:58:07 +0100

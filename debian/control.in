@@ -1,49 +1,25 @@
-Source: jhbuild
-Section: devel
+Source: gnome-clocks
+Section: gnome
 Priority: optional
-Maintainer: Loic Minier <lool@dooz.org>
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: @GNOME_TEAM@
-DM-Upload-Allowed: yes
-Build-Depends: cdbs (>= 0.4.90~),
-               debhelper (>= 8),
+Build-Depends: debhelper (>= 9),
                gnome-pkg-tools,
-               intltool (>= 0.40.0),
                pkg-config,
-               rarian-compat,
-               yelp-tools,
-               python (>= 2.6.6-3~)
+               valac (>= 0.17.4) | valac-0.18,
+               libgweather-3-dev (>= 3.7.90),
+               libnotify-dev (>= 0.7.0),
+               libcanberra-dev (>= 0.30),
+               libgtk-3-dev (>= 3.7.12)
 Standards-Version: 3.9.3
-Vcs-Svn: svn://anonscm.debian.org/svn/pkg-gnome/packages/unstable/jhbuild
-Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/packages/unstable/jhbuild/
-Homepage: https://live.gnome.org/Jhbuild
+Vcs-Svn: svn://anonscm.debian.org/svn/pkg-gnome/packages/experimental/gnome-clocks
+Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/packages/experimental/gnome-clocks/
+Homepage: https://live.gnome.org/GnomeClocks
 
-Package: jhbuild
-Architecture: any
+Package: gnome-clocks
+Architecture: all
 Depends: ${shlibs:Depends},
-         ${misc:Depends},
-         ${python:Depends}
-Recommends: bzr,
-            cvs,
-            git-core,
-            mercurial,
-            subversion,
-            patch,
-            wget | curl,
-            autoconf,
-            automake,
-            gettext,
-            pkg-config
-Suggests: tla,
-          darcs,
-          python-pygraphviz
-Description: flexible build script for package collections
- Jhbuild is a program that can be used to pull a number of modules from
- Git, CVS, Subversion, Bazaar and other types of repositories or from
- tarballs and build them in the correct order.  Unlike some build
- scripts, jhbuild lets you specify what modules you want built and it
- will then go and build those modules plus dependencies.
- .
- Although jhbuild was originally developed to build GNOME, it has
- since been extended to work with other projects as well.
- Extending it to handle new modules is usually trivial assuming the
- build infrastructure matches the other modules it handles.
+         ${misc:Depends}
+Description: Simple GNOME app with stopwatch, timer, and world clock support
+ GNOME Clocks is a simple application to show the time and date in multiple
+ locations and set alarms or timers. A stopwatch is also included.
