@@ -3,7 +3,9 @@ Upstream-Name: gnome-clocks
 Source: http://ftp.gnome.org/pub/GNOME/sources/gnome-clocks/
 
 Files: *
-Copyright: 2011-2012 Collabora, Ltd.
+Copyright: 2011-2013 Collabora Ltd.
+           2012-2013 Seif Lotfy, Emily Gonyer, Eslam Mostafa
+           2012-2013 Paolo Borelli, Volker Sobek
 License: GPL-2+
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public
