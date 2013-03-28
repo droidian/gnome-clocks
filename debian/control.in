@@ -14,15 +14,16 @@ Build-Depends: debhelper (>= 9),
                libgtk-3-dev (>= 3.7.12),
                libgnome-desktop-3-dev (>= 3.7.90),
                libgirepository1.0-dev
-Standards-Version: 3.9.3
-Vcs-Svn: svn://anonscm.debian.org/svn/pkg-gnome/packages/experimental/gnome-clocks
+Standards-Version: 3.9.4
+Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/packages/experimental/gnome-clocks
 Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/packages/experimental/gnome-clocks/
 Homepage: https://live.gnome.org/GnomeClocks
 
 Package: gnome-clocks
 Architecture: any
 Depends: ${shlibs:Depends},
-         ${misc:Depends}
+         ${misc:Depends},
+         libgweather-common (>= 3.7.91)
 Description: Simple GNOME app with stopwatch, timer, and world clock support
  GNOME Clocks is a simple application to show the time and date in multiple
  locations and set alarms or timers. A stopwatch is also included.
