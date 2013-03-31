@@ -1,11 +1,15 @@
 gnome-clocks (3.8.0-1) UNRELEASED; urgency=low
 
+  [ Jean Schurger ]
   * New upstream version.
   * Added runtime dependency to libgweather-common (the schema file is needed).
   * Updated Standards-Version to 3.9.4.
   * Updated Vcs-Svn.
 
- -- Jean Schurger <jean@schurger.org>  Thu, 28 Mar 2013 09:58:19 -0400
+  [ Sjoerd Simons ]
+  * debian/copyright: Add libgd copyright
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sun, 31 Mar 2013 22:33:20 +0200
 
 gnome-clocks (3.7.92-1) experimental; urgency=low
 
