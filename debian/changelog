@@ -1,3 +1,12 @@
+gnome-clocks (3.8.2-1) UNRELEASED; urgency=low
+
+  * New upstream release
+  * debian/control.in:
+    - Drop alternate build-depends on valac-0.18 since it's no longer in
+      Debian and unnecessary
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Thu, 30 May 2013 19:20:13 -0400
+
 gnome-clocks (3.8.0-1) experimental; urgency=low
 
   [ Jean Schurger ]
