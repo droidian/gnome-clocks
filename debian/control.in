@@ -22,8 +22,7 @@ Homepage: https://live.gnome.org/GnomeClocks
 Package: gnome-clocks
 Architecture: any
 Depends: ${shlibs:Depends},
-         ${misc:Depends},
-         libgweather-common (>= 3.7.91)
+         ${misc:Depends}
 Description: Simple GNOME app with stopwatch, timer, and world clock support
  GNOME Clocks is a simple application to show the time and date in multiple
  locations and set alarms or timers. A stopwatch is also included.

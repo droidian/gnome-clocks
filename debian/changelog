@@ -1,11 +1,18 @@
-gnome-clocks (3.8.2-1) UNRELEASED; urgency=low
+gnome-clocks (3.8.2-1) experimental; urgency=low
 
+  [ Jeremy Bicha ]
   * New upstream release
   * debian/control.in:
     - Drop alternate build-depends on valac-0.18 since it's no longer in
       Debian and unnecessary
 
- -- Jeremy Bicha <jbicha@ubuntu.com>  Thu, 30 May 2013 19:20:13 -0400
+  [ Andreas Henriksson ]
+  * Add missing Licence field to debian/copyright as required
+    by the spec for machine readable copyright file. Thanks lintian.
+  * Drop "Added runtime dependency to libgweather-common"
+    - libgweather-3-3 has been fixed to depend on newer libgweather-common
+
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 17 Jun 2013 23:06:05 +0200
 
 gnome-clocks (3.8.0-1) experimental; urgency=low
 
