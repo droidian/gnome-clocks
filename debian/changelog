@@ -1,3 +1,9 @@
+gnome-clocks (3.8.2-3) UNRELEASED; urgency=low
+
+  * Fix Vcs-* fields in debian/control*
+
+ -- Andreas Henriksson <andreas@fatal.se>  Thu, 17 Oct 2013 11:52:41 +0200
+
 gnome-clocks (3.8.2-2) unstable; urgency=low
 
   [ Jeremy Bicha ]
