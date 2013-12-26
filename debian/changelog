@@ -16,6 +16,7 @@ gnome-clocks (3.10.1-1) UNRELEASED; urgency=low
 
   [ Jackson Doak ]
   * Add --disable-silent-rules to configure call, gives verbose buildlogs
+  * Update homepage. Closes: #728997
 
  -- Jackson Doak <noskcaj@ubuntu.com>  Fri, 27 Dec 2013 08:25:01 +1100
 

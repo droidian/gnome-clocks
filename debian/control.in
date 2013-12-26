@@ -20,7 +20,7 @@ Build-Depends: debhelper (>= 9),
 Standards-Version: 3.9.4
 Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/packages/unstable/gnome-clocks
 Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/packages/unstable/gnome-clocks/
-Homepage: https://wiki.gnome.org/GnomeClocks
+Homepage: https://wiki.gnome.org/Design/Apps/Clock
 
 Package: gnome-clocks
 Architecture: any
