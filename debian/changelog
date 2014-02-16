@@ -18,7 +18,11 @@ gnome-clocks (3.10.1-1) UNRELEASED; urgency=low
   * Add --disable-silent-rules to configure call, gives verbose buildlogs
   * Update homepage. Closes: #728997
 
- -- Jackson Doak <noskcaj@ubuntu.com>  Fri, 27 Dec 2013 08:25:01 +1100
+  [ Laurent Bigonville ]
+  * debian/control.in: {Build-}depends against geoclue-2.0 instead of geoclue
+    (>= 2.0)
+
+ -- Laurent Bigonville <bigon@debian.org>  Sun, 16 Feb 2014 16:45:51 +0100
 
 gnome-clocks (3.8.2-2) unstable; urgency=low
 

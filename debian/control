@@ -7,11 +7,11 @@ Source: gnome-clocks
 Section: gnome
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Andreas Henriksson <andreas@fatal.se>, Sjoerd Simons <sjoerd@debian.org>
+Uploaders: Andreas Henriksson <andreas@fatal.se>, Laurent Bigonville <bigon@debian.org>, Sjoerd Simons <sjoerd@debian.org>
 Build-Depends: debhelper (>= 9),
                gnome-pkg-tools,
                pkg-config,
-               geoclue (>= 2.0),
+               geoclue-2.0,
                intltool,
                valac (>= 0.21.2),
                libgeocode-glib-dev (>= 0.99.4),
@@ -31,7 +31,7 @@ Package: gnome-clocks
 Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         geoclue (>= 2.0)
+         geoclue-2.0
 Description: Simple GNOME app with stopwatch, timer, and world clock support
  GNOME Clocks is a simple application to show the time and date in multiple
  locations and set alarms or timers. A stopwatch is also included.
