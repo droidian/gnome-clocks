@@ -1,8 +1,24 @@
-gnome-clocks (3.8.2-3) UNRELEASED; urgency=low
+gnome-clocks (3.10.1-1) UNRELEASED; urgency=low
 
+  [ Andreas Henriksson ]
   * Fix Vcs-* fields in debian/control*
+  * New upstream release.
+  * Update build-dependencies according to configure.ac:
+    - Bump libgweather-3-dev to >= 3.9.91
+    - Add libgeocode-glib-dev (>= 0.99.4)
+    - Bump valac to >= 0.21.2
+    - Bump libgtk-3-dev to >= 3.9.11
+    - Add geoclue (>= 2.0)
+  * Add gnome-clocks dependency on geoclue (>= 2.0)
+  * Add blurb in debian/rules that forces rebuild from vala source
+  * Bump build-dependency on libgweather-3-dev to >= 3.10.1-1~
+    - vala bindings got enabled in that package revision
 
- -- Andreas Henriksson <andreas@fatal.se>  Thu, 17 Oct 2013 11:52:41 +0200
+  [ Jackson Doak ]
+  * Add --disable-silent-rules to configure call, gives verbose buildlogs
+  * Update homepage. Closes: #728997
+
+ -- Jackson Doak <noskcaj@ubuntu.com>  Fri, 27 Dec 2013 08:25:01 +1100
 
 gnome-clocks (3.8.2-2) unstable; urgency=low
 
