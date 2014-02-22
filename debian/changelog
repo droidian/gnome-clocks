@@ -1,4 +1,4 @@
-gnome-clocks (3.10.1-1) UNRELEASED; urgency=low
+gnome-clocks (3.10.1-1) unstable; urgency=low
 
   [ Andreas Henriksson ]
   * Fix Vcs-* fields in debian/control*
@@ -22,7 +22,10 @@ gnome-clocks (3.10.1-1) UNRELEASED; urgency=low
   * debian/control.in: {Build-}depends against geoclue-2.0 instead of geoclue
     (>= 2.0)
 
- -- Laurent Bigonville <bigon@debian.org>  Sun, 16 Feb 2014 16:45:51 +0100
+  [ Emilio Pozuelo Monfort ]
+  * Upload to unstable.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 22 Feb 2014 19:16:43 +0100
 
 gnome-clocks (3.8.2-2) unstable; urgency=low
 
