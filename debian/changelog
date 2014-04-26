@@ -1,3 +1,11 @@
+gnome-clocks (3.12.0-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Bump build-dependencies according to configure.ac changes:
+    - Bump valac 0.23.3, add glib 2.39 and drop libnotify.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Wed, 26 Mar 2014 19:13:23 +0100
+
 gnome-clocks (3.10.1-1) unstable; urgency=low
 
   [ Andreas Henriksson ]
