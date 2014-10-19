@@ -1,3 +1,12 @@
+gnome-clocks (3.14.1-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+  * debian/control.in:
+    - Bump Standards-Version to 3.9.6 (no further changes)
+    - Update the Homepage URL
+
+ -- Laurent Bigonville <bigon@debian.org>  Sun, 19 Oct 2014 22:42:07 +0200
+
 gnome-clocks (3.14.0-1) unstable; urgency=medium
 
   * New upstream release.

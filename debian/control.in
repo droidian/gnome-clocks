@@ -17,10 +17,10 @@ Build-Depends: debhelper (>= 9),
                libgnome-desktop-3-dev (>= 3.7.90),
                libgirepository1.0-dev,
                yelp-tools
-Standards-Version: 3.9.4
+Standards-Version: 3.9.6
 Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/packages/unstable/gnome-clocks
 Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/packages/unstable/gnome-clocks/
-Homepage: https://wiki.gnome.org/Design/Apps/Clock
+Homepage: https://wiki.gnome.org/Apps/Clocks
 
 Package: gnome-clocks
 Architecture: any
