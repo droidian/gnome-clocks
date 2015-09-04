@@ -1,4 +1,4 @@
-gnome-clocks (3.16.1-1) UNRELEASED; urgency=medium
+gnome-clocks (3.16.1-1) unstable; urgency=medium
 
   [ Andreas Henriksson ]
   * New upstream release.
@@ -9,7 +9,7 @@ gnome-clocks (3.16.1-1) UNRELEASED; urgency=medium
   [ Michael Biebl ]
   * Drop obsolete section about libgd/ from debian/copyright.
 
- -- Andreas Henriksson <andreas@fatal.se>  Tue, 18 Aug 2015 15:15:01 +0200
+ -- Michael Biebl <biebl@debian.org>  Fri, 04 Sep 2015 18:29:31 +0200
 
 gnome-clocks (3.14.1-1) unstable; urgency=medium
 
