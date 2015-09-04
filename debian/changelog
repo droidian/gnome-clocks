@@ -1,9 +1,13 @@
 gnome-clocks (3.16.1-1) UNRELEASED; urgency=medium
 
+  [ Andreas Henriksson ]
   * New upstream release.
   * Update build-dependencies according to configure.ac changes:
     - bump intltool to >= 0.50.1
     - replace libcanberra with gsound
+
+  [ Michael Biebl ]
+  * Drop obsolete section about libgd/ from debian/copyright.
 
  -- Andreas Henriksson <andreas@fatal.se>  Tue, 18 Aug 2015 15:15:01 +0200
 
