@@ -1,3 +1,10 @@
+gnome-clocks (3.16.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Use autotools-dev to update config.*
+
+ -- Andreas Henriksson <andreas@fatal.se>  Fri, 18 Sep 2015 16:56:29 +0200
+
 gnome-clocks (3.16.1-1) unstable; urgency=medium
 
   [ Andreas Henriksson ]
