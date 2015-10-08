@@ -20,7 +20,7 @@ Build-Depends: debhelper (>= 9),
                yelp-tools
 Standards-Version: 3.9.6
 Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/packages/unstable/gnome-clocks
-Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/packages/unstable/gnome-clocks/
+Vcs-Browser: https://anonscm.debian.org/viewvc/pkg-gnome/packages/unstable/gnome-clocks/
 Homepage: https://wiki.gnome.org/Apps/Clocks
 
 Package: gnome-clocks
