@@ -16,6 +16,7 @@ gnome-clocks (3.20.0-1) UNRELEASED; urgency=medium
   * Drop uploaders.mk from debian/rules as this breaks the clean target with
     dh. Instead use the gnome dh addon which updates debian/control via
     dh_gnome_clean.
+  * Bump Standards-Version to 3.9.8.
 
  -- Andreas Henriksson <andreas@fatal.se>  Fri, 25 Mar 2016 08:18:33 +0100
 
