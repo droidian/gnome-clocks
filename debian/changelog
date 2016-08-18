@@ -1,6 +1,9 @@
-gnome-clocks (3.20.1-2) UNRELEASED; urgency=medium
+gnome-clocks (3.21.1-1) UNRELEASED; urgency=medium
 
   [ Jeremy Bicha ]
+  * New upstream release
+  * debian/control.in:
+    - Drop build dependency on intltool
   * Add debian/docs to install NEWS
 
   [ Michael Biebl ]
@@ -8,7 +11,7 @@ gnome-clocks (3.20.1-2) UNRELEASED; urgency=medium
     directly depending on whether the DH_QUIET environment variable is set.
   * Use override_dh_clean target to delete the vala stamp files.
 
- -- Jeremy Bicha <jbicha@linux.com>  Tue, 24 May 2016 23:14:18 -0400
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 17 Aug 2016 22:43:58 -0400
 
 gnome-clocks (3.20.1-1) unstable; urgency=medium
 
