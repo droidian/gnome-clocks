@@ -5,6 +5,7 @@ gnome-clocks (3.21.1-1) UNRELEASED; urgency=medium
   * debian/control.in:
     - Drop build dependency on intltool
   * Add debian/docs to install NEWS
+  * Use dh compat 10 (with automatic dh_autoreconf) instead of autotools-dev
 
   [ Michael Biebl ]
   * Drop --disable-silent-rules from debian/rules. This is now handled by dh

@@ -3,7 +3,7 @@
 -include /usr/share/gnome-pkg-tools/1/rules/gnome-get-source.mk
 
 %:
-	dh $@ --with autotools_dev,gnome
+	dh $@ --with gnome
 
 override_dh_clean:
 	dh_clean
