@@ -1,4 +1,4 @@
-gnome-clocks (3.21.2-1) UNRELEASED; urgency=medium
+gnome-clocks (3.21.2-1) unstable; urgency=medium
 
   [ Jeremy Bicha ]
   * New upstream release
@@ -14,7 +14,7 @@ gnome-clocks (3.21.2-1) UNRELEASED; urgency=medium
     directly depending on whether the DH_QUIET environment variable is set.
   * Use override_dh_clean target to delete the vala stamp files.
 
- -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 17 Aug 2016 22:43:58 -0400
+ -- Michael Biebl <biebl@debian.org>  Tue, 30 Aug 2016 18:16:04 +0200
 
 gnome-clocks (3.20.1-1) unstable; urgency=medium
 
