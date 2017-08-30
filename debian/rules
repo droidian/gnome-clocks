@@ -6,12 +6,4 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 export DEB_LDFLAGS_MAINT_APPEND = -Wl,-z,defs -Wl,-O1 -Wl,--as-needed
 
 %:
-	dh $@ --with gnome
-
-override_dh_clean:
-	dh_clean
-	# delete the vala stamps, so that valac will always rebuild all sources
-	find . -name "*_vala.stamp" -delete
-
-override_dh_autoreconf:
-	dh_autoreconf --as-needed
+	dh $@ --with gnome --buildsystem=meson
