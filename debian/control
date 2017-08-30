@@ -21,7 +21,7 @@ Build-Depends: debhelper (>= 10.3),
                meson (>= 0.41.0),
                pkg-config,
                valac (>= 0.32.0)
-Standards-Version: 3.9.8
+Standards-Version: 4.1.0
 Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/desktop/unstable/gnome-clocks
 Vcs-Browser: https://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/gnome-clocks/
 Homepage: https://wiki.gnome.org/Apps/Clocks

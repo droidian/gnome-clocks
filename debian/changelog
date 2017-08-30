@@ -4,6 +4,7 @@ gnome-clocks (3.25.90-1) UNRELEASED; urgency=medium
   * Build with meson.
   * debian/control.in:
     - Bump Build-Dependencies per upstream to stable releases
+  * Bump Standards-Version to 4.1.0
 
  -- Jeremy Bicha <jbicha@debian.org>  Wed, 30 Aug 2017 13:38:07 -0400
 
