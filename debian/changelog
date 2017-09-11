@@ -1,3 +1,9 @@
+gnome-clocks (3.26.0-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Jeremy Bicha <jbicha@debian.org>  Mon, 11 Sep 2017 15:22:18 -0400
+
 gnome-clocks (3.25.90-1) unstable; urgency=medium
 
   * New upstream release
