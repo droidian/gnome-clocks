@@ -1,6 +1,7 @@
 gnome-clocks (3.26.1-1) UNRELEASED; urgency=medium
 
   * New upstream release (LP: #1723734)
+  * Bump Standards-Version to 4.1.1
 
  -- Jeremy Bicha <jbicha@debian.org>  Sun, 15 Oct 2017 08:33:03 -0400
 
