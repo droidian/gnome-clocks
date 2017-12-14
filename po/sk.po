@@ -1,0 +1,491 @@
+# Slovak translation for gnome-clocks.
+# Copyright (C) 2012, 2013 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-clocks package.
+# Dušan Kazik <prescott66@gmail.com>, 2012, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-clocks\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-07-29 16:24+0000\n"
+"PO-Revision-Date: 2017-08-01 20:32+0200\n"
+"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
+"Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+"X-Generator: Poedit 2.0.2\n"
+"X-Project-Style: gnome\n"
+
+#: data/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Všeobecné"
+
+#: data/gtk/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "Go to the next section"
+msgstr "Prejdenie na nasledujúcu sekciu"
+
+#: data/gtk/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Go to the previous section"
+msgstr "Prejdenie na predchádzajúcu sekciu"
+
+#: data/gtk/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Ukončenie"
+
+#: data/gtk/help-overlay.ui:42
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr "Svetové hodiny"
+
+#: data/gtk/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Add a world clock"
+msgstr "Pridanie svetových hodín"
+
+# https://bugzilla.gnome.org/show_bug.cgi?id=685659
+# https://bugzilla.gnome.org/show_bug.cgi?id=684472
+#: data/gtk/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "Select all world clocks"
+msgstr "Výber všetkých svetových hodín"
+
+#: data/gtk/help-overlay.ui:63
+msgctxt "shortcut window"
+msgid "Alarm"
+msgstr "Budík"
+
+#: data/gtk/help-overlay.ui:68
+msgctxt "shortcut window"
+msgid "Add an alarm"
+msgstr "Pridanie budíku"
+
+#: data/gtk/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Select all alarms"
+msgstr "Výber všetkých budíkov"
+
+#: data/gtk/help-overlay.ui:84
+msgctxt "shortcut window"
+msgid "Stopwatch"
+msgstr "Stopky"
+
+#: data/gtk/help-overlay.ui:89
+msgctxt "shortcut window"
+msgid "Stop / Reset"
+msgstr "Zastavenie alebo vynulovanie"
+
+#: data/gtk/help-overlay.ui:98
+msgctxt "shortcut window"
+msgid "Timer"
+msgstr "Časovač"
+
+#: data/gtk/help-overlay.ui:103
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr "Vynulovanie"
+
+#: data/gtk/menus.ui:7
+msgid "_Keyboard Shortcuts"
+msgstr "_Klávesové skratky"
+
+#: data/gtk/menus.ui:12
+msgid "_Help"
+msgstr "_Pomocník"
+
+#: data/gtk/menus.ui:17
+msgid "_About"
+msgstr "_O programe"
+
+#: data/gtk/menus.ui:21
+msgid "_Quit"
+msgstr "U_končiť"
+
+#: data/gtk/menus.ui:31
+msgid "Select All"
+msgstr "Vybrať všetko"
+
+#: data/gtk/menus.ui:36
+msgid "Select None"
+msgstr "Zrušiť výber"
+
+#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
+msgid "GNOME Clocks"
+msgstr "Hodiny prostredia GNOME"
+
+#: data/org.gnome.clocks.appdata.xml.in:7 data/org.gnome.clocks.desktop.in:6
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "Hodiny svetového času, budík, stopky a časovač"
+
+#: data/org.gnome.clocks.appdata.xml.in:9
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"Jednoduchá a elegantná aplikácia s hodinami. Obsahuje svetový čas, budík, "
+"stopky a časovač."
+
+#: data/org.gnome.clocks.appdata.xml.in:13
+msgid "Goals:"
+msgstr "Ciele:"
+
+#: data/org.gnome.clocks.appdata.xml.in:15
+msgid "Show the time in different cities around the world"
+msgstr "Zobrazí čas v rôznych svetových mestách"
+
+#: data/org.gnome.clocks.appdata.xml.in:16
+msgid "Set alarms to wake you up"
+msgstr "Umožňuje nastaviť rôzne časy zobudenia"
+
+#: data/org.gnome.clocks.appdata.xml.in:17
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "Odmeria uplynutý čas s presnými stopkami"
+
+#: data/org.gnome.clocks.appdata.xml.in:18
+msgid "Set timers to properly cook your food"
+msgstr "Nastavenie hodnôt časovača pri varení obeda"
+
+#: data/org.gnome.clocks.appdata.xml.in:33
+msgid "Initial screen"
+msgstr "Úvodná obrazovka"
+
+#: data/org.gnome.clocks.appdata.xml.in:37
+msgid "Alarms screen"
+msgstr "Obrazovka s budíkmi"
+
+#: data/org.gnome.clocks.appdata.xml.in:41
+msgid "Alarms setup"
+msgstr "Nastavenie budíkov"
+
+#: data/org.gnome.clocks.appdata.xml.in:45
+msgid "Stopwatch screen"
+msgstr "Obrazovka so stopkami"
+
+#: data/org.gnome.clocks.appdata.xml.in:49
+msgid "Timer screen"
+msgstr "Obrazovka s časovačmi"
+
+#: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
+#: src/world.vala:495
+msgid "Clocks"
+msgstr "Hodiny"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.clocks.desktop.in:8
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr "čas;časovač;budík;svetový čas;stopky;časová zóna;"
+
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.clocks.desktop.in:11
+msgid "org.gnome.clocks"
+msgstr "org.gnome.clocks"
+
+#: data/org.gnome.clocks.desktop.in:18
+msgid "Allows world clocks to be displayed for your time zone."
+msgstr "Umožňuje zobrazenie svetových hodín pre vašu časovú zónu."
+
+# summary
+#: data/org.gnome.clocks.gschema.xml.in:5
+msgid "Configured world clocks"
+msgstr "Nastavené svetové časy"
+
+# desc
+#: data/org.gnome.clocks.gschema.xml.in:6
+msgid "List of world clocks to show."
+msgstr "Zoznam svetových časov, ktoré majú byť viditeľné."
+
+# summary
+#: data/org.gnome.clocks.gschema.xml.in:12
+msgid "Configured alarms"
+msgstr "Nastavené budíky"
+
+# desc
+#: data/org.gnome.clocks.gschema.xml.in:13
+msgid "List of alarms set."
+msgstr "Zoznam nastavených budíkov."
+
+#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:115
+msgid "Timer"
+msgstr "Časovač"
+
+# desc
+#: data/org.gnome.clocks.gschema.xml.in:20
+msgid "Configured timer duration in seconds."
+msgstr "Nastavené trvanie časovača v sekundách."
+
+# summary
+#: data/org.gnome.clocks.gschema.xml.in:26
+msgid "Geolocation support"
+msgstr "Podpora geolokácie"
+
+# description
+#: data/org.gnome.clocks.gschema.xml.in:27
+msgid "Turn geolocation support on and off."
+msgstr "Zapnutie a vypnutie podpory geolokácie."
+
+# summary
+#: data/org.gnome.clocks.gschema.xml.in:44
+msgid "Window state"
+msgstr "Stav okna"
+
+# description
+#: data/org.gnome.clocks.gschema.xml.in:45
+msgid "State of the window, e.g. maximized."
+msgstr "Stav okna, napr. maximalizované."
+
+# summary
+#: data/org.gnome.clocks.gschema.xml.in:51
+msgid "Window width and height"
+msgstr "Šírka a výška okna"
+
+# desc
+#: data/org.gnome.clocks.gschema.xml.in:52
+msgid "Width and height of the window."
+msgstr "Šírka a výška okna."
+
+# summary
+#: data/org.gnome.clocks.gschema.xml.in:58
+msgid "Panel state"
+msgstr "Stav panela"
+
+# desc
+#: data/org.gnome.clocks.gschema.xml.in:59
+msgid "Current clock panel."
+msgstr "Aktuálny panel s hodinami."
+
+#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:199
+msgid "Stop"
+msgstr "Zastaviť"
+
+#: data/ui/alarmringing.ui:59 src/alarm.vala:119
+msgid "Snooze"
+msgstr "Odložiť"
+
+#: data/ui/alarmsetupdialog.ui:27 data/ui/worldlocationdialog.ui:17
+msgid "Add a New World Clock"
+msgstr "Pridanie nových svetových hodín"
+
+#: data/ui/alarmsetupdialog.ui:31 data/ui/worldlocationdialog.ui:21
+msgid "_Cancel"
+msgstr "_Zrušiť"
+
+#: data/ui/alarmsetupdialog.ui:47
+msgid "_Done"
+msgstr "_Dokončiť"
+
+#: data/ui/alarmsetupdialog.ui:199
+msgid "You already have an alarm for this time."
+msgstr "V tomto čase už máte nastavený budík"
+
+#: data/ui/alarmsetupdialog.ui:227
+msgid "Name"
+msgstr "Názov"
+
+# Pondelok, Utorok, ...
+#: data/ui/alarmsetupdialog.ui:241
+msgid "Repeat Every"
+msgstr "Opakovať každý"
+
+# DK:budík
+#: data/ui/alarmsetupdialog.ui:295
+msgid "Active"
+msgstr "Aktívny"
+
+# https://bugzilla.gnome.org/show_bug.cgi?id=685659
+# https://bugzilla.gnome.org/show_bug.cgi?id=684472
+#: data/ui/alarm.ui:32
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Vyberte <b>Nový</b> na pridanie budíka"
+
+#: data/ui/stopwatch.ui:54 data/ui/timer.ui:194 src/stopwatch.vala:221
+msgid "Start"
+msgstr "Spustiť"
+
+#: data/ui/stopwatch.ui:72 data/ui/timer.ui:415 src/stopwatch.vala:213
+msgid "Reset"
+msgstr "Vynulovať"
+
+#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
+msgid "Pause"
+msgstr "Pozastaviť"
+
+#: data/ui/worldlocationdialog.ui:37
+msgid "_Add"
+msgstr "Prid_ať"
+
+#: data/ui/worldlocationdialog.ui:76
+msgid "Search for a city:"
+msgstr "Vyhľadajte mesto:"
+
+# https://bugzilla.gnome.org/show_bug.cgi?id=685659
+# https://bugzilla.gnome.org/show_bug.cgi?id=684472
+#: data/ui/world.ui:32
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Vyberte <b>Nové</b> na pridanie svetových hodín"
+
+#: data/ui/world.ui:123
+msgid "Sunrise"
+msgstr "Východ slnka"
+
+#: data/ui/world.ui:137
+msgid "Sunset"
+msgstr "Západ slnka"
+
+#: src/alarm.vala:116 src/alarm.vala:416 src/alarm.vala:595
+msgid "Alarm"
+msgstr "Budík"
+
+#: src/alarm.vala:350
+msgid "Edit Alarm"
+msgstr "Upraviť budík"
+
+#: src/alarm.vala:350
+msgid "New Alarm"
+msgstr "Nový budík"
+
+#. Translators: "New" refers to an alarm
+#: src/alarm.vala:624
+msgctxt "Alarm"
+msgid "New"
+msgstr "Nový"
+
+# cmd desc
+#: src/application.vala:23
+msgid "Print version information and exit"
+msgstr "Zobrazí informácie o verzii a skončí"
+
+#: src/stopwatch.vala:139
+msgid "Stopwatch"
+msgstr "Stopky"
+
+#: src/stopwatch.vala:202
+msgid "Lap"
+msgstr "Okruh"
+
+#: src/stopwatch.vala:209 src/timer.vala:208
+msgid "Continue"
+msgstr "Pokračovať"
+
+#: src/timer.vala:127
+msgid "Time is up!"
+msgstr "Čas vypršal!"
+
+#: src/timer.vala:128
+msgid "Timer countdown finished"
+msgstr "Odpočítavanie časovača je dokončené"
+
+#: src/utils.vala:168
+msgid "Mondays"
+msgstr "Každý pondelok"
+
+#: src/utils.vala:169
+msgid "Tuesdays"
+msgstr "Každý utorok"
+
+#: src/utils.vala:170
+msgid "Wednesdays"
+msgstr "Každú stredu"
+
+#: src/utils.vala:171
+msgid "Thursdays"
+msgstr "Každý štvrtok"
+
+#: src/utils.vala:172
+msgid "Fridays"
+msgstr "Každý piatok"
+
+#: src/utils.vala:173
+msgid "Saturdays"
+msgstr "Každú sobotu"
+
+#: src/utils.vala:174
+msgid "Sundays"
+msgstr "Každú nedeľu"
+
+#: src/utils.vala:254
+msgid "Every Day"
+msgstr "Každý deň"
+
+#: src/utils.vala:256
+msgid "Weekdays"
+msgstr "Pracovné dni"
+
+#: src/utils.vala:258
+msgid "Weekends"
+msgstr "Víkendy"
+
+#: src/widgets.vala:232 src/widgets.vala:247
+msgid "Click on items to select them"
+msgstr "Kliknutím na položky ich vyberiete"
+
+#: src/widgets.vala:234
+#, c-format
+msgid "%u selected"
+msgid_plural "%u selected"
+msgstr[0] "%u vybratých položiek"
+msgstr[1] "%u vybratá položka"
+msgstr[2] "%u vybraté položky"
+
+#: src/widgets.vala:333
+msgid "Delete"
+msgstr "Odstrániť"
+
+#: src/widgets.vala:477
+msgid "Cancel"
+msgstr "Zrušiť"
+
+#: src/window.vala:224
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Zlyhalo zobrazenie pomocníka: %s"
+
+#: src/window.vala:254
+msgid "Utilities to help you with the time."
+msgstr "Nástroje na pomoc s časom."
+
+#: src/window.vala:259
+msgid "translator-credits"
+msgstr "Dušan Kazik <prescott66@gmail.com>"
+
+#. If it is Jan 1st there, and not Jan 2nd here, then it must be
+#. Dec 31st here, so return "tomorrow"
+#: src/world.vala:122 src/world.vala:126
+msgid "Tomorrow"
+msgstr "Zajtra"
+
+#. If it is Jan 1st here, and not Jan 2nd there, then it must be
+#. Dec 31st there, so return "yesterday"
+#: src/world.vala:122 src/world.vala:126
+msgid "Yesterday"
+msgstr "Včera"
+
+#: src/world.vala:300
+msgid "World"
+msgstr "Svet"
+
+#. Translators: "New" refers to a world clock
+#: src/world.vala:319
+msgctxt "World clock"
+msgid "New"
+msgstr "Nové"
+
+# DK: tazko pouzit tvar "Nový". kvoli rodu.
+#~ msgid "_New"
+#~ msgstr "_Pridať"
+
+#~ msgid "Split"
+#~ msgstr "Rozdiel"
+
+#~ msgid "Total"
+#~ msgstr "Celkovo"
+
+#~ msgid "Done"
+#~ msgstr "Dokončiť"

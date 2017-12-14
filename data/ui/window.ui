@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <!-- interface-requires gtk+ 3.8 -->
+  <template class="ClocksWindow" parent="GtkApplicationWindow">
+    <property name="title" translatable="yes">Clocks</property>
+    <child type="titlebar">
+      <object class="ClocksHeaderBar" id="header_bar">
+        <property name="visible">True</property>
+        <property name="hexpand">True</property>
+        <property name="vexpand">False</property>
+        <style>
+          <class name="titlebar"/>
+        </style>
+        <child type="title">
+          <object class="GtkStackSwitcher" id="stack_switcher">
+            <property name="visible">True</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkStack" id="stack">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="vexpand">True</property>
+        <property name="hexpand">True</property>
+      </object>
+    </child>
+  </template>
+</interface>

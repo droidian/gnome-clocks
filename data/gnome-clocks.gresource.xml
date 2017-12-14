@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/gnome/clocks">
+    <file>css/gnome-clocks.css</file>
+    <file>css/gnome-clocks.highcontrast.css</file>
+    <file preprocess="xml-stripblanks">gtk/menus.ui</file>
+    <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
+    <file preprocess="xml-stripblanks">ui/window.ui</file>
+    <file preprocess="xml-stripblanks">ui/worldlocationdialog.ui</file>
+    <file preprocess="xml-stripblanks">ui/world.ui</file>
+    <file preprocess="xml-stripblanks">ui/worldtile.ui</file>
+    <file preprocess="xml-stripblanks">ui/alarmringing.ui</file>
+    <file preprocess="xml-stripblanks">ui/alarmtile.ui</file>
+    <file preprocess="xml-stripblanks">ui/alarmsetupdialog.ui</file>
+    <file preprocess="xml-stripblanks">ui/alarm.ui</file>
+    <file preprocess="xml-stripblanks">ui/stopwatch.ui</file>
+    <file preprocess="xml-stripblanks">ui/stopwatchlapsrow.ui</file>
+    <file preprocess="xml-stripblanks">ui/timer.ui</file>
+  </gresource>
+</gresources>

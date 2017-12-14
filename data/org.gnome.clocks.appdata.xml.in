@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>org.gnome.clocks.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0</project_license>
+  <name>GNOME Clocks</name>
+  <summary>Clocks for world times, plus alarms, stopwatch and a timer</summary>
+  <description>
+    <p>
+      A simple and elegant clock application.
+      It includes world clocks, alarms, a stopwatch and a timer.
+    </p>
+    <p>Goals:</p>
+    <ul>
+      <li>Show the time in different cities around the world</li>
+      <li>Set alarms to wake you up</li>
+      <li>Measure elapsed time with an accurate stopwatch</li>
+      <li>Set timers to properly cook your food</li>
+    </ul>
+  </description>
+  <kudos>
+    <kudo>AppMenu</kudo>
+    <kudo>HiDpiIcon</kudo>
+    <kudo>HighContrast</kudo>
+    <kudo>ModernToolkit</kudo>
+    <kudo>Notifications</kudo>
+    <kudo>SearchProvider</kudo>
+    <kudo>UserDocs</kudo>
+  </kudos>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://static.gnome.org/appdata/gnome-clocks/world.png</image>
+      <caption>Initial screen</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://static.gnome.org/appdata/gnome-clocks/alarm1.png</image>
+      <caption>Alarms screen</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://static.gnome.org/appdata/gnome-clocks/alarm2.png</image>
+      <caption>Alarms setup</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://static.gnome.org/appdata/gnome-clocks/stopwatch.png</image>
+      <caption>Stopwatch screen</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://static.gnome.org/appdata/gnome-clocks/timer.png</image>
+      <caption>Timer screen</caption>
+    </screenshot>
+  </screenshots>
+  <url type="homepage">https://wiki.gnome.org/Apps/Clocks</url>
+  <url type="bugtracker">https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-clocks</url>
+  <url type="donation">http://www.gnome.org/friends/</url>
+  <url type="help">https://help.gnome.org/users/gnome-clocks/stable/</url>
+  <update_contact>pborelli@gnome.org</update_contact>
+  <project_group>GNOME</project_group>
+  <translation type="gettext">gnome-clocks</translation>
+</component>
