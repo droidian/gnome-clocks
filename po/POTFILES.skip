@@ -1,0 +1,10 @@
+src/alarm.c
+src/application.c
+src/clock.c
+src/search-provider.c
+src/stopwatch.c
+src/timer.c
+src/utils.c
+src/widgets.c
+src/window.c
+src/world.c
