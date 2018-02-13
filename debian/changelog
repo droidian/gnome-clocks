@@ -1,9 +1,9 @@
-gnome-clocks (3.27.1-1) UNRELEASED; urgency=medium
+gnome-clocks (3.27.1-1) experimental; urgency=medium
 
   * New upstream development release
   * Bump minimum libgweather-3-dev to 3.27.2
 
- -- Jeremy Bicha <jbicha@debian.org>  Tue, 13 Feb 2018 11:19:46 -0500
+ -- Jeremy Bicha <jbicha@debian.org>  Tue, 13 Feb 2018 11:25:37 -0500
 
 gnome-clocks (3.26.1-3) unstable; urgency=medium
 
