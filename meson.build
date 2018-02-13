@@ -1,7 +1,7 @@
 project(
   'gnome-clocks',
   ['vala', 'c'],
-  version: '3.26.1',
+  version: '3.27.1',
   license: 'GPL2+',
   meson_version: '>= 0.41.0',
 )
@@ -14,7 +14,7 @@ gio = dependency('gio-2.0', version: '>=2.44')
 gobject = dependency('gobject-2.0', version: '>=2.44')
 gtk = dependency('gtk+-3.0', version: '>=3.20')
 gsound = dependency('gsound', version: '>=0.98')
-gweather = dependency('gweather-3.0', version: '>=3.14')
+gweather = dependency('gweather-3.0', version: '>=3.27.2')
 gnomedesktop = dependency('gnome-desktop-3.0', version: '>=3.8')
 geocodeglib = dependency('geocode-glib-1.0', version: '>=1.0')
 libgeoclue = dependency('libgeoclue-2.0', version: '>=2.4')
