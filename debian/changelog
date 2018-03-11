@@ -1,6 +1,7 @@
 gnome-clocks (3.28.0-1) UNRELEASED; urgency=medium
 
   * New upstream release 
+  * debian/patches: Drop git patch included in new release
 
  -- Tim Lunn <tim@feathertop.org>  Sun, 11 Mar 2018 11:07:14 +1100
 
