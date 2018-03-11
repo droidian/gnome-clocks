@@ -1,3 +1,9 @@
+gnome-clocks (3.28.0-1) UNRELEASED; urgency=medium
+
+  * New upstream release 
+
+ -- Tim Lunn <tim@feathertop.org>  Sun, 11 Mar 2018 11:07:14 +1100
+
 gnome-clocks (3.27.1-2) experimental; urgency=medium
 
   * Cherry-pick 0001-search-provider-Workaround-for-crashes-in-gweather.patch:
