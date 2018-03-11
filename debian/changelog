@@ -1,6 +1,6 @@
-gnome-clocks (3.28.0-1) UNRELEASED; urgency=medium
+gnome-clocks (3.28.0-1) unstable; urgency=medium
 
-  * New upstream release 
+  * New upstream release
   * debian/patches: Drop git patch included in new release
   * debian/rules: Drop explicit buildsystem=meson, autotools has been rewmoved
 
