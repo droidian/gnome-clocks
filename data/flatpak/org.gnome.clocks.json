@@ -34,6 +34,8 @@
     "modules": [
         {
             "name": "geocode-glib",
+            "buildsystem": "meson",
+            "config-opts": [ "-Denable-installed-tests=false", "-Denable-introspection=true", "-Denable-gtk-doc=false" ],
             "sources": [
                 {
                     "type": "git",
@@ -58,7 +60,8 @@
         },
         {
             "name": "gnome-desktop",
-            "config-opts": ["--disable-debug-tools", "--disable-udev"],
+            "buildsystem": "meson",
+            "config-opts": [ "-Ddebug_tools=false", "-Dudev=disabled", "-Ddesktop_docs=false" ],
             "sources": [
                 {
                     "type": "git",
