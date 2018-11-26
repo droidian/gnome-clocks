@@ -6,7 +6,7 @@ Source: gnome-clocks
 Section: gnome
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Jeremy Bicha <jbicha@debian.org>, Michael Biebl <biebl@debian.org>, Tim Lunn <tim@feathertop.org>
+Uploaders: Jeremy Bicha <jbicha@debian.org>, Tim Lunn <tim@feathertop.org>
 Build-Depends: debhelper (>= 11),
                gnome-pkg-tools,
                itstool,
@@ -21,7 +21,7 @@ Build-Depends: debhelper (>= 11),
                meson (>= 0.41.0),
                pkg-config,
                valac (>= 0.32.0)
-Standards-Version: 4.1.2
+Standards-Version: 4.2.1
 Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-clocks
 Vcs-Git: https://salsa.debian.org/gnome-team/gnome-clocks.git
 Homepage: https://wiki.gnome.org/Apps/Clocks
