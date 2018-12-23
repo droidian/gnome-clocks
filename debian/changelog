@@ -1,3 +1,11 @@
+gnome-clocks (3.30.1-2) unstable; urgency=medium
+
+  * Build-Depend on libxml2-utils for xmllint
+  * Restore -Wl,-O1 to our LDFLAGS
+  * Bump Standards-Version to 4.3.0
+
+ -- Jeremy Bicha <jbicha@debian.org>  Sun, 23 Dec 2018 10:50:10 -0500
+
 gnome-clocks (3.30.1-1) unstable; urgency=medium
 
   * New upstream release
