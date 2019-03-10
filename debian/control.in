@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: @GNOME_TEAM@
 Build-Depends: debhelper-compat (= 12),
-               gnome-pkg-tools,
+               dh-sequence-gnome,
                itstool,
                libgeoclue-2-dev (>= 2.4),
                libgeocode-glib-dev (>= 1.0),
