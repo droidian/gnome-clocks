@@ -1,3 +1,9 @@
+gnome-clocks (3.32.0-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Jeremy Bicha <jbicha@debian.org>  Sun, 10 Mar 2019 07:14:26 -0400
+
 gnome-clocks (3.30.1-2) unstable; urgency=medium
 
   * Build-Depend on libxml2-utils for xmllint
