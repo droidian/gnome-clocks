@@ -21,7 +21,8 @@ namespace Clocks {
 [GtkTemplate (ui = "/org/gnome/clocks/ui/window.ui")]
 public class Window : Gtk.ApplicationWindow {
     private const GLib.ActionEntry[] action_entries = {
-        // app menu
+        // primary menu
+        { "show-primary-menu", on_show_primary_menu_activate, null, "false", null },
         { "new", on_new_activate },
         { "help", on_help_activate },
         { "about", on_about_activate },
@@ -37,6 +38,8 @@ public class Window : Gtk.ApplicationWindow {
     private Gtk.Stack stack;
     [GtkChild]
     private Gtk.StackSwitcher stack_switcher;
+    [GtkChild]
+    private Gtk.MenuButton menu_button;
     private GLib.Settings settings;
     private Gtk.Widget[] panels;
 
@@ -135,6 +138,11 @@ public class Window : Gtk.ApplicationWindow {
 
         stack.visible_child = panels[settings.get_enum ("panel-id")];
 
+        Gtk.StyleContext style = get_style_context ();
+        if (Config.PROFILE == "Devel") {
+            style.add_class ("devel");
+        }
+
         update_header_bar ();
 
         show_all ();
@@ -151,6 +159,11 @@ public class Window : Gtk.ApplicationWindow {
         } else {
             stack.error_bell ();
         }
+    }
+
+    private void on_show_primary_menu_activate (SimpleAction action) {
+        var state = action.get_state ().get_boolean ();
+        action.set_state (new Variant.boolean (!state));
     }
 
     private void on_new_activate () {
@@ -247,9 +260,10 @@ public class Window : Gtk.ApplicationWindow {
             null
         };
 
+        var program_name = Config.NAME_PREFIX + _("Clocks");
         Gtk.show_about_dialog (this,
-                               "program-name", _("Clocks"),
-                               "logo-icon-name", "org.gnome.clocks",
+                               "program-name", program_name,
+                               "logo-icon-name", Config.APP_ID,
                                "version", Config.VERSION,
                                "comments", _("Utilities to help you with the time."),
                                "copyright", copyright,
@@ -272,6 +286,7 @@ public class Window : Gtk.ApplicationWindow {
 
         if (header_bar.mode == HeaderBar.Mode.NORMAL) {
             header_bar.custom_title = stack_switcher;
+            menu_button.show ();
         }
 
         header_bar.set_show_close_button (header_bar.mode != HeaderBar.Mode.SELECTION);
