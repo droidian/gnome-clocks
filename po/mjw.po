@@ -1,61 +1,57 @@
-# Danish translation for gnome-clocks.
-# Copyright (C) 2012-2013, 2016-2017 gnome-clocks's COPYRIGHT HOLDER
+# Karbi translation for gnome-clocks.
+# Copyright (C) 2019 gnome-clocks's Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-clocks package.
-# Kenneth Nielsen <k.nielsen81@gmail.com>, 2012-2014.
-# Ask Hjorth Larsen <asklarsen@gmail.com>, 2013, 2015-2016.
-# scootergrisen 2016.
-# Joe Hansen <joedalton2@yahoo.dk>, 2017
+# Jor Teron <jor.teron@gmail.com>, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2019-03-26 16:29+0000\n"
-"PO-Revision-Date: 2019-02-13 11:36+0100\n"
-"Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
-"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
-"Language: da\n"
+"POT-Creation-Date: 2019-07-06 07:42+0000\n"
+"PO-Revision-Date: 2019-07-24 01:50+0530\n"
+"Last-Translator: Jor Teron <jor.teron@gmail.com>\n"
+"Language-Team: Karbi <karbi.translation@gmail.com>\n"
+"Language: mjw\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.6\n"
-"X-Project-Style: gnome\n"
+"X-Generator: Gedit 3.28.1\n"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
 msgid "General"
-msgstr "Generelt"
+msgstr ""
 
 #: data/gtk/help-overlay.ui:19
 msgctxt "shortcut window"
 msgid "Go to the next section"
-msgstr "Gå til næste afsnit"
+msgstr ""
 
 #: data/gtk/help-overlay.ui:26
 msgctxt "shortcut window"
 msgid "Go to the previous section"
-msgstr "Gå til forrige afsnit"
+msgstr ""
 
 #: data/gtk/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "Afslut"
+msgstr ""
 
 #: data/gtk/help-overlay.ui:42
 msgctxt "shortcut window"
 msgid "World Clocks"
-msgstr "Verdensure"
+msgstr "Pirthe ghori"
 
 #: data/gtk/help-overlay.ui:47
 msgctxt "shortcut window"
 msgid "Add a world clock"
-msgstr "Tilføj et verdensur"
+msgstr "Pirthe ghori kethap"
 
 #: data/gtk/help-overlay.ui:54
 msgctxt "shortcut window"
 msgid "Select all world clocks"
-msgstr "Vælg alle verdensure"
+msgstr "Pirthe ghori kado-kawe chongvai"
 
 #: data/gtk/help-overlay.ui:63
 msgctxt "shortcut window"
@@ -65,413 +61,387 @@ msgstr "Alarm"
 #: data/gtk/help-overlay.ui:68
 msgctxt "shortcut window"
 msgid "Add an alarm"
-msgstr "Tilføj en alarm"
+msgstr "Alarm kimi kethap"
 
 #: data/gtk/help-overlay.ui:75
 msgctxt "shortcut window"
 msgid "Select all alarms"
-msgstr "Vælg alle alarmer"
+msgstr "Kado-kawe alarm chongvai"
 
 #: data/gtk/help-overlay.ui:84
 msgctxt "shortcut window"
 msgid "Stopwatch"
-msgstr "Stopur"
+msgstr "Stopwatch"
 
 #: data/gtk/help-overlay.ui:89
 msgctxt "shortcut window"
 msgid "Stop / Reset"
-msgstr "Stop / nulstil"
+msgstr "Sangthip / Reset"
 
 #: data/gtk/help-overlay.ui:98
 msgctxt "shortcut window"
 msgid "Timer"
-msgstr "Minutur"
+msgstr "Timer"
 
 #: data/gtk/help-overlay.ui:103
 msgctxt "shortcut window"
 msgid "Reset"
-msgstr "Nulstil"
+msgstr ""
 
 #: data/gtk/menus.ui:8
 msgid "Select All"
-msgstr "Vælg alle"
+msgstr "Chongvai kado-kawe"
 
 #: data/gtk/menus.ui:12
 msgid "Select None"
-msgstr "Vælg ingen"
+msgstr "Chongvai nangne"
 
 #: data/org.gnome.clocks.appdata.xml.in.in:6
 msgid "GNOME Clocks"
-msgstr "GNOME Ure"
+msgstr "GNOME Clocks"
 
 #: data/org.gnome.clocks.appdata.xml.in.in:7
 #: data/org.gnome.clocks.desktop.in.in:6
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Verdensur plus alarmer, stopur og et minutur"
+msgstr "Pirthe apor kelang aphan Ghori, lapen alarms, stopwatch pen timer ta do"
 
 #: data/org.gnome.clocks.appdata.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
-msgstr ""
-"Et simpelt og elegant urprogram. Det inkluderer verdensur, alarmer, stopur "
-"og minutur."
+msgstr "Joike lapen lang mesen ghori application. Ladak pirthe ghori's, alarms, stopwatch lapen timer do."
 
 #: data/org.gnome.clocks.appdata.xml.in.in:13
 msgid "Goals:"
-msgstr "Mål:"
+msgstr ""
 
 #: data/org.gnome.clocks.appdata.xml.in.in:15
 msgid "Show the time in different cities around the world"
-msgstr "Vise klokken i forskellige byer rundt om i verden"
+msgstr ""
 
 #: data/org.gnome.clocks.appdata.xml.in.in:16
 msgid "Set alarms to wake you up"
-msgstr "Indstille alarmer til at vække dig"
+msgstr "Alarm apor bi se pangthur noi:"
 
 #: data/org.gnome.clocks.appdata.xml.in.in:17
 msgid "Measure elapsed time with an accurate stopwatch"
-msgstr "Måle tid der er gået med et præcist stopur"
+msgstr ""
 
 #: data/org.gnome.clocks.appdata.xml.in.in:18
 msgid "Set timers to properly cook your food"
-msgstr "Indstille minutur for at tilberede din mad rigtigt"
+msgstr ""
 
 #: data/org.gnome.clocks.appdata.xml.in.in:33
 msgid "Initial screen"
-msgstr "Startskærm"
+msgstr ""
 
 #: data/org.gnome.clocks.appdata.xml.in.in:37
 msgid "Alarms screen"
-msgstr "Alarmskærm"
+msgstr ""
 
 #: data/org.gnome.clocks.appdata.xml.in.in:41
 msgid "Alarms setup"
-msgstr "Alarmopsætning"
+msgstr ""
 
 #: data/org.gnome.clocks.appdata.xml.in.in:45
 msgid "Stopwatch screen"
-msgstr "Stopurskærm"
+msgstr ""
 
 #: data/org.gnome.clocks.appdata.xml.in.in:49
 msgid "Timer screen"
-msgstr "Timerskærm"
+msgstr ""
 
 #: data/org.gnome.clocks.appdata.xml.in.in:65
 msgid "The GNOME Project"
-msgstr "GNOME-projektet"
+msgstr "GNOME Project"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/ui/window.ui:5 src/window.vala:67 src/window.vala:263
 #: src/world.vala:513
 msgid "Clocks"
-msgstr "Ure"
+msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "tid;timer;minutur;alarm;vækkeur;verdensur;stopur;ur;tidszone;klokken;"
+msgstr "time;timer;alarm;world clock;stopwatch;time zone;"
 
 #: data/org.gnome.clocks.desktop.in.in:18
 msgid "Allows world clocks to be displayed for your time zone."
-msgstr "Lader verdensure blive vist for din tidszone."
+msgstr ""
 
 #: data/org.gnome.clocks.gschema.xml.in:5
 msgid "Configured world clocks"
-msgstr "Konfigurerede verdensure"
+msgstr ""
 
 #: data/org.gnome.clocks.gschema.xml.in:6
 msgid "List of world clocks to show."
-msgstr "Liste af verdensure, der skal vises."
+msgstr ""
 
 #: data/org.gnome.clocks.gschema.xml.in:12
 msgid "Configured alarms"
-msgstr "Konfigurerede alarmer"
+msgstr ""
 
 #: data/org.gnome.clocks.gschema.xml.in:13
 msgid "List of alarms set."
-msgstr "Liste af indstillede alarmer."
+msgstr ""
 
 #: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:115
 msgid "Timer"
-msgstr "Minutur"
+msgstr "Timer"
 
 #: data/org.gnome.clocks.gschema.xml.in:20
 msgid "Configured timer duration in seconds."
-msgstr "Indstillet minuturs varighed i sekunder."
+msgstr ""
 
 #: data/org.gnome.clocks.gschema.xml.in:26
 msgid "Geolocation support"
-msgstr "Understøttelse for geoplacering"
+msgstr ""
 
 #: data/org.gnome.clocks.gschema.xml.in:27
 msgid "Turn geolocation support on and off."
-msgstr "Slå understøttelse for geoplacering til eller fra."
+msgstr ""
 
 #: data/org.gnome.clocks.gschema.xml.in:44
 msgid "Window state"
-msgstr "Vinduestilstand"
+msgstr ""
 
 #: data/org.gnome.clocks.gschema.xml.in:45
 msgid "State of the window, e.g. maximized."
-msgstr "Vinduestilstanden, f.eks. maksimeret."
+msgstr ""
 
 #: data/org.gnome.clocks.gschema.xml.in:51
 msgid "Window width and height"
-msgstr "Vinduesbredde og -højde"
+msgstr "Window kethe-kiding"
 
 #: data/org.gnome.clocks.gschema.xml.in:52
 msgid "Width and height of the window."
-msgstr "Bredde og højde af vinduet."
+msgstr "Window akethe-kiding"
 
 #: data/org.gnome.clocks.gschema.xml.in:58
 msgid "Panel state"
-msgstr "Paneltilstand"
+msgstr ""
 
 #: data/org.gnome.clocks.gschema.xml.in:59
 msgid "Current clock panel."
-msgstr "Nuværende urpanel."
+msgstr ""
 
 #: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:199
 msgid "Stop"
-msgstr "Stop"
+msgstr "Sang-thip"
 
 #: data/ui/alarmringing.ui:59 src/alarm.vala:119
 msgid "Snooze"
-msgstr "Slumr"
+msgstr ""
 
 #: data/ui/alarmsetupdialog.ui:27 data/ui/worldlocationdialog.ui:17
 msgid "Add a New World Clock"
-msgstr "Tilføj et nyt verdensur"
+msgstr ""
 
 #: data/ui/alarmsetupdialog.ui:31 data/ui/worldlocationdialog.ui:21
 msgid "_Cancel"
-msgstr "_Annullér"
+msgstr ""
 
 #: data/ui/alarmsetupdialog.ui:47
 msgid "_Done"
-msgstr "_Færdig"
+msgstr "Tang e_d-lo"
 
 #: data/ui/alarmsetupdialog.ui:199
 msgid "You already have an alarm for this time."
-msgstr "Du har allerede en alarm for dette tidspunkt."
+msgstr "Laso aport alarm do."
 
 #: data/ui/alarmsetupdialog.ui:227
 msgid "Name"
-msgstr "Navn"
+msgstr "Amen"
 
-# Strengt taget forkert hvis det f.eks. er hvert minut, men jeg har svært ved at forestille mig hvordan det kan indernationaliseres bedre, så vi må nok nøjes med en lokalisering som ikke er perfekt
 #: data/ui/alarmsetupdialog.ui:241
 msgid "Repeat Every"
-msgstr "Gentagelsesinterval"
+msgstr ""
 
 #: data/ui/alarmsetupdialog.ui:295
 msgid "Active"
-msgstr "Aktiv"
+msgstr "Do-bom"
 
 #: data/ui/alarm.ui:32
 msgid "Select <b>New</b> to add an alarm"
-msgstr "Vælg <b>Ny</b> for at tilføje en alarm"
+msgstr ""
 
 #: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:221
 msgid "Start"
-msgstr "Start"
+msgstr "Pangcheng"
 
 #: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:213
 msgid "Reset"
-msgstr "Nulstil"
+msgstr ""
 
 #: data/ui/timer.ui:403 src/timer.vala:220 src/timer.vala:231
 msgid "Pause"
-msgstr "Pause"
+msgstr "Pasang"
 
 #: data/ui/window.ui:9
 msgid "_Keyboard Shortcuts"
-msgstr "_Tastaturgenveje"
+msgstr ""
 
 #: data/ui/window.ui:13
 msgid "_Help"
-msgstr "_Hjælp"
+msgstr "_Help"
 
 #: data/ui/window.ui:17
 msgid "_About Clocks"
-msgstr "_Om Verdensure"
+msgstr "_About Clocks"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
-msgstr "_Tilføj"
+msgstr "Keth_ap"
 
 #: data/ui/worldlocationdialog.ui:76
 msgid "Search for a city:"
-msgstr "Søg efter en by:"
+msgstr "Rongsopi kiriji"
 
 #: data/ui/world.ui:32
 msgid "Select <b>New</b> to add a world clock"
-msgstr "Vælg <b>Ny</b> for at tilføje et verdensur"
+msgstr ""
 
 #: data/ui/world.ui:123
 msgid "Sunrise"
-msgstr "Solopgang"
+msgstr "Arni-ketet"
 
 #: data/ui/world.ui:137
 msgid "Sunset"
-msgstr "Solnedgang"
+msgstr "Arni-chelut"
 
 #: src/alarm.vala:116 src/alarm.vala:416 src/alarm.vala:595
 msgid "Alarm"
-msgstr "Alarm"
+msgstr ""
 
 #: src/alarm.vala:350
 msgid "Edit Alarm"
-msgstr "Redigér alarm"
+msgstr ""
 
 #: src/alarm.vala:350
 msgid "New Alarm"
-msgstr "Ny alarm"
+msgstr ""
 
-# New refererer så vidt jeg kan se til en alarm eller et verdensur, så den kan desværre ikke oversættes strengt korrekt til dansk
 #. Translators: "New" refers to an alarm
 #: src/alarm.vala:624
 msgctxt "Alarm"
 msgid "New"
-msgstr "Ny"
+msgstr "Kimi"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
-msgstr "Vis versionsoplysninger og afslut"
+msgstr ""
 
 #: src/stopwatch.vala:139
 msgid "Stopwatch"
-msgstr "Stopur"
+msgstr ""
 
 #: src/stopwatch.vala:202
 msgid "Lap"
-msgstr "Omgang"
+msgstr ""
 
 #: src/stopwatch.vala:209 src/timer.vala:215
 msgid "Continue"
-msgstr "Fortsæt"
+msgstr "Padunthu"
 
 #: src/timer.vala:134
 msgid "Time is up!"
-msgstr "Tiden er udløbet!"
+msgstr "Apor lit lo !"
 
 #: src/timer.vala:135
 msgid "Timer countdown finished"
-msgstr "Minuturets nedtælling afsluttet"
+msgstr ""
 
 #: src/utils.vala:168
 msgid "Mondays"
-msgstr "Mandage"
+msgstr "Urmi"
 
 #: src/utils.vala:169
 msgid "Tuesdays"
-msgstr "Tirsdage"
+msgstr "Durmi"
 
 #: src/utils.vala:170
 msgid "Wednesdays"
-msgstr "Onsdage"
+msgstr "Thelang"
 
 #: src/utils.vala:171
 msgid "Thursdays"
-msgstr "Torsdage"
+msgstr "Theman"
 
 #: src/utils.vala:172
 msgid "Fridays"
-msgstr "Fredage"
+msgstr "Bhomti"
 
 #: src/utils.vala:173
 msgid "Saturdays"
-msgstr "Lørdage"
+msgstr "Bhomta"
 
 #: src/utils.vala:174
 msgid "Sundays"
-msgstr "Søndage"
+msgstr "Bhomkuru"
 
 #: src/utils.vala:254
 msgid "Every Day"
-msgstr "Hver dag"
+msgstr "Hodai"
 
 #: src/utils.vala:256
 msgid "Weekdays"
-msgstr "Hverdage"
+msgstr ""
 
 #: src/utils.vala:258
 msgid "Weekends"
-msgstr "Weekender"
+msgstr "Rui-kejut arni"
 
 #: src/widgets.vala:232 src/widgets.vala:247
 msgid "Click on items to select them"
-msgstr "Klik på elementer for at markere dem"
+msgstr ""
 
 #: src/widgets.vala:234
 #, c-format
 msgid "%u selected"
 msgid_plural "%u selected"
-msgstr[0] "%u markeret"
-msgstr[1] "%u markerede"
+msgstr[0] "%u chongvai"
+msgstr[1] "%u chongvai"
 
 #: src/widgets.vala:333
 msgid "Delete"
-msgstr "Slet"
+msgstr "Kethan"
 
 #: src/widgets.vala:477
 msgid "Cancel"
-msgstr "Annullér"
+msgstr "Kethan"
 
 #: src/window.vala:237
 #, c-format
 msgid "Failed to show help: %s"
-msgstr "Kunne ikke vise hjælp: %s"
+msgstr ""
 
 #: src/window.vala:268
 msgid "Utilities to help you with the time."
-msgstr "Redskaber til at hjælpe dig med tiden."
+msgstr ""
 
 #: src/window.vala:273
 msgid "translator-credits"
-msgstr ""
-"Kenneth Nielsen\n"
-"Ask Hjorth Larsen\n"
-"scootergrisen\n"
-"Joe Hansen\n"
-"\n"
-"Dansk-gruppen\n"
-"Websted http://dansk-gruppen.dk\n"
-"E-mail <dansk@dansk-gruppen.dk>"
+msgstr "Jor Teron <jor.teron@gmail.com>"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
 #: src/world.vala:138 src/world.vala:142
 msgid "Tomorrow"
-msgstr "I morgen"
+msgstr "Pinap"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
 #: src/world.vala:138 src/world.vala:142
 msgid "Yesterday"
-msgstr "I går"
+msgstr "Tumi"
 
 #: src/world.vala:318
 msgid "World"
-msgstr "Verden"
+msgstr "Pirthe"
 
-# New refererer så vidt jeg kan se til en alarm eller et verdensur, så den kan desværre ikke oversættes strengt korrekt til dansk
 #. Translators: "New" refers to a world clock
 #: src/world.vala:337
 msgctxt "World clock"
 msgid "New"
-msgstr "Ny"
-
-#~ msgid "@icon@"
-#~ msgstr "@icon@"
-
-#~ msgid "_About"
-#~ msgstr "_Om"
-
-#~ msgid "_Quit"
-#~ msgstr "_Afslut"
-
-#~ msgid "org.gnome.clocks"
-#~ msgstr "org.gnome.clocks"
-
+msgstr "Kimi"
