@@ -6,7 +6,7 @@ Source: gnome-clocks
 Section: gnome
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Jeremy Bicha <jbicha@debian.org>, Tim Lunn <tim@feathertop.org>
+Uploaders: Iain Lane <laney@debian.org>, Jeremy Bicha <jbicha@debian.org>, Tim Lunn <tim@feathertop.org>
 Build-Depends: debhelper-compat (= 12),
                dh-sequence-gnome,
                itstool,
@@ -19,7 +19,7 @@ Build-Depends: debhelper-compat (= 12),
                libgtk-3-dev (>= 3.20.0),
                libgweather-3-dev (>= 3.27.2),
                libxml2-utils,
-               meson (>= 0.46.0),
+               meson (>= 0.50.0),
                pkg-config,
                valac (>= 0.32.0)
 Standards-Version: 4.3.0
