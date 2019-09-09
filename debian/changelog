@@ -1,9 +1,9 @@
-gnome-clocks (3.34.0-1) UNRELEASED; urgency=medium
+gnome-clocks (3.34.0-1) unstable; urgency=medium
 
   * New upstream release
     + Expose world clock locations to gnome-shell
 
- -- Iain Lane <laney@debian.org>  Mon, 09 Sep 2019 16:35:59 +0100
+ -- Iain Lane <laney@debian.org>  Mon, 09 Sep 2019 16:48:02 +0100
 
 gnome-clocks (3.32.0-1) experimental; urgency=medium
 
