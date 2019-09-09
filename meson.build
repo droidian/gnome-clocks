@@ -1,9 +1,9 @@
 project(
   'gnome-clocks',
   ['vala', 'c'],
-  version: '3.32.0',
+  version: '3.34.0',
   license: 'GPL2+',
-  meson_version: '>= 0.46.0',
+  meson_version: '>= 0.50.0',
 )
 
 gnome = import('gnome')
