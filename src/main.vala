@@ -24,6 +24,13 @@ int main (string[] args) {
 
     Environment.set_application_name (_("Clocks"));
 
+    try {
+        Lfb.init(Config.APP_ID);
+    } catch (GLib.Error e) {
+        warning ("Couldn't init libfeedback: %s", e.message);
+    }
     var app = new Clocks.Application ();
-    return app.run (args);
+    var ret = app.run (args);
+    Lfb.uninit();
+    return ret;
 }

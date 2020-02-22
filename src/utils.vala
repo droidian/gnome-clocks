@@ -382,44 +382,31 @@ public class Weekdays {
 }
 
 public class Bell : Object {
-    private GSound.Context? gsound;
     private GLib.Cancellable cancellable;
+    private Lfb.Event event;
     private string soundtheme;
-    private string sound;
+    private string eventname;
 
-    public Bell (string soundid) {
-        try {
-            gsound = new GSound.Context ();
-        } catch (GLib.Error e) {
-            warning ("Sound could not be initialized, error: %s", e.message);
-        }
-
-        var settings = new GLib.Settings ("org.gnome.desktop.sound");
+    public Bell (string eventid) {
+        var settings = new GLib.Settings("org.gnome.desktop.sound");
         soundtheme = settings.get_string ("theme-name");
-        sound = soundid;
-        cancellable = new GLib.Cancellable ();
+        eventname = eventid;
+        cancellable = new GLib.Cancellable();
     }
 
     private async void ring_real (bool repeat) {
-        if (gsound == null) {
+        if (!Lfb.is_initted())
             return;
-        }
 
-        if (cancellable.is_cancelled ()) {
-            cancellable.reset ();
-        }
-
+        event = new Lfb.Event (eventname);
+        if (repeat)
+            event.timeout = 0;
         try {
-            do {
-                yield ((GSound.Context) gsound).play_full (cancellable,
-                                                           GSound.Attribute.EVENT_ID, sound,
-                                                           GSound.Attribute.CANBERRA_XDG_THEME_NAME, soundtheme,
-                                                           GSound.Attribute.MEDIA_ROLE, "alarm");
-            } while (repeat);
+            yield event.trigger_feedback_async (cancellable);
         } catch (GLib.IOError.CANCELLED e) {
             // ignore
         } catch (GLib.Error e) {
-            warning ("Error playing sound: %s", e.message);
+            warning ("Error triggering feedback for event %s: %s", eventname, e.message);
         }
     }
 
@@ -432,7 +419,15 @@ public class Bell : Object {
     }
 
     public void stop () {
-        cancellable.cancel ();
+        event.end_feedback_async.begin (cancellable, (obj, res) => {
+            try {
+                event.end_feedback_async.end(res);
+            } catch (GLib.IOError.CANCELLED e) {
+                // ignore
+            } catch (GLib.Error e) {
+                warning ("Error ending feedback for event %s: %s", eventname, e.message);
+            }
+        });
     }
 }
 
