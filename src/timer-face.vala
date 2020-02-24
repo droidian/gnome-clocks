@@ -71,7 +71,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
             save ();
         });
 
-        bell = new Utils.Bell ("complete");
+        bell = new Utils.Bell ("timeout-completed");
         notification = new GLib.Notification (_("Time is up!"));
         notification.set_body (_("Timer countdown finished"));
 
