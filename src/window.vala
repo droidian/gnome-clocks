@@ -20,16 +20,13 @@ namespace Clocks {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/window.ui")]
 public class Window : Gtk.ApplicationWindow {
-    private const GLib.ActionEntry[] action_entries = {
+    private const GLib.ActionEntry[] ACTION_ENTRIES = {
         // primary menu
         { "show-primary-menu", on_show_primary_menu_activate, null, "false", null },
         { "new", on_new_activate },
+        { "back", on_back_activate },
         { "help", on_help_activate },
         { "about", on_about_activate },
-
-        // selection menu
-        { "select-all", on_select_all_activate },
-        { "select-none", on_select_none_activate }
     };
 
     [GtkChild]
@@ -37,23 +34,45 @@ public class Window : Gtk.ApplicationWindow {
     [GtkChild]
     private Gtk.Stack stack;
     [GtkChild]
-    private Gtk.StackSwitcher stack_switcher;
+    private World.Face world;
     [GtkChild]
-    private Gtk.MenuButton menu_button;
+    private Alarm.Face alarm;
+    [GtkChild]
+    private Stopwatch.Face stopwatch;
+    [GtkChild]
+    private Timer.Face timer;
+
     private GLib.Settings settings;
-    private Gtk.Widget[] panels;
+
+    // DIY DzlBindingGroup
+    private Binding bind_button_mode = null;
+    private Binding bind_view_mode = null;
+    private Binding bind_title = null;
+    private Binding bind_subtitle = null;
+    private Binding bind_new_label = null;
+
+    private bool inited = false;
 
     public Window (Application app) {
         Object (application: app);
 
-        add_action_entries (action_entries, this);
+        add_action_entries (ACTION_ENTRIES, this);
 
         settings = new Settings ("org.gnome.clocks.state.window");
         settings.delay ();
 
-        destroy.connect(() => {
+        destroy.connect (() => {
             settings.apply ();
         });
+
+        // GSettings gives us the nick, which matches the stack page name
+        stack.visible_child_name = settings.get_string ("panel-id");
+
+        inited = true;
+
+        header_bar.bind_property ("title", this, "title", SYNC_CREATE);
+
+        pane_changed ();
 
         // Setup window geometry saving
         Gdk.WindowState window_state = (Gdk.WindowState)settings.get_int ("state");
@@ -64,45 +83,6 @@ public class Window : Gtk.ApplicationWindow {
         int width, height;
         settings.get ("size", "(ii)", out width, out height);
         resize (width, height);
-        set_title (_("Clocks"));
-
-        panels = new Gtk.Widget[N_PANELS];
-
-        panels[PanelId.WORLD] = new World.Face (header_bar);
-        panels[PanelId.ALARM] =  new Alarm.Face (header_bar);
-        panels[PanelId.STOPWATCH] = new Stopwatch.Face (header_bar);
-        panels[PanelId.TIMER] = new Timer.Face (header_bar);
-
-        var world = (World.Face)panels[PanelId.WORLD];
-        var alarm = (Alarm.Face)panels[PanelId.ALARM];
-        var stopwatch = (Stopwatch.Face)panels[PanelId.STOPWATCH];
-        var timer = (Timer.Face)panels[PanelId.TIMER];
-
-        foreach (var clock in panels) {
-            stack.add_titled (clock, ((Clock)clock).label, ((Clock)clock).label);
-            ((Clock)clock).request_header_bar_update.connect (() => {
-                update_header_bar ();
-            });
-        }
-
-        stack_switcher.set_stack (stack);
-
-        var stack_id = stack.notify["visible-child"].connect (() => {
-            var help_overlay = get_help_overlay ();
-            help_overlay.view_name = Type.from_instance(stack.visible_child).name();
-            update_header_bar ();
-        });
-
-        var header_bar_id = header_bar.notify["mode"].connect (() => {
-            update_header_bar ();
-        });
-
-        stack.destroy.connect(() => {
-            header_bar.disconnect (header_bar_id);
-            header_bar_id = 0;
-            stack.disconnect (stack_id);
-            stack_id = 0;
-        });
 
         alarm.ring.connect ((w) => {
             world.reset_view ();
@@ -118,9 +98,15 @@ public class Window : Gtk.ApplicationWindow {
             stack.visible_child = w;
         });
 
-        timer.notify["state"].connect ((w) => {
-            stack.child_set_property (timer, "needs-attention", timer.state == Timer.Face.State.RUNNING);
+
+        timer.notify["is-running"].connect ((w) => {
+            stack.child_set_property (timer, "needs-attention", timer.is_running);
         });
+
+        // We need to set this manually, otherwise it fails in the devel version
+        var builder = new Gtk.Builder.from_resource ("/org/gnome/clocks/gtk/help-overlay.ui");
+        var dialog = (Gtk.ShortcutsWindow)builder.get_object ("help_overlay");
+        set_help_overlay (dialog);
 
         unowned Gtk.BindingSet binding_set = Gtk.BindingSet.by_class (get_class ());
 
@@ -129,35 +115,60 @@ public class Window : Gtk.ApplicationWindow {
                                      Gdk.Key.Page_Up,
                                      Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.MOD1_MASK,
                                      "change-page", 1,
-                                     typeof(int), -1);
+                                     typeof (int), 0);
         Gtk.BindingEntry.add_signal (binding_set,
                                      Gdk.Key.Page_Down,
                                      Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.MOD1_MASK,
                                      "change-page", 1,
-                                     typeof(int), 1);
-
-        stack.visible_child = panels[settings.get_enum ("panel-id")];
+                                     typeof (int), 1);
 
         Gtk.StyleContext style = get_style_context ();
         if (Config.PROFILE == "Devel") {
             style.add_class ("devel");
         }
 
-        update_header_bar ();
-
         show_all ();
     }
 
-    [Signal(action = true)]
+    [Signal (action = true)]
     public virtual signal void change_page (int offset) {
-        int page;
+        var dir = false;
 
-        stack.child_get (stack.visible_child, "position", out page);
-        page += offset;
-        if (page >= 0 && page < panels.length) {
-            stack.visible_child = panels[page];
+        if (get_direction () == RTL) {
+            dir = offset == 0 ? false : true;
         } else {
-            stack.error_bell ();
+            dir = offset == 1 ? false : true;
+        }
+
+        switch (stack.visible_child_name) {
+            case "world":
+                if (dir) {
+                    stack.error_bell ();
+                } else {
+                    stack.visible_child = alarm;
+                }
+                break;
+            case "alarm":
+                if (dir) {
+                    stack.visible_child = world;
+                } else {
+                    stack.visible_child = stopwatch;
+                }
+                break;
+            case "stopwatch":
+                if (dir) {
+                    stack.visible_child = alarm;
+                } else {
+                    stack.visible_child = timer;
+                }
+                break;
+            case "timer":
+                if (dir) {
+                    stack.visible_child = stopwatch;
+                } else {
+                    stack.error_bell ();
+                }
+                break;
         }
     }
 
@@ -170,21 +181,17 @@ public class Window : Gtk.ApplicationWindow {
         ((Clock) stack.visible_child).activate_new ();
     }
 
-    private void on_select_all_activate () {
-        ((Clock) stack.visible_child).activate_select_all ();
-    }
-
-    private void on_select_none_activate () {
-        ((Clock) stack.visible_child).activate_select_none ();
+    private void on_back_activate () {
+        ((Clock) stack.visible_child).activate_back ();
     }
 
     public void show_world () {
-        ((World.Face) panels[PanelId.WORLD]).reset_view ();
-        stack.visible_child = panels[PanelId.WORLD];;
+        world.reset_view ();
+        stack.visible_child = world;
     }
 
     public void add_world_location (GWeather.Location location) {
-        ((World.Face) panels[PanelId.WORLD]).add_location (location);
+        world.add_location (location);
     }
 
     public override bool key_press_event (Gdk.EventKey event) {
@@ -207,7 +214,7 @@ public class Window : Gtk.ApplicationWindow {
         uint button;
 
         if (((Gdk.Event)(event)).get_button (out button) && button == BUTTON_BACK) {
-            ((Clock) stack.visible_child).back ();
+            ((Clock) stack.visible_child).activate_back ();
             return true;
         }
 
@@ -239,11 +246,12 @@ public class Window : Gtk.ApplicationWindow {
     }
 
     private void on_about_activate () {
-        const string copyright = "Copyright \xc2\xa9 2011 Collabora Ltd.\n" +
+        const string COPYRIGHT = "Copyright \xc2\xa9 2011 Collabora Ltd.\n" +
                                  "Copyright \xc2\xa9 2012-2013 Collabora Ltd., Seif Lotfy, Emily Gonyer\n" +
-                                 "Eslam Mostafa, Paolo Borelli, Volker Sobek\n";
+                                 "Eslam Mostafa, Paolo Borelli, Volker Sobek\n" +
+                                 "Copyright \xc2\xa9 2019 Bilal Elmoussaoui & Zander Brown et al";
 
-        const string authors[] = {
+        const string AUTHORS[] = {
             "Alex Anthony",
             "Paolo Borelli",
             "Allan Day",
@@ -257,6 +265,8 @@ public class Window : Gtk.ApplicationWindow {
             "Bastien Nocera",
             "Volker Sobek",
             "Jakub Steiner",
+            "Bilal Elmoussaoui",
+            "Zander Brown",
             null
         };
 
@@ -266,30 +276,70 @@ public class Window : Gtk.ApplicationWindow {
                                "logo-icon-name", Config.APP_ID,
                                "version", Config.VERSION,
                                "comments", _("Utilities to help you with the time."),
-                               "copyright", copyright,
-                               "authors", authors,
+                               "copyright", COPYRIGHT,
+                               "authors", AUTHORS,
                                "license-type", Gtk.License.GPL_2_0,
                                "wrap-license", false,
                                "translator-credits", _("translator-credits"),
                                null);
     }
 
-    private void update_header_bar () {
-        header_bar.clear ();
+    [GtkCallback]
+    private void pane_changed () {
+        var help_overlay = get_help_overlay ();
+        var panel = (Clock) stack.visible_child;
 
-        var clock = (Clock) stack.visible_child;
-        if (clock != null) {
-            settings.set_enum ("panel-id", clock.panel_id);
-            clock.update_header_bar ();
-            ((Gtk.Widget) clock).grab_focus ();
+        if (stack.in_destruction ()) {
+            return;
         }
 
-        if (header_bar.mode == HeaderBar.Mode.NORMAL) {
-            header_bar.custom_title = stack_switcher;
-            menu_button.show ();
+        help_overlay.view_name = Type.from_instance (panel).name ();
+
+        if (inited) {
+            settings.set_enum ("panel-id", panel.panel_id);
         }
 
-        header_bar.set_show_close_button (header_bar.mode != HeaderBar.Mode.SELECTION);
+        if (bind_button_mode != null) {
+            bind_button_mode.unbind ();
+        }
+        bind_button_mode = panel.bind_property ("button-mode",
+                                                header_bar,
+                                                "button-mode",
+                                                SYNC_CREATE);
+
+        if (bind_view_mode != null) {
+            bind_view_mode.unbind ();
+        }
+        bind_view_mode = panel.bind_property ("view-mode",
+                                              header_bar,
+                                              "view-mode",
+                                              SYNC_CREATE);
+
+        if (bind_title != null) {
+            bind_title.unbind ();
+        }
+        bind_title = panel.bind_property ("title",
+                                          header_bar,
+                                          "title",
+                                          SYNC_CREATE);
+
+        if (bind_subtitle != null) {
+            bind_subtitle.unbind ();
+        }
+        bind_subtitle = panel.bind_property ("subtitle",
+                                             header_bar,
+                                             "subtitle",
+                                             SYNC_CREATE);
+
+        if (bind_new_label != null) {
+            bind_new_label.unbind ();
+        }
+        bind_new_label = panel.bind_property ("new-label",
+                                              header_bar,
+                                              "new-label",
+                                              SYNC_CREATE);
+
+        stack.visible_child.grab_focus ();
     }
 }
 

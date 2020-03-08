@@ -8,6 +8,18 @@ window > stack:backdrop {
     box-shadow: none;
 }
 
+label.destructive-action {
+    color: #e01b24;
+}
+
+/* Shared */
+
+.clocks-list {
+    border-radius: 6px;
+    margin: 18px 6px;
+}
+
+
 /* content view */
 
 .tile {
@@ -28,94 +40,28 @@ window > stack:backdrop {
     padding-right: 8px;
 }
 
-/* world */
-
-.world-tile .stripe,
-.world-tile .stripe:backdrop {
-    color: black;
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-.tile.prelight .world-tile .stripe,
-.tile.prelight .world-tile .stripe:backdrop {
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
-    background-color: rgba(255, 255, 255, 0.6);
-}
-
-.night .world-tile .stripe,
-.night .world-tile .stripe:backdrop {
-    color: white;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.tile.prelight .night .world-tile .stripe,
-.tile.prelight .night .world-tile .stripe:backdrop {
-    text-shadow: 0 0 0.1em rgba(255, 255, 255, 0.6), 0 0 0.2em rgba(255, 255, 255, 0.6);
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
 /* alarms */
 
-.alarm-tile,
-.alarm-tile:backdrop {
-    color: shade(@insensitive_fg_color,0.9);
-    background-color: transparent;
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center bottom, 1.0,
-                                    from(shade(@insensitive_bg_color,0.9)), to(shade(@insensitive_bg_color,0.85)));
+row.snoozing {
+    background: transparent -gtk-icontheme("alarm-symbolic") 65% 400%/48px 48px no-repeat;
+    font-weight: bold;
 }
 
-.tile.prelight .alarm-tile,
-.tile.prelight .alarm-tile:backdrop {
-    color: @insensitive_fg_color;
-    background-color: transparent;
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center bottom, 1.0,
-                                    from(shade(@insensitive_bg_color,0.99)), to(shade(@insensitive_bg_color,0.9)));
+.alarm-row button, .repeats button {
+    min-width: 24px;
+    min-height: 24px;
 }
 
-.active .alarm-tile,
-.active .alarm-tile:backdrop {
-    color: white;
-    background-color: transparent;
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center bottom, 1.0,
-                                    from(shade(@theme_selected_bg_color,1.2)), to(@theme_selected_bg_color));
+.alarm-name {
+    font-weight: bold;
 }
 
-.tile.prelight .active .alarm-tile,
-.tile.prelight .active .alarm-tile:backdrop {
-    color: white;
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
-    background-color: transparent;
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center bottom, 1.0,
-                                    from(shade(@theme_selected_bg_color, 1.4)), to(@theme_selected_bg_color));
+.alarm-time {
+    font-size: 2.5em;
 }
 
-.snoozing .alarm-tile,
-.snoozing .alarm-tile:backdrop {
-    color: white;
-    background-color: transparent;
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center bottom, 1.0,
-                                    from(@warning_color), to(shade(@warning_color,0.9)));
-}
-
-.tile.prelight .snoozing .alarm-tile,
-.tile.prelight .snoozing .alarm-tile:backdrop {
-    color: white;
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
-    background-color: transparent;
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center bottom, 1.0,
-                                    from(shade(@warning_color,1.1)), to(shade(@warning_color,0.99)));
+.alarm-repeat {
+    font-size: 9pt;
 }
 
 .clocks-ampm-toggle-button {
@@ -124,7 +70,12 @@ window > stack:backdrop {
 
 .clocks-standalone-label,
 .clocks-ringing-label {
-    font-size: 64pt;
+    font-size: 6em;
+}
+
+.clocks-ringing-title {
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 .clocks-secondary-standalone-label {
@@ -143,7 +94,6 @@ window > stack:backdrop {
     font-size: 48pt;
 }
 
-.clocks-stopwatch-label,
 .clocks-timer-label {
     font-size: 48pt;
 }
@@ -199,7 +149,10 @@ window > stack:backdrop {
     padding-right: 20px;
 }
 
+/* Timer Panel */
 /* disguise insensitive spinbuttons as normal labels */
+
+
 spinbutton.clocks-timer-label,
 spinbutton.clocks-timer-label button,
 spinbutton.clocks-timer-label entry {
@@ -216,15 +169,133 @@ spinbutton.clocks-timer-label {
 spinbutton.clocks-timer-label button {
     color: transparent;
 }
+.timer-panel .round-button {
+  border-radius: 9999px;
+}
+.timer-panel .small-button {
+  padding: 5px 9px
+}
+.timer-panel .large-button {
+  padding: 12px 16px;
+}
+.timer-panel .timer-header {
+  font-size: 20pt;
+  font-weight: 700;
+}
+.timer-countdown {
+  font-size: 40pt;
+  color: #9E9DA1;
+}
 
 @keyframes clocks-blink {
-    0% { color: @theme_fg_color; }
-    100% { color: @insensitive_fg_color; }
+    0% { color: #9E9DA1; }
+    100% { color: #428be5; }
 }
 
-.clocks-paused .clocks-timer-label {
-    animation-name: clocks-blink;
-    animation-iteration-count: infinite;  
-    animation-timing-function: cubic-bezier(1.0,0,0,1.0);
-    animation-duration: 1s; 
+.timer-countdown.timer-paused {
+  color: #9E9DA1;
+  animation-name: clocks-blink;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  animation-duration: 1s;
 }
+.timer-countdown.timer-running {
+  color: #428be5;
+}
+/* Stopwatch Panel */
+.stopwatch-panel .large-button {
+    padding: 6px 32px;
+}
+.lap-time {
+    font-weight: bold;
+}
+
+.negative-lap {
+    color: #ED333B;
+}
+.positive-lap {
+    color: #428be5;
+}
+.stopped-stopwatch label,
+.running-stopwatch label,
+.paused-stopwatch label {
+    font-size: 70px;
+    color: grey;
+    font-weight: 200;
+}
+
+.stopped-stopwatch .seconds-label {
+    font-weight: 300;
+}
+
+.running-stopwatch .seconds-label,
+.running-stopwatch .miliseconds-label {
+    color: #428be5;
+}
+.stopped-stopwatch .miliseconds-label,
+.running-stopwatch .miliseconds-label,
+.paused-stopwatch .miliseconds-label {
+    font-size: 50px;
+}
+.running-stopwatch .seconds-label,
+.paused-stopwatch .seconds-label {
+    font-weight: 500;
+}
+
+.stopped-stopwatch .seconds-label,
+.stopped-stopwatch .miliseconds-label,
+.paused-stopwatch .seconds-label,
+.paused-stopwatch .miliseconds-label {
+    color: black;
+}
+
+.pill-button {
+    border-radius: 9999px;
+    -gtk-outline-radius: 9999px;
+}
+
+/* World */
+
+.clock-title {
+    font-size: 1.1em;
+}
+
+.clock-desc {
+    font-size: 0.9em;
+}
+
+.clock-time {
+    font-size: 2em;
+    padding: 0.2em 0.5em;
+    border-radius: 1em;
+    background: #e5a50a;
+    color: #000000;
+    font-weight: lighter;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: 0.4s background ease-in;
+}
+
+.none .clock-time {
+  background: #f6f5f4;
+}
+
+.night .clock-time {
+  background: #a0a2b7;
+}
+
+.astro .clock-time {
+  background: #c6adaa;
+}
+
+.naut .clock-time {
+  background: #ecb89c;
+}
+
+.civil .clock-time {
+  background: #FAE189;
+}
+
+.day .clock-time {
+  background: #fcf7b0;
+}
+

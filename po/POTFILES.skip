@@ -1,10 +1,11 @@
 # List of source files that should *not* be translated.
 # Please keep this file sorted alphabetically.
-data/org.gnome.clocks.appdata.xml.in
 data/org.gnome.clocks.desktop.in
+data/org.gnome.clocks.metainfo.xml.in
 src/alarm.c
 src/application.c
 src/clock.c
+src/main.c
 src/search-provider.c
 src/stopwatch.c
 src/timer.c

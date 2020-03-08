@@ -1,19 +1,20 @@
 # Turkish translation for gnome-clocks.
-# Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
+# Copyright (C) 2012-2020 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Osman Karagöz <osmank3@gmail.com>, 2012.
 # Gökhan Gurbetoğlu <ggurbet@gmail.com>, 2014.
 # Muhammet Kara <muhammetk@gmail.com>, 2013, 2014, 2015, 2016.
 # Çağatay Yiğit Şahin <cyigitsahin@outlook.com>, 2017.
-# Emin Tufan Çetin <etcetin@gmail.com>, 2017.
+# Sabri Ünal <libreajans@gmail.com>, 2020.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2017, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2018-12-24 13:35+0000\n"
-"PO-Revision-Date: 2019-01-02 02:27+0200\n"
-"Last-Translator: sabri Ünal <yakushabb@gmail.com>\n"
+"POT-Creation-Date: 2020-02-23 22:56+0000\n"
+"PO-Revision-Date: 2020-02-24 17:48+0300\n"
+"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -29,92 +30,89 @@ msgstr "Genel"
 
 #: data/gtk/help-overlay.ui:19
 msgctxt "shortcut window"
-msgid "Go to the next section"
-msgstr "Sonraki bölüme git"
+msgid "Show help"
+msgstr "Yardımı göster"
 
 #: data/gtk/help-overlay.ui:26
 msgctxt "shortcut window"
-msgid "Go to the previous section"
-msgstr "Önceki bölüme git"
+msgid "Open menu"
+msgstr "Menüyü aç"
 
 #: data/gtk/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "Klavye kısayolları"
+
+#: data/gtk/help-overlay.ui:40
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Çıkış"
 
-#: data/gtk/help-overlay.ui:42
+#: data/gtk/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Go to the next section"
+msgstr "Sonraki bölüme git"
+
+#: data/gtk/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "Go to the previous section"
+msgstr "Önceki bölüme git"
+
+#: data/gtk/help-overlay.ui:63
 msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Dünya Saatleri"
 
-#: data/gtk/help-overlay.ui:47
-msgctxt "shortcut window"
-msgid "Add a world clock"
-msgstr "Bir dünya saati ekle"
-
-#: data/gtk/help-overlay.ui:54
-msgctxt "shortcut window"
-msgid "Select all world clocks"
-msgstr "Tüm dünya saatlerini seç"
-
-#: data/gtk/help-overlay.ui:63
-msgctxt "shortcut window"
-msgid "Alarm"
-msgstr "Uyarı"
-
 #: data/gtk/help-overlay.ui:68
 msgctxt "shortcut window"
-msgid "Add an alarm"
-msgstr "Bir uyarı ekle"
+msgid "Add a world clock"
+msgstr "Dünya saati ekle"
 
-#: data/gtk/help-overlay.ui:75
+#: data/gtk/help-overlay.ui:77
 msgctxt "shortcut window"
-msgid "Select all alarms"
-msgstr "Tüm uyarıları seç"
+msgid "Alarm"
+msgstr "Alarm"
 
-#: data/gtk/help-overlay.ui:84
+#: data/gtk/help-overlay.ui:82
+msgctxt "shortcut window"
+msgid "Add an alarm"
+msgstr "Alarm ekle"
+
+#: data/gtk/help-overlay.ui:91
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Kronometre"
 
-#: data/gtk/help-overlay.ui:89
+#: data/gtk/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Durdur / Sıfırla"
 
-#: data/gtk/help-overlay.ui:98
+#: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
 msgid "Timer"
-msgstr "Geri Sayım"
+msgstr "Zamanlayıcı"
 
-#: data/gtk/help-overlay.ui:103
+#: data/gtk/help-overlay.ui:110
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Sıfırla"
 
-#: data/gtk/menus.ui:8
-msgid "Select All"
-msgstr "Tümünü Seç"
-
-#: data/gtk/menus.ui:12
-msgid "Select None"
-msgstr "Hiçbirini Seçme"
-
 #: data/org.gnome.clocks.appdata.xml.in.in:6
 msgid "GNOME Clocks"
-msgstr "GNOME Saatleri"
+msgstr "GNOME Saatler"
 
 #: data/org.gnome.clocks.appdata.xml.in.in:7
 #: data/org.gnome.clocks.desktop.in.in:6
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Dünya saatleri, alarmlar, kronometre ve zaman ölçer"
+msgstr "Dünya saatleri, alarmlar, kronometre ve zamanlayıcı"
 
 #: data/org.gnome.clocks.appdata.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
 msgstr ""
-"Basit ve şık bir saat uygulaması. Dünya saatleri, alarm, kronometre ve bir "
+"Basit ve şık saat uygulaması. Dünya saatleri, alarm, kronometre ve "
 "zamanlayıcı içerir."
 
 #: data/org.gnome.clocks.appdata.xml.in.in:13
@@ -137,48 +135,45 @@ msgstr "Doğru bir kronometre ile geçen zamanı ölçmek"
 msgid "Set timers to properly cook your food"
 msgstr "Düzgün yemek pişirmek için zamanlayıcı ayarlamak"
 
-#: data/org.gnome.clocks.appdata.xml.in.in:33
+#: data/org.gnome.clocks.appdata.xml.in.in:32
 msgid "Initial screen"
 msgstr "İlk ekran"
 
-#: data/org.gnome.clocks.appdata.xml.in.in:37
+#: data/org.gnome.clocks.appdata.xml.in.in:36
 msgid "Alarms screen"
 msgstr "Alarmlar ekranı"
 
-#: data/org.gnome.clocks.appdata.xml.in.in:41
+#: data/org.gnome.clocks.appdata.xml.in.in:40
 msgid "Alarms setup"
 msgstr "Alarmlar kurulumu"
 
-#: data/org.gnome.clocks.appdata.xml.in.in:45
+#: data/org.gnome.clocks.appdata.xml.in.in:44
 msgid "Stopwatch screen"
 msgstr "Kronometre ekranı"
 
-#: data/org.gnome.clocks.appdata.xml.in.in:49
+#: data/org.gnome.clocks.appdata.xml.in.in:48
 msgid "Timer screen"
-msgstr "Geri sayım ekranı"
+msgstr "Zamanlayıcı ekranı"
 
-#: data/org.gnome.clocks.appdata.xml.in.in:65
+#: data/org.gnome.clocks.appdata.xml.in.in:62
 msgid "The GNOME Project"
 msgstr "GNOME Projesi"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/window.ui:5 src/window.vala:67 src/world.vala:513
+#: data/ui/headerbar.ui:24 src/alarm.vala:788 src/alarm.vala:868
+#: src/main.vala:25 src/stopwatch.vala:122 src/timer.vala:407
+#: src/window.vala:273 src/world.vala:513 src/world.vala:602
 msgid "Clocks"
 msgstr "Saatler"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "saat;zaman;geri sayım;alarm;dünya saatleri;kronometre;saat dilimi;"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.clocks.desktop.in.in:11
-msgid "@icon@"
-msgstr "@icon@"
+msgstr "saat;zaman;geri sayım;alarm;dünya saatleri;kronometre;saat dilimi;zaman dilimi;"
 
 #: data/org.gnome.clocks.desktop.in.in:18
 msgid "Allows world clocks to be displayed for your time zone."
-msgstr "Saat diliminiz için dünya saatlerinin gösterilmesine olanak tanır."
+msgstr "Saat diliminiz için dünya saatlerinin gösterilmesini sağlar."
 
 #: data/org.gnome.clocks.gschema.xml.in:5
 msgid "Configured world clocks"
@@ -196,13 +191,13 @@ msgstr "Yapılandırılmış alarmlar"
 msgid "List of alarms set."
 msgstr "Ayarlanmış alarmların listesi."
 
-#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:115
-msgid "Timer"
-msgstr "Geri Sayım"
+#: data/org.gnome.clocks.gschema.xml.in:19
+msgid "Configured Timers"
+msgstr "Yapılandırılmış Zamanlayıcılar"
 
 #: data/org.gnome.clocks.gschema.xml.in:20
-msgid "Configured timer duration in seconds."
-msgstr "Ayarlanan zamanlayıcı süresinin saniye türünden değeri."
+msgid "List of timers set."
+msgstr "Ayarlanmış zamanlayıcı listesi."
 
 #: data/org.gnome.clocks.gschema.xml.in:26
 msgid "Geolocation support"
@@ -236,200 +231,384 @@ msgstr "Panel durumu"
 msgid "Current clock panel."
 msgstr "Geçerli saat paneli."
 
-#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:199
-msgid "Stop"
-msgstr "Dur"
+#: data/ui/alarmdaypickerrow.ui:5
+msgid "_Repeat"
+msgstr "_Yinele"
 
-#: data/ui/alarmringing.ui:59 src/alarm.vala:119
-msgid "Snooze"
-msgstr "Ertele"
-
-#: data/ui/alarmsetupdialog.ui:27 data/ui/worldlocationdialog.ui:17
-msgid "Add a New World Clock"
-msgstr "Yeni Bir Dünya Saati Ekle"
-
-#: data/ui/alarmsetupdialog.ui:31 data/ui/worldlocationdialog.ui:21
-msgid "_Cancel"
-msgstr "_Vazgeç"
-
-#: data/ui/alarmsetupdialog.ui:47
-msgid "_Done"
-msgstr "_Tamam"
-
-#: data/ui/alarmsetupdialog.ui:199
-msgid "You already have an alarm for this time."
-msgstr "Zaten bu saate kurulmuş bir alarmınız var."
-
-#: data/ui/alarmsetupdialog.ui:227
-msgid "Name"
-msgstr "Ad"
-
-#: data/ui/alarmsetupdialog.ui:241
-msgid "Repeat Every"
-msgstr "Yinele"
-
-#: data/ui/alarmsetupdialog.ui:295
+#: data/ui/alarmrow.ui:25
 msgid "Active"
 msgstr "Etkin"
 
-#: data/ui/alarm.ui:32
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Alarm eklemek için <b>Yeni</b>’yi seç"
+#: data/ui/alarmrow.ui:50
+msgid "Edit"
+msgstr "Düzenle"
 
-#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:221
-msgid "Start"
-msgstr "Başla"
+#: data/ui/alarmrow.ui:77
+msgid "Delete"
+msgstr "Sil"
 
-#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:213
-msgid "Reset"
-msgstr "Sıfırla"
+#: data/ui/alarmrow.ui:106
+msgid "Repeats"
+msgstr "Yinelemeler"
 
-#: data/ui/timer.ui:403 src/timer.vala:220 src/timer.vala:231
-msgid "Pause"
-msgstr "Durakla"
+#: data/ui/alarmringing.ui:28 src/alarm.vala:117
+msgid "Stop"
+msgstr "Dur"
 
-#: data/ui/window.ui:9
+#: data/ui/alarmringing.ui:47 src/alarm.vala:118
+msgid "Snooze"
+msgstr "Ertele"
+
+#: data/ui/alarmsetupdialog.ui:24 data/ui/worldlocationdialog.ui:16
+msgid "Add a New World Clock"
+msgstr "Yeni Dünya Saati Ekle"
+
+#: data/ui/alarmsetupdialog.ui:144
+msgid "Name"
+msgstr "Ad"
+
+#: data/ui/alarmsetupdialog.ui:145
+msgid "Optional"
+msgstr "İsteğe Bağlı"
+
+#: data/ui/alarmsetupdialog.ui:165
+msgid "R_emove Alarm"
+msgstr "Alarmı _Kaldır"
+
+#: data/ui/alarmsetupdialog.ui:181
+msgid "You already have an alarm for this time."
+msgstr "Zaten bu saate kurulmuş alarmınız var."
+
+#: data/ui/alarm.ui:30
+msgid "Add A_larm"
+msgstr "Alarm _Ekle"
+
+#: data/ui/headerbar.ui:8
 msgid "_Keyboard Shortcuts"
 msgstr "_Klavye Kısayolları"
 
-#: data/ui/window.ui:13
+#: data/ui/headerbar.ui:12
 msgid "_Help"
 msgstr "_Yardım"
 
-#: data/ui/window.ui:17
+#: data/ui/headerbar.ui:16
 msgid "_About Clocks"
 msgstr "Saatler _Hakkında"
 
-#: data/ui/worldlocationdialog.ui:37
+#: data/ui/headerbar.ui:149
+msgid "Back"
+msgstr "Geri"
+
+#: data/ui/headerbar.ui:186
+msgid "Menu"
+msgstr "Menü"
+
+#: data/ui/stopwatchlapsrow.ui:18
+msgid "Time"
+msgstr "Zaman"
+
+#: data/ui/stopwatchlapsrow.ui:39
+msgid "Difference"
+msgstr "Fark"
+
+#: data/ui/stopwatch.ui:167
+msgid "_Start"
+msgstr "_Başla"
+
+#: data/ui/stopwatch.ui:189 src/stopwatch.vala:246
+msgid "Clear"
+msgstr "Temizle"
+
+#: data/ui/timer_row.ui:46
+msgid "Title..."
+msgstr "Başlık..."
+
+#: data/ui/timer_setup.ui:49
+msgid "1 m"
+msgstr "1 d"
+
+#: data/ui/timer_setup.ui:67
+msgid "2 m"
+msgstr "2 d"
+
+#: data/ui/timer_setup.ui:85
+msgid "3 m"
+msgstr "3 d"
+
+#: data/ui/timer_setup.ui:103
+msgid "5 m"
+msgstr "5 d"
+
+#: data/ui/timer_setup.ui:121
+msgid "30 m"
+msgstr "30 d"
+
+#: data/ui/timer_setup.ui:139
+msgid "15 m"
+msgstr "15 d"
+
+#: data/ui/timer_setup.ui:157
+msgid "45 m"
+msgstr "45 d"
+
+#: data/ui/timer_setup.ui:175
+msgid "1 h"
+msgstr "1 sa"
+
+#: data/ui/timer_setup.ui:229 data/ui/timer_setup.ui:269
+#: data/ui/timer_setup.ui:310
+msgid "0"
+msgstr "0"
+
+#: data/ui/timer.ui:21
+msgid "Select Duration"
+msgstr "Süre Seç"
+
+#: data/ui/window.ui:39
+msgid "World"
+msgstr "Dünya"
+
+#: data/ui/window.ui:49
+msgid "Alarms"
+msgstr "Alarmlar"
+
+#: data/ui/window.ui:59
+msgid "Stopwatch"
+msgstr "Kronometre"
+
+#: data/ui/window.ui:69
+msgid "Timer"
+msgstr "Zamanlayıcı"
+
+#: data/ui/worldlocationdialog.ui:20
+msgid "_Cancel"
+msgstr "_Vazgeç"
+
+#: data/ui/worldlocationdialog.ui:36
 msgid "_Add"
 msgstr "_Ekle"
 
-#: data/ui/worldlocationdialog.ui:76
+#: data/ui/worldlocationdialog.ui:73
 msgid "Search for a city:"
-msgstr "Bir şehir ara:"
+msgstr "Şehir ara:"
 
-#: data/ui/world.ui:32
+#: data/ui/world.ui:33
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Dünya saati eklemek için <b>Yeni</b>’yi seç"
 
-#: data/ui/world.ui:123
+#: data/ui/world.ui:148
 msgid "Sunrise"
 msgstr "Gün doğumu"
 
-#: data/ui/world.ui:137
+#: data/ui/world.ui:162
 msgid "Sunset"
 msgstr "Gün batımı"
 
-#: src/alarm.vala:116 src/alarm.vala:416 src/alarm.vala:595
+#. Prior to 3.36 unamed alarms would just be called "Alarm",
+#. pretend alarms called "Alarm" don't have a name (of course
+#. this fails if the language/translation has since changed)
+#: src/alarm.vala:115 src/alarm.vala:335 src/alarm.vala:917
 msgid "Alarm"
 msgstr "Alarm"
 
-#: src/alarm.vala:350
+#. Translators: The alarm for the time %s titled %s has been "snoozed"
+#: src/alarm.vala:342
+#, c-format
+msgid "Snoozed from %s: %s"
+msgstr "%s saatinden beri ertelendi: %s"
+
+#. Translators: %s is a time
+#: src/alarm.vala:345
+#, c-format
+msgid "Snoozed from %s"
+msgstr "%s saatinden beri ertelendi"
+
+#: src/alarm.vala:557
 msgid "Edit Alarm"
 msgstr "Alarmı Düzenle"
 
-#: src/alarm.vala:350
+#. Translators: Tooltip for the + button
+#: src/alarm.vala:557 src/alarm.vala:791
 msgid "New Alarm"
 msgstr "Yeni Alarm"
 
-#. Translators: "New" refers to an alarm
-#: src/alarm.vala:624
-msgctxt "Alarm"
-msgid "New"
-msgstr "Yeni"
+#: src/alarm.vala:560 src/timer.vala:145
+msgid "Cancel"
+msgstr "Vazgeç"
+
+#: src/alarm.vala:562
+msgid "Done"
+msgstr "Tamam"
+
+#: src/alarm.vala:564 src/timer.vala:146
+msgid "Add"
+msgstr "Ekle"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Sürüm bilgisini yazdır ve çık"
 
-#: src/stopwatch.vala:139
-msgid "Stopwatch"
-msgstr "Kronometre"
+#: src/stopwatch.vala:59
+#, c-format
+msgid "Lap %i"
+msgstr "%i. Tur"
 
-#: src/stopwatch.vala:202
+#: src/stopwatch.vala:226
+msgid "Pause"
+msgstr "Duraklat"
+
+#: src/stopwatch.vala:230 src/stopwatch.vala:267
 msgid "Lap"
 msgstr "Tur"
 
-#: src/stopwatch.vala:209 src/timer.vala:215
-msgid "Continue"
-msgstr "Devam et"
+#: src/stopwatch.vala:242
+msgid "Resume"
+msgstr "Sürdür"
 
-#: src/timer.vala:134
+#: src/stopwatch.vala:263
+msgid "Start"
+msgstr "Başla"
+
+#. Translators: Tooltip for the + button
+#: src/timer.vala:142 src/timer.vala:410
+msgid "New Timer"
+msgstr "Yeni Zamanlayıcı"
+
+#: src/timer.vala:374
+#, c-format
+msgid "%i second timer"
+msgstr "%i saniye zamanlayıcı"
+
+#: src/timer.vala:376
+#, c-format
+msgid "%i minute timer"
+msgstr "%i dakika zamanlayıcı"
+
+#: src/timer.vala:378
+#, c-format
+msgid "%i hour timer"
+msgstr "%i saat zamanlayıcı"
+
+#: src/timer.vala:380
+#, c-format
+msgid "%i minute %i second timer"
+msgstr "%i dakika %i saniye zamanlayıcı"
+
+#: src/timer.vala:382
+#, c-format
+msgid "%i hour %i minute timer"
+msgstr "%i saat %i dakika zamanlayıcı"
+
+#: src/timer.vala:384
+#, c-format
+msgid "%i hour %i second timer"
+msgstr "%i saat %i saniye zamanlayıcı"
+
+#: src/timer.vala:386
+#, c-format
+msgid "%i hour %i minute %i second timer"
+msgstr "%i saat %i dakika %i saniye zamanlayıcı"
+
+#: src/timer.vala:449
 msgid "Time is up!"
 msgstr "Süre doldu!"
 
-#: src/timer.vala:135
+#: src/timer.vala:450
 msgid "Timer countdown finished"
 msgstr "Geri sayım tamamlandı"
 
-#: src/utils.vala:168
+#. Translators: This is used in the repeat toggle for Monday
+#: src/utils.vala:159
+msgctxt "Repeat|Monday"
+msgid "M"
+msgstr "Pt"
+
+#. Translators: This is used in the repeat toggle for Tuesday
+#: src/utils.vala:161
+msgctxt "Repeat|Tuesday"
+msgid "T"
+msgstr "S"
+
+#. Translators: This is used in the repeat toggle for Wednesday
+#: src/utils.vala:163
+msgctxt "Repeat|Wednesday"
+msgid "W"
+msgstr "Ç"
+
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:165
+msgctxt "Repeat|Thursday"
+msgid "T"
+msgstr "Pş"
+
+#. Translators: This is used in the repeat toggle for Friday
+#: src/utils.vala:167
+msgctxt "Repeat|Friday"
+msgid "F"
+msgstr "Cu"
+
+#. Translators: This is used in the repeat toggle for Saturday
+#: src/utils.vala:169
+msgctxt "Repeat|Saturday"
+msgid "S"
+msgstr "Ct"
+
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:171
+msgctxt "Repeat|Sunday"
+msgid "S"
+msgstr "Pz"
+
+#: src/utils.vala:175
 msgid "Mondays"
 msgstr "Pazartesiler"
 
-#: src/utils.vala:169
+#: src/utils.vala:176
 msgid "Tuesdays"
 msgstr "Salılar"
 
-#: src/utils.vala:170
+#: src/utils.vala:177
 msgid "Wednesdays"
 msgstr "Çarşambalar"
 
-#: src/utils.vala:171
+#: src/utils.vala:178
 msgid "Thursdays"
 msgstr "Perşembeler"
 
-#: src/utils.vala:172
+#: src/utils.vala:179
 msgid "Fridays"
 msgstr "Cumalar"
 
-#: src/utils.vala:173
+#: src/utils.vala:180
 msgid "Saturdays"
 msgstr "Cumartesiler"
 
-#: src/utils.vala:174
+#: src/utils.vala:181
 msgid "Sundays"
 msgstr "Pazarlar"
 
-#: src/utils.vala:254
+#: src/utils.vala:307
 msgid "Every Day"
 msgstr "Her Gün"
 
-#: src/utils.vala:256
+#: src/utils.vala:309
 msgid "Weekdays"
-msgstr "Hafta içi"
+msgstr "Hafta İçi"
 
-#: src/utils.vala:258
+#: src/utils.vala:311
 msgid "Weekends"
-msgstr "Hafta sonları"
+msgstr "Hafta Sonları"
 
-#: src/widgets.vala:232 src/widgets.vala:247
-msgid "Click on items to select them"
-msgstr "Ögeleri seçmek için tıkla"
-
-#: src/widgets.vala:234
-#, c-format
-msgid "%u selected"
-msgid_plural "%u selected"
-msgstr[0] "%u adet seçildi"
-
-#: src/widgets.vala:333
-msgid "Delete"
-msgstr "Sil"
-
-#: src/widgets.vala:477
-msgid "Cancel"
-msgstr "Vazgeç"
-
-#: src/window.vala:237
+#: src/window.vala:244
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Yardım gösterme başarısız: %s"
 
-#: src/window.vala:268
+#: src/window.vala:278
 msgid "Utilities to help you with the time."
 msgstr "Zaman konusunda yardımcı olacak donatılar."
 
-#: src/window.vala:273
+#: src/window.vala:283
 msgid "translator-credits"
 msgstr ""
 "Osman Karagöz <osmank3@gmail.com>\n"
@@ -437,25 +616,93 @@ msgstr ""
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:138 src/world.vala:142
+#: src/world.vala:182 src/world.vala:186
 msgid "Tomorrow"
 msgstr "Yarın"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:138 src/world.vala:142
+#: src/world.vala:182 src/world.vala:186
 msgid "Yesterday"
 msgstr "Dün"
 
-#: src/world.vala:318
-msgid "World"
-msgstr "Dünya"
+#. Translators: The time is the same as the local time
+#: src/world.vala:425
+msgid "Current timezone"
+msgstr "Geçerli saat dilimi"
 
-#. Translators: "New" refers to a world clock
-#: src/world.vala:337
-msgctxt "World clock"
-msgid "New"
-msgstr "Yeni"
+#. Translators: The (possibly fractical) number hours in the past
+#. (relative to local) the clock/location is
+#: src/world.vala:430
+#, c-format
+msgid "%s hour earlier"
+msgid_plural "%s hours earlier"
+msgstr[0] "%s saat önce"
+
+#. Translators: The (possibly fractical) number hours in the
+#. future (relative to local) the clock/location is
+#: src/world.vala:436
+#, c-format
+msgid "%s hour later"
+msgid_plural "%s hours later"
+msgstr[0] "%s saat sonra"
+
+#. Translators: This clock represents the local time
+#: src/world.vala:446
+msgid "Current location"
+msgstr "Geçerli konum"
+
+#. Translators: Tooltip for the + button
+#: src/world.vala:516
+msgid "Add Location"
+msgstr "Konum Ekle"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Select all world clocks"
+#~ msgstr "Tüm dünya saatlerini seç"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Select all alarms"
+#~ msgstr "Tüm alarmları seç"
+
+#~ msgid "Select All"
+#~ msgstr "Tümünü Seç"
+
+#~ msgid "Select None"
+#~ msgstr "Hiçbirini Seçme"
+
+#~ msgid "Select <b>New</b> to add an alarm"
+#~ msgstr "Alarm eklemek için <b>Yeni</b>’yi seç"
+
+#~ msgid "Select"
+#~ msgstr "Seç"
+
+#~ msgid "Click on items to select them"
+#~ msgstr "Ögeleri seçmek için tıkla"
+
+#~ msgid "%u selected"
+#~ msgid_plural "%u selected"
+#~ msgstr[0] "%u adet seçildi"
+
+#~ msgid "Configured timer duration in seconds."
+#~ msgstr "Ayarlanan zamanlayıcı süresinin saniye türünden değeri."
+
+#~ msgid "Reset"
+#~ msgstr "Sıfırla"
+
+#~ msgid "Continue"
+#~ msgstr "Devam et"
+
+#~ msgid "@icon@"
+#~ msgstr "@icon@"
+
+#~ msgctxt "Alarm"
+#~ msgid "New"
+#~ msgstr "Yeni"
+
+#~ msgctxt "World clock"
+#~ msgid "New"
+#~ msgstr "Yeni"
 
 #~ msgid "_About"
 #~ msgstr "H_akkında"
