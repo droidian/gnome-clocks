@@ -1,3 +1,9 @@
+gnome-clocks (3.36.0-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Laurent Bigonville <bigon@debian.org>  Sun, 08 Mar 2020 18:43:45 +0100
+
 gnome-clocks (3.34.0-1) unstable; urgency=medium
 
   * New upstream release
