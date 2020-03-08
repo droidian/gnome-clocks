@@ -1,11 +1,11 @@
-gnome-clocks (3.36.0-1) UNRELEASED; urgency=medium
+gnome-clocks (3.36.0-1) unstable; urgency=medium
 
   * New upstream release
     - Adjust the build-dependencies
     - debian/docs: NEWS → NEWS.md
   * debian/control.in: Bump Standards-Version to 4.5.0 (no further changes)
 
- -- Laurent Bigonville <bigon@debian.org>  Sun, 08 Mar 2020 18:57:33 +0100
+ -- Laurent Bigonville <bigon@debian.org>  Sun, 08 Mar 2020 19:00:50 +0100
 
 gnome-clocks (3.34.0-1) unstable; urgency=medium
 
