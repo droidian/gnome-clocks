@@ -24,7 +24,7 @@ Build-Depends: appstream,
                meson (>= 0.50.0),
                pkg-config,
                valac (>= 0.32.0)
-Standards-Version: 4.3.0
+Standards-Version: 4.5.0
 Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-clocks
 Vcs-Git: https://salsa.debian.org/gnome-team/gnome-clocks.git
 Homepage: https://wiki.gnome.org/Apps/Clocks
