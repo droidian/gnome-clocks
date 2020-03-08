@@ -7,6 +7,7 @@ clocks_vala_sources = [
   'application.vala',
   'clock.vala',
   'geocoding.vala',
+  'headerbar.vala',
   'main.vala',
   'search-provider.vala',
   'stopwatch.vala',
@@ -18,7 +19,8 @@ clocks_vala_sources = [
 ]
 
 clocks_c_sources = [
-  'cutils.c'
+  'cutils.c',
+  'twilight.c',
 ]
 
 clocks_sources = [
@@ -37,7 +39,8 @@ clocks_vala_args = [
 clocks_c_args = [
   '-include', 'config.h',
   '-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE',
-  '-DGNOME_DESKTOP_USE_UNSTABLE_API'
+  '-DGNOME_DESKTOP_USE_UNSTABLE_API',
+  '-DHANDY_USE_UNSTABLE_API',
 ]
 
 clocks_dependencies = [
@@ -50,6 +53,7 @@ clocks_dependencies = [
   gnomedesktop,
   geocodeglib,
   libgeoclue,
+  libhandy,
   math
 ]
 

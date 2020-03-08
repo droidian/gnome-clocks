@@ -1,7 +1,7 @@
 project(
   'gnome-clocks',
   ['vala', 'c'],
-  version: '3.34.0',
+  version: '3.36.0',
   license: 'GPL2+',
   meson_version: '>= 0.50.0',
 )
@@ -10,15 +10,17 @@ gnome = import('gnome')
 i18n = import('i18n')
 python3 = import('python3')
 
-glib = dependency('glib-2.0', version: '>=2.44')
-gio = dependency('gio-2.0', version: '>=2.44')
-gobject = dependency('gobject-2.0', version: '>=2.44')
+glib = dependency('glib-2.0', version: '>= 2.58')
+gio = dependency('gio-2.0', version: '>= 2.58')
+gobject = dependency('gobject-2.0', version: '>= 2.58')
 gtk = dependency('gtk+-3.0', version: '>=3.20')
 gsound = dependency('gsound', version: '>=0.98')
-gweather = dependency('gweather-3.0', version: '>=3.27.2')
+gweather = dependency('gweather-3.0', version: '>=3.32.0')
 gnomedesktop = dependency('gnome-desktop-3.0', version: '>=3.8')
 geocodeglib = dependency('geocode-glib-1.0', version: '>=1.0')
 libgeoclue = dependency('libgeoclue-2.0', version: '>=2.4')
+libhandy = dependency ('libhandy-0.0', version: '>= 0.0.10',
+                       fallback: ['libhandy', 'libhandy_dep'])
 
 cc = meson.get_compiler('c')
 math = cc.find_library('m', required: false)

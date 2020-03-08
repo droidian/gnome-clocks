@@ -27,7 +27,7 @@ public class ShellWorldClocks : Object {
             GLib.Variant[] rv = {};
             GLib.Variant locations = settings.get_value ("world-clocks");
 
-            for (int i = 0; i < locations.n_children(); i++) {
+            for (int i = 0; i < locations.n_children (); i++) {
                 rv += locations.get_child_value (i).lookup_value ("location", null);
             }
             return rv;
@@ -71,10 +71,6 @@ public class Item : Object, ContentItem {
     public GWeather.Location location { get; set; }
 
     public bool automatic { get; set; default = false; }
-
-    public bool selectable { get; set; default = true; }
-
-    public bool selected { get; set; default = false; }
 
     public string name {
         get {
@@ -194,11 +190,57 @@ public class Item : Object, ContentItem {
         }
     }
 
+    public TimeSpan local_offset {
+        get {
+            return local_time.get_utc_offset () - date_time.get_utc_offset ();
+        }
+    }
+
+    // CSS class for the current time of day
+    public string state_class {
+        get {
+            if (sun_rise == null || sun_set == null) {
+                return "none";
+            }
+
+            if (date_time.compare (sun_rise) > 0 && date_time.compare (sun_set) < 0) {
+                return "day";
+            }
+
+            if (date_time.compare (civil_rise) > 0 && date_time.compare (civil_set) < 0) {
+                return "civil";
+            }
+
+            if (date_time.compare (naut_rise) > 0 && date_time.compare (naut_set) < 0) {
+                return "naut";
+            }
+
+            if (date_time.compare (astro_rise) > 0 && date_time.compare (astro_set) < 0) {
+                return "astro";
+            }
+
+            return "night";
+        }
+    }
+
     private string _name;
     private GLib.TimeZone time_zone;
     private GLib.DateTime local_time;
     private GLib.DateTime date_time;
     private GWeather.Info weather_info;
+
+    // When sunrise/sunset happens, at different corrections, in locations
+    // timezone for calculating the colour pill
+    private DateTime? sun_rise;
+    private DateTime? sun_set;
+    private DateTime? civil_rise;
+    private DateTime? civil_set;
+    private DateTime? naut_rise;
+    private DateTime? naut_set;
+    private DateTime? astro_rise;
+    private DateTime? astro_set;
+    // When we last calculated
+    private int last_calc_day = -1;
 
     public Item (GWeather.Location location) {
         Object (location: location);
@@ -209,11 +251,99 @@ public class Item : Object, ContentItem {
         tick ();
     }
 
+    private void calculate_riseset () {
+        double lat, lon;
+        int y, m, d;
+        int rise_hour, rise_min;
+        int set_hour, set_min;
+
+        if (date_time.get_day_of_year () == last_calc_day) {
+            return;
+        }
+
+        location.get_coords (out lat, out lon);
+
+        // Some locations, such as UTC, aren't actual locations and don't have
+        // proper coords
+        if (!lat.is_finite () || !lon.is_finite ()) {
+            return;
+        }
+
+        var utc = date_time.to_utc ();
+        utc.get_ymd (out y, out m, out d);
+
+        calculate_sunrise_sunset (lat,
+                                  lon,
+                                  y,
+                                  m,
+                                  d,
+                                  RISESET_CORRECTION_NONE,
+                                  out rise_hour,
+                                  out rise_min,
+                                  out set_hour,
+                                  out set_min);
+
+        sun_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
+        sun_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
+        if (sun_set.compare (sun_rise) < 0)
+            sun_set = sun_set.add_days (1);
+
+        calculate_sunrise_sunset (lat,
+                                  lon,
+                                  y,
+                                  m,
+                                  d,
+                                  RISESET_CORRECTION_CIVIL,
+                                  out rise_hour,
+                                  out rise_min,
+                                  out set_hour,
+                                  out set_min);
+
+        civil_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
+        civil_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
+        if (civil_set.compare (civil_rise) < 0)
+            civil_set = civil_set.add_days (1);
+
+        calculate_sunrise_sunset (lat,
+                                  lon,
+                                  y,
+                                  m,
+                                  d,
+                                  RISESET_CORRECTION_NAUTICAL,
+                                  out rise_hour,
+                                  out rise_min,
+                                  out set_hour,
+                                  out set_min);
+
+        naut_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
+        naut_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
+        if (naut_set.compare (naut_rise) < 0)
+            naut_set = naut_set.add_days (1);
+
+        calculate_sunrise_sunset (lat,
+                                  lon,
+                                  y,
+                                  m,
+                                  d,
+                                  RISESET_CORRECTION_ASTRONOMICAL,
+                                  out rise_hour,
+                                  out rise_min,
+                                  out set_hour,
+                                  out set_min);
+
+        astro_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
+        astro_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
+        if (astro_set.compare (astro_rise) < 0)
+            astro_set = astro_set.add_days (1);
+    }
+
     [Signal (run = "first")]
     public virtual signal void tick () {
         var wallclock = Utils.WallClock.get_default ();
         local_time = wallclock.date_time;
         date_time = local_time.to_timezone (time_zone);
+
+        calculate_riseset ();
 
         // We don't use the normal constructor since we only want static data
         // and we do not want update() to be called.
@@ -248,50 +378,89 @@ public class Item : Object, ContentItem {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/worldtile.ui")]
-private class Tile : Gtk.Grid {
-    private static Gdk.Pixbuf? day_pixbuf = Utils.load_image ("day.png");
-    private static Gdk.Pixbuf? night_pixbuf = Utils.load_image ("night.png");
-
+private class Tile : Gtk.ListBoxRow {
     public Item location { get; construct set; }
 
     [GtkChild]
-    private Gtk.Image image;
-    [GtkChild]
     private Gtk.Label time_label;
     [GtkChild]
-    private Gtk.Widget name_icon;
-    [GtkChild]
     private Gtk.Widget name_label;
+    [GtkChild]
+    private Gtk.Label desc;
+    [GtkChild]
+    private Gtk.Stack delete_stack;
+    [GtkChild]
+    private Gtk.Widget delete_button;
+    [GtkChild]
+    private Gtk.Widget delete_empty;
+
+    internal signal void remove_clock ();
 
     public Tile (Item location) {
         Object (location: location);
 
-        location.bind_property ("automatic", name_icon, "visible", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
-        location.bind_property ("name", name_label, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        location.bind_property ("city-name", name_label, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
         location.tick.connect (update);
 
         update ();
     }
 
     private void update () {
-        if (location.is_daytime) {
-            get_style_context ().remove_class ("night");
-            image.pixbuf = day_pixbuf;
-        } else {
-            get_style_context ().add_class ("night");
-            image.pixbuf = night_pixbuf;
+        var ctx = get_style_context ();
+        ctx.remove_class ("night");
+        ctx.remove_class ("astro");
+        ctx.remove_class ("naut");
+        ctx.remove_class ("civil");
+        ctx.remove_class ("day");
+        ctx.add_class (location.state_class);
+
+        var diff = ((double) location.local_offset / (double) TimeSpan.HOUR);
+        var diff_string = "%.0f".printf (diff.abs ());
+
+        if (diff != Math.round (diff)) {
+            diff_string = "%.1f".printf (diff.abs ());
+        }
+
+        // Translators: The time is the same as the local time
+        var message = _("Current timezone");
+
+        if (diff > 0) {
+            // Translators: The (possibly fractical) number hours in the past
+            // (relative to local) the clock/location is
+            message = ngettext ("%s hour earlier",
+                                "%s hours earlier",
+                                ((int) diff).abs ()).printf (diff_string);
+        } else if (diff < 0) {
+            // Translators: The (possibly fractical) number hours in the
+            // future (relative to local) the clock/location is
+            message = ngettext ("%s hour later",
+                                "%s hours later",
+                                ((int) diff).abs ()).printf (diff_string);
         }
 
         if (location.day_label != null && location.day_label != "") {
-            time_label.label = "%s\n<span size='xx-small'>%s</span>".printf (location.time_label, location.day_label);
+            desc.label = "%s • %s".printf (location.day_label, message);
+            delete_stack.visible_child = delete_button;
+        } else if (location.automatic) {
+            // Translators: This clock represents the local time
+            desc.label = _("Current location");
+            delete_stack.visible_child = delete_empty;
         } else {
-            time_label.label = location.time_label;
+            desc.label = "%s".printf (message);
+            delete_stack.visible_child = delete_button;
         }
+
+        time_label.label = location.time_label;
+    }
+
+    [GtkCallback]
+    private void delete () {
+        remove_clock ();
     }
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/worldlocationdialog.ui")]
-private class LocationDialog : Gtk.Dialog {
+private class LocationDialog : Hdy.Dialog {
     [GtkChild]
     private GWeather.LocationEntry location_entry;
     private Face world;
@@ -338,19 +507,23 @@ private class LocationDialog : Gtk.Dialog {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world.ui")]
 public class Face : Gtk.Stack, Clocks.Clock {
-    public string label { get; construct set; }
-    public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
+    public ButtonMode button_mode { get; set; default = NEW; }
+    public ViewMode view_mode { get; set; default = NORMAL; }
+    public string title { get; set; default = _("Clocks"); }
+    public string subtitle { get; set; }
+    // Translators: Tooltip for the + button
+    public string new_label { get; default = _("Add Location"); }
 
     private ContentStore locations;
     private GLib.Settings settings;
-    private Gtk.Button new_button;
-    private Gtk.Button back_button;
     private Item standalone_location;
     [GtkChild]
     private Gtk.Widget empty_view;
     [GtkChild]
-    private ContentView content_view;
+    private Gtk.ScrolledWindow list_view;
+    [GtkChild]
+    private Gtk.ListBox listbox;
     [GtkChild]
     private Gtk.Widget standalone;
     [GtkChild]
@@ -362,11 +535,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
     [GtkChild]
     private Gtk.Label standalone_sunset_label;
 
-    public Face (HeaderBar header_bar) {
-        Object (label: _("World"),
-                header_bar: header_bar,
-                panel_id: PanelId.WORLD,
-                transition_type: Gtk.StackTransitionType.CROSSFADE);
+    construct {
+        panel_id = WORLD;
+        transition_type = CROSSFADE;
 
         locations = new ContentStore ();
         settings = new GLib.Settings ("org.gnome.clocks");
@@ -381,28 +552,15 @@ public class Face : Gtk.Stack, Clocks.Clock {
             return 0;
         });
 
-        // Translators: "New" refers to a world clock
-        new_button = new Gtk.Button.with_label (C_("World clock", "New"));
-        new_button.valign = Gtk.Align.CENTER;
-        new_button.no_show_all = true;
-        new_button.action_name = "win.new";
-        header_bar.pack_start (new_button);
+        listbox.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
 
-        back_button = new Gtk.Button ();
-        var back_button_image = new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.MENU);
-        back_button.valign = Gtk.Align.CENTER;
-        back_button.set_image (back_button_image);
-        back_button.no_show_all = true;
-        back_button.clicked.connect (() => {
-            reset_view ();
+        listbox.bind_model (locations, (item) => {
+            var tile = new Tile ((Item) item);
+
+            tile.remove_clock.connect (() => locations.delete_item ((Item) item));
+
+            return tile;
         });
-        header_bar.pack_start (back_button);
-
-        content_view.bind_model (locations, (item) => {
-            return new Tile ((Item)item);
-        });
-
-        content_view.set_header_bar (header_bar);
 
         load ();
         show_all ();
@@ -425,22 +583,27 @@ public class Face : Gtk.Stack, Clocks.Clock {
             locations.foreach ((l) => {
                 ((Item)l).tick ();
             });
-            content_view.queue_draw ();
+            // TODO Only need to queue what changed
+            listbox.queue_draw ();
             update_standalone ();
         });
     }
 
     [GtkCallback]
-    private void item_activated (ContentItem item) {
-        show_standalone ((Item) item);
+    private void item_activated (Gtk.ListBox list, Gtk.ListBoxRow row) {
+        show_standalone (((Tile) row).location);
     }
 
     [GtkCallback]
     private void visible_child_changed () {
-        if (visible_child == empty_view || visible_child == content_view) {
-            header_bar.mode = HeaderBar.Mode.NORMAL;
+        if (visible_child == empty_view || visible_child == list_view) {
+            view_mode = NORMAL;
+            button_mode = NEW;
+            title = _("Clocks");
+            subtitle = null;
         } else if (visible_child == standalone) {
-            header_bar.mode = HeaderBar.Mode.STANDALONE;
+            view_mode = STANDALONE;
+            button_mode = BACK;
         }
     }
 
@@ -457,6 +620,12 @@ public class Face : Gtk.Stack, Clocks.Clock {
         standalone_location = location;
         update_standalone ();
         visible_child = standalone;
+        if (standalone_location.state_name != null) {
+            title = "%s, %s".printf (standalone_location.city_name, standalone_location.state_name);
+        } else {
+            title = standalone_location.city_name;
+        }
+        subtitle = standalone_location.country_name;
     }
 
     private void load () {
@@ -481,7 +650,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
             item = new Item (found_location);
             item.automatic = true;
-            item.selectable = false;
             locations.add (item);
         });
 
@@ -526,13 +694,10 @@ public class Face : Gtk.Stack, Clocks.Clock {
         dialog.show ();
     }
 
-    public void activate_select_all () {
-        content_view.select_all ();
+    public void activate_back () {
+        reset_view ();
     }
 
-    public void activate_select_none () {
-        content_view.unselect_all ();
-    }
 
     public bool escape_pressed () {
         if (visible_child == standalone) {
@@ -540,44 +705,12 @@ public class Face : Gtk.Stack, Clocks.Clock {
             return true;
         }
 
-        return content_view.escape_pressed ();
-    }
-
-    public void back () {
-        if (visible_child == standalone) {
-            reset_view ();
-        }
+        return false;
     }
 
     public void reset_view () {
         standalone_location = null;
-        visible_child = locations.get_n_items () == 0 ? empty_view : content_view;
-        request_header_bar_update ();
-    }
-
-    public void update_header_bar () {
-        switch (header_bar.mode) {
-        case HeaderBar.Mode.NORMAL:
-            header_bar.title = _("Clocks");
-            header_bar.subtitle = null;
-            new_button.show ();
-            content_view.update_header_bar ();
-            break;
-        case HeaderBar.Mode.SELECTION:
-            content_view.update_header_bar ();
-            break;
-        case HeaderBar.Mode.STANDALONE:
-            if (standalone_location.state_name != null) {
-                header_bar.title = "%s, %s".printf (standalone_location.city_name, standalone_location.state_name);
-            } else {
-                header_bar.title = standalone_location.city_name;
-            }
-            header_bar.subtitle = standalone_location.country_name;
-            back_button.show ();
-            break;
-        default:
-            assert_not_reached ();
-        }
+        visible_child = locations.get_n_items () == 0 ? empty_view : list_view;
     }
 }
 
