@@ -1,3 +1,9 @@
+gnome-clocks (3.36.0-2) unstable; urgency=medium
+
+  * Fix crash due to null datetime, patch from upstream
+
+ -- Laurent Bigonville <bigon@debian.org>  Fri, 08 May 2020 10:12:21 +0200
+
 gnome-clocks (3.36.0-1) unstable; urgency=medium
 
   * New upstream release
