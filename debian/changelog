@@ -1,8 +1,10 @@
-gnome-clocks (3.36.2-1) UNRELEASED; urgency=medium
+gnome-clocks (3.36.2-1) unstable; urgency=medium
 
-  * New upstream release
+  * New upstream release (Closes: #961198)
+  * Drop debian/patches/world-handle-null-datetime.patch, applied upstream
+  * debian/control.in: Add appstream-util and desktop-file-utils to the BD
 
- -- Laurent Bigonville <bigon@debian.org>  Fri, 26 Jun 2020 10:35:54 +0200
+ -- Laurent Bigonville <bigon@debian.org>  Fri, 26 Jun 2020 10:48:43 +0200
 
 gnome-clocks (3.36.0-2) unstable; urgency=medium
 
