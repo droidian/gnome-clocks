@@ -3,19 +3,36 @@ vapi_sources = [
 ]
 
 clocks_vala_sources = [
-  'alarm.vala',
+  'alarm-day-picker-row.vala',
+  'alarm-face.vala',
+  'alarm-item.vala',
+  'alarm-ringing-panel.vala',
+  'alarm-row.vala',
+  'alarm-setup-dialog.vala',
   'application.vala',
   'clock.vala',
   'geocoding.vala',
-  'headerbar.vala',
+  'header-bar.vala',
   'main.vala',
   'search-provider.vala',
-  'stopwatch.vala',
-  'timer.vala',
+  'stopwatch-face.vala',
+  'stopwatch-lap.vala',
+  'stopwatch-laps-row.vala',
+  'timer-face.vala',
+  'timer-item.vala',
+  'timer-row.vala',
+  'timer-setup.vala',
+  'timer-setup-dialog.vala',
   'utils.vala',
   'widgets.vala',
   'window.vala',
-  'world.vala'
+  'world-face.vala',
+  'world-item.vala',
+  'world-location-dialog.vala',
+  'world-location-dialog-row.vala',
+  'world-row.vala',
+  'world-shell-world-clocks.vala',
+  'world-standalone.vala',
 ]
 
 clocks_c_sources = [
@@ -35,13 +52,13 @@ clocks_vala_args = [
   '--vapidir', meson.current_source_dir(),
   '--gresources', resource_files,
   '--enable-experimental-non-null',
+  '--disable-since-check',
 ]
 
 clocks_c_args = [
   '-include', 'config.h',
   '-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE',
   '-DGNOME_DESKTOP_USE_UNSTABLE_API',
-  '-DHANDY_USE_UNSTABLE_API',
 ]
 
 clocks_dependencies = [

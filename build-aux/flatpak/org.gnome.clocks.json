@@ -5,15 +5,17 @@
     "sdk": "org.gnome.Sdk",
     "command": "gnome-clocks",
     "tags": ["nightly"],
-    "desktop-file-name-prefix": "(Development) ",
     "finish-args": [
-        "--share=ipc", "--socket=x11",
+        "--share=ipc",
+        "--socket=fallback-x11",
         "--socket=wayland",
         "--socket=pulseaudio",
         "--share=network",
         "--system-talk-name=org.freedesktop.GeoClue2",
-        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
-        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+        "--filesystem=xdg-run/dconf",
+        "--filesystem=~/.config/dconf:ro",
+        "--talk-name=ca.desrt.dconf",
+        "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
     ],
     "cleanup": ["/include", "/lib/pkgconfig",
                 "/share/pkgconfig", "/share/aclocal",
@@ -35,11 +37,10 @@
         {
             "name": "libgweather",
             "buildsystem": "meson",
-            "build-options": {
-                "env": {
-                    "PKG_CONFIG_VAPIGEN_VAPIDIR": "/app/share/vala/vapi"
-                }
-            },
+            "config-opts": [
+              "-Dglade_catalog=false",
+              "-Dgtk_doc=false"
+            ],
             "sources": [
                 {
                     "type": "git",
@@ -50,7 +51,12 @@
         {
             "name": "gnome-desktop",
             "buildsystem": "meson",
-            "config-opts": [ "-Ddebug_tools=false", "-Dudev=disabled", "-Ddesktop_docs=false" ],
+            "config-opts": [
+              "-Ddebug_tools=false",
+              "-Dudev=disabled",
+              "-Dgtk_doc=false",
+              "-Ddesktop_docs=false"
+            ],
             "sources": [
                 {
                     "type": "git",
@@ -67,21 +73,21 @@
                 }
             ],
             "modules": [
-		{
-		    "name": "libcanberra",
-		    "sources": [
-		        {
-		            "type": "archive",
-		            "url": "http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz",
-		            "sha256": "c2b671e67e0c288a69fc33dc1b6f1b534d07882c2aceed37004bf48c601afa72"
-		        }
-		    ],
-		    "config-opts": [
-		        "--disable-alsa",
-		        "--disable-null",
-		        "--disable-oss"
-		    ]
-		}
+                {
+                    "name": "libcanberra",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz",
+                            "sha256": "c2b671e67e0c288a69fc33dc1b6f1b534d07882c2aceed37004bf48c601afa72"
+                        }
+                    ],
+                    "config-opts": [
+                        "--disable-alsa",
+                        "--disable-null",
+                        "--disable-oss"
+                    ]
+                }
             ]
         },
         {
@@ -95,8 +101,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://source.puri.sm/Librem5/libhandy.git",
-                    "branch": "libhandy-0-0"
+                    "url": "https://gitlab.gnome.org/GNOME/libhandy.git"
                 }
             ]
         },

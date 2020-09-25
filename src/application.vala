@@ -41,9 +41,6 @@ public class Application : Gtk.Application {
     private Window ensure_window () ensures (window != null) {
         if (window == null) {
             window = new Window (this);
-            ((Window) window).delete_event.connect (() => {
-               return ((Window) window).hide_on_delete ();
-            });
         }
         return (Window) window;
     }
@@ -117,6 +114,8 @@ public class Application : Gtk.Application {
 
     protected override void startup () {
         base.startup ();
+
+        Hdy.init ();
 
         Utils.load_css ("gnome-clocks");
 

@@ -20,86 +20,7 @@
 namespace Clocks {
 namespace Stopwatch {
 
-private string render_duration (double duration) {
-    int h;
-    int m;
-    int s;
-    double r;
-    Utils.time_to_hms (Math.floor (duration * 100) / 100, out h, out m, out s, out r);
-    int cs = (int) (r * 10);
-    return "%02i\u200E ∶ %02i\u200E ∶ %02i. %i".printf (h.abs (), m.abs (), s.abs (), cs.abs ());
-}
-
-public class Lap : GLib.Object {
-    public int index; // Starts at #1
-    public double duration;
-
-    public Lap (int index, double duration) {
-        this.index = index;
-        this.duration = duration;
-    }
-}
-
-
-[GtkTemplate (ui = "/org/gnome/clocks/ui/stopwatchlapsrow.ui")]
-private class LapsRow : Gtk.ListBoxRow {
-    [GtkChild]
-    private Gtk.Label index_label;
-    [GtkChild]
-    private Gtk.Label difference_label;
-    [GtkChild]
-    private Gtk.Label duration_label;
-
-    private Lap current;
-    private Lap? before;
-
-    public LapsRow (Lap current, Lap? before) {
-        this.current = current;
-        this.before = before;
-        index_label.label = _("Lap %i").printf (this.current.index);
-        duration_label.label = this.get_duration_label ();
-
-        if (this.before != null) {
-            // So get_delta_label() can be null, but Vala doesn't
-            // know that .label can be as well
-            difference_label.label = (string) this.get_delta_label ();
-
-            var difference = this.get_delta_duration ();
-            if (difference > 0) {
-                difference_label.get_style_context ().add_class ("negative-lap");
-            } else if (difference < 0) {
-                difference_label.get_style_context ().add_class ("positive-lap");
-            }
-        }
-    }
-
-    private string get_duration_label () {
-        return render_duration (this.current.duration);
-    }
-
-    private double get_delta_duration () {
-        if (this.before != null) {
-            return this.current.duration - ((Lap) this.before).duration;
-        }
-        return 0;
-    }
-
-    private string? get_delta_label () {
-        if (this.before != null) {
-            var difference = this.current.duration - ((Lap) this.before).duration;
-            var delta_label = render_duration (difference);
-            string sign = "+";
-            if (difference < 0) {
-                sign = "-";
-            }
-
-            return "%s %s".printf (sign, delta_label);
-        }
-        return null;
-    }
-}
-
-[GtkTemplate (ui = "/org/gnome/clocks/ui/stopwatch.ui")]
+[GtkTemplate (ui = "/org/gnome/clocks/ui/stopwatch-face.ui")]
 public class Face : Gtk.Box, Clocks.Clock {
     public enum State {
         RESET,
@@ -120,9 +41,6 @@ public class Face : Gtk.Box, Clocks.Clock {
     public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NONE; }
-    public ViewMode view_mode { get; set; default = NORMAL; }
-    public string title { get; set; default = _("Clocks"); }
-    public string subtitle { get; set; }
     public string? new_label { get; default = null; }
 
     public State state { get; private set; default = State.RESET; }
@@ -146,6 +64,9 @@ public class Face : Gtk.Box, Clocks.Clock {
     private Gtk.Revealer laps_revealer;
 
     [GtkChild]
+    private Gtk.Box container;
+
+    [GtkChild]
     private Gtk.Button start_btn;
     [GtkChild]
     private Gtk.Button clear_btn;
@@ -160,7 +81,6 @@ public class Face : Gtk.Box, Clocks.Clock {
         timer = new GLib.Timer ();
         tick_id = 0;
 
-        laps_list.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
         laps_list.bind_model (laps, (lap) => {
             var total_items = laps.get_n_items ();
             Lap? before = null;
@@ -169,6 +89,16 @@ public class Face : Gtk.Box, Clocks.Clock {
             }
             var lap_row = new LapsRow ((Lap)lap, before);
             return lap_row;
+        });
+
+        laps.items_changed.connect (() => {
+            if (laps.get_n_items () == 0) {
+                this.container.valign = CENTER;
+                this.container.margin_top = 0;
+            } else {
+                this.container.valign = FILL;
+                this.container.margin_top = 36;
+            }
         });
 
         map.connect ((w) => {
