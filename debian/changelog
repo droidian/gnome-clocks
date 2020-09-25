@@ -1,3 +1,9 @@
+gnome-clocks (3.38.0-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Iain Lane <laney@debian.org>  Fri, 25 Sep 2020 18:04:50 +0100
+
 gnome-clocks (3.36.2-1) unstable; urgency=medium
 
   * New upstream release (Closes: #961198)
