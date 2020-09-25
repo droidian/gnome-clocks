@@ -15,11 +15,18 @@ label.destructive-action {
 /* Shared */
 
 .clocks-list {
-	border-radius: 6px;
 	margin: 18px 6px;
 }
 
-.pill-button {
+.large-button {
+	padding: 6px 32px;
+}
+
+.circular.flat {
+	padding: 4px;
+}
+
+.pill-button, .circular.flat {
 	border-radius: 9999px;
 	-gtk-outline-radius: 9999px;
 }
@@ -42,6 +49,7 @@ row.snoozing {
 
 .alarm-time {
 	font-size: 2.5em;
+	font-weight: 300;
 }
 
 .alarm-repeat {
@@ -55,6 +63,7 @@ row.snoozing {
 .clocks-standalone-label,
 .clocks-ringing-label {
 	font-size: 6em;
+	font-weight: 300;
 }
 
 .clocks-ringing-title {
@@ -66,9 +75,6 @@ row.snoozing {
 	font-size: 18pt;
 }
 
-.clocks-button {
-	font-size: 14pt;
-}
 
 .clocks-alarm-setup-time {
 	font-size: 32pt;
@@ -113,11 +119,12 @@ spinbutton.clocks-timer-label button {
 
 .timer-panel .timer-header {
 	font-size: 20pt;
-	font-weight: 700;
+	font-weight: 300;
 }
 
 .timer-countdown {
 	font-size: 40pt;
+	font-weight: 300;
 	color: #9E9DA1;
 }
 
@@ -139,11 +146,6 @@ spinbutton.clocks-timer-label button {
 }
 
 /* Stopwatch Panel */
-
-.stopwatch-panel .large-button {
-	padding: 6px 32px;
-}
-
 .lap-time {
 	font-weight: bold;
 }
@@ -161,7 +163,7 @@ spinbutton.clocks-timer-label button {
 .paused-stopwatch label {
 	font-size: 70px;
 	color: grey;
-	font-weight: 200;
+	font-weight: lighter;
 }
 
 .stopped-stopwatch .seconds-label {
@@ -181,7 +183,7 @@ spinbutton.clocks-timer-label button {
 
 .running-stopwatch .seconds-label,
 .paused-stopwatch .seconds-label {
-	font-weight: 500;
+	font-weight: 300;
 }
 
 .stopped-stopwatch .seconds-label,
@@ -197,6 +199,10 @@ spinbutton.clocks-timer-label button {
 	font-size: 1.1em;
 }
 
+.clock-location {
+	font-weight: bolder;
+}
+
 .clock-desc {
 	font-size: 0.9em;
 }
@@ -207,7 +213,7 @@ spinbutton.clocks-timer-label button {
 	border-radius: 1em;
 	background: #e5a50a;
 	color: #000000;
-	font-weight: lighter;
+	font-weight: 300;
 	border: 1px solid rgba(0, 0, 0, 0.06);
 	transition: 0.4s background ease-in;
 }

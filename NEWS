@@ -1,3 +1,18 @@
+gnome-clocks 3.38.0
+===================
+ * Alarms: Allow setting snooze/ring duration
+ * World: Redesign the Add World Clock dialog by Matyáš
+ * Various design refinement
+
+gnome-clocks 3.37.91
+===================
+ * Updated translations
+
+gnome-clocks 3.37.90
+===================
+ * World: Redesign the Add World Clock dialog by Matyáš
+ * Various design refinement
+
 gnome-clocks 3.36.2
 ===================
  * World: Handle impossible places

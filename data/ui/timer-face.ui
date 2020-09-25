@@ -46,7 +46,7 @@
               </object>
             </child>
             <style>
-              <class name="round-button"/>
+              <class name="pill-button"/>
               <class name="large-button"/>
               <class name="suggested-action"/>
             </style>
@@ -72,11 +72,9 @@
             <property name="can_focus">False</property>
             <property name="shadow_type">none</property>
             <child>
-              <object class="HdyColumn">
+              <object class="HdyClamp">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="maximum_width">600</property>
-                <property name="linear_growth_width">600</property>
                 <child>
                   <object class="GtkListBox" id="timers_list">
                     <property name="visible">True</property>
@@ -85,7 +83,7 @@
                     <property name="selection_mode">none</property>
                     <property name="activate_on_single_click">False</property>
                     <style>
-                      <class name="frame"/>
+                      <class name="content"/>
                       <class name="clocks-list"/>
                     </style>
                   </object>
