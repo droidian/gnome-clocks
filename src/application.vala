@@ -170,7 +170,10 @@ public class Application : Gtk.Application {
     public new void send_notification (string notification_id, GLib.Notification notification) {
         base.send_notification (notification_id, notification);
 
-        system_notifications.append (notification_id);
+        // We don't want to withdraw missed notifications
+        if (notification_id != "alarm-clock-missed") {
+          system_notifications.append (notification_id);
+        }
     }
 
     private void withdraw_notifications () {
