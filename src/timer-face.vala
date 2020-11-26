@@ -56,6 +56,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
             ((Item)timer).ring.connect (() => ring ());
             ((Item)timer).notify["state"].connect (() => {
                 this.is_running = this.get_total_active_timers () != 0;
+                /* We need to save state changes  */
+                save ();
             });
             return row;
         });
