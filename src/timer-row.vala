@@ -75,7 +75,18 @@ public class Row : Gtk.ListBoxRow {
         item.reset.connect (() => this.reset ());
         delete_button.clicked.connect (() => deleted ());
 
-        reset ();
+        item.update_countdown ();
+        switch (item.state) {
+          case STOPPED:
+            reset ();
+            break;
+          case RUNNING:
+            this.start ();
+            break;
+          case PAUSED:
+            this.pause ();
+            break;
+        }
     }
 
     [GtkCallback]
@@ -102,8 +113,6 @@ public class Row : Gtk.ListBoxRow {
         countdown_label.get_style_context ().remove_class ("timer-running");
         start_stack.visible_child_name = "start";
         name_stack.visible_child_name = "edit";
-
-        update_countdown (item.hours, item.minutes, item.seconds);
     }
 
     private void start () {
