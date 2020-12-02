@@ -160,6 +160,10 @@ private class SetupDialog : Gtk.Dialog {
             am_pm_stack.add (am_pm_button);
             am_pm_stack.visible_child = am_pm_button;
         }
+        /* Workaround: To keep the osk closed
+         * https://gitlab.gnome.org/GNOME/gtk/merge_requests/978#note_546576 */
+        h_spinbutton.set ("im-module", "gtk-im-context-none", null);
+        m_spinbutton.set ("im-module", "gtk-im-context-none", null);
 
         set_from_alarm ();
     }

@@ -49,6 +49,10 @@ public class Setup : Gtk.Box {
         insert_action_group ("timer-setup", actions);
 
         time_grid.set_direction (Gtk.TextDirection.LTR);
+
+        h_spinbutton.set ("im-module", "gtk-im-context-none", null);
+        m_spinbutton.set ("im-module", "gtk-im-context-none", null);
+        s_spinbutton.set ("im-module", "gtk-im-context-none", null);
     }
 
     private int get_duration () {
