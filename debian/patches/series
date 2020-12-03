@@ -23,3 +23,8 @@
 0001-Use-libfeedback-in-instead-of-GSound.patch
 # timers: Make timers persisted: https://gitlab.gnome.org/GNOME/gnome-clocks/-/merge_requests/148
 0001-timers-persist-running-timers.patch
+# Make alarms persisted and add missed alarms notation:
+# https://gitlab.gnome.org/GNOME/gnome-clocks/-/merge_requests/145
+0001-alarm-item-Make-sure-that-the-time-property-is-alway.patch
+0002-alarm-remove-edit-property.patch
+0003-alarms-Make-alarms-persisted-and-add-missed-alarms-n.patch
