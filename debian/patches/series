@@ -34,3 +34,5 @@
 # Autostart Clocks
 0001-add-option-to-start-hidden.patch
 0002-autostart-gnome-clocks.patch
+# Downgrade dependencies for amber 
+0001-downgrade-libgweather-to-3.27.2.patch
