@@ -18,3 +18,6 @@
 0018-fix-build-due-to-nullability-update-on-gio.patch
 0001-stopwatch-only-update-labels-when-text-changes.patch
 0002-timer-item-only-emit-countdown_updated-event-the-tex.patch
+#replace GSound with Libfeedback: https://gitlab.gnome.org/GNOME/gnome-clocks/-/merge_requests/151
+0001-timer-Use-name-that-can-be-added-to-the-event-naming.patch
+0001-Use-libfeedback-in-instead-of-GSound.patch
