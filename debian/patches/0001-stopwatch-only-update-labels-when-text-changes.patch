@@ -1,0 +1,54 @@
+From bcd2ec3a08df77de27a5d6fb798f8229c0b7764c Mon Sep 17 00:00:00 2001
+From: Julian Sparber <julian@sparber.net>
+Date: Wed, 2 Dec 2020 18:14:10 +0100
+Subject: [PATCH 1/2] stopwatch: only update labels when text changes
+
+---
+ src/stopwatch-face.vala | 24 ++++++++++++++++++++----
+ 1 file changed, 20 insertions(+), 4 deletions(-)
+
+diff --git a/src/stopwatch-face.vala b/src/stopwatch-face.vala
+index fd73d69..69199d9 100644
+--- a/src/stopwatch-face.vala
++++ b/src/stopwatch-face.vala
+@@ -47,6 +47,10 @@ public class Face : Gtk.Box, Clocks.Clock {
+ 
+     private GLib.Timer timer;
+     private uint tick_id;
++    private int stored_hour;
++    private int stored_minute;
++    private int stored_second;
++    double stored_milisecond;
+     private int current_lap;
+ 
+     [GtkChild]
+@@ -251,10 +255,22 @@ public class Face : Gtk.Box, Clocks.Clock {
+ 
+         // Note that the format uses unicode RATIO character
+         // We also prepend the LTR mark to make sure text is always in this direction
+-        hours_label.set_text ("%02i\u200E".printf (h));
+-        minutes_label.set_text ("%02i\u200E".printf (m));
+-        seconds_label.set_text ("%02i".printf (s));
+-        miliseconds_label.set_text ("%i".printf (ds));
++        if (stored_hour != h) {
++            hours_label.label = "%02i\u200E".printf (h);
++            stored_hour = h;
++        }
++        if (stored_minute != m) {
++            minutes_label.label = "%02i\u200E".printf (m);
++            stored_minute = m;
++        }
++        if (stored_second != s) {
++            seconds_label.label = "%02i".printf (s);
++            stored_second = s;
++        }
++        if (stored_milisecond != ds) {
++            miliseconds_label.label = "%i".printf (ds);
++            stored_milisecond = ds;
++        }
+ 
+         return true;
+     }
+-- 
+2.29.2
+

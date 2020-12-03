@@ -1,0 +1,51 @@
+From 261158c676cef3c63b426023fc6aafb220d1d42a Mon Sep 17 00:00:00 2001
+From: Julian Sparber <julian@sparber.net>
+Date: Thu, 3 Dec 2020 11:47:44 +0100
+Subject: [PATCH 2/2] timer-item: only emit countdown_updated event the text
+ changes
+
+---
+ src/timer-item.vala | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
+
+diff --git a/src/timer-item.vala b/src/timer-item.vala
+index eaea6a1..b226d83 100644
+--- a/src/timer-item.vala
++++ b/src/timer-item.vala
+@@ -37,6 +37,10 @@ public class Item : Object, ContentItem {
+     private double span;
+     private GLib.Timer timer;
+     private uint timeout_id;
++    private int stored_hour;
++    private int stored_minute;
++    private int stored_second;
++
+ 
+     public signal void ring ();
+     public signal void countdown_updated (int hours, int minutes, int seconds);
+@@ -100,7 +104,7 @@ public class Item : Object, ContentItem {
+ 
+     public virtual signal void start () {
+         state = State.RUNNING;
+-        timeout_id = GLib.Timeout.add (40, () => {
++        timeout_id = GLib.Timeout.add (100, () => {
+             var e = timer.elapsed ();
+             if (state != State.RUNNING) {
+                 return false;
+@@ -118,7 +122,12 @@ public class Item : Object, ContentItem {
+             double r;
+             Utils.time_to_hms (elapsed, out h, out m, out s, out r);
+ 
+-            countdown_updated (h, m, s);
++            if (stored_hour != h || stored_minute != m || stored_second != s) {
++                stored_hour = h;
++                stored_minute = m;
++                stored_second = s;
++                countdown_updated (h, m, s);
++            }
+             return true;
+         });
+         timer.start ();
+-- 
+2.29.2
+

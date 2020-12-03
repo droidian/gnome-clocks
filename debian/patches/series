@@ -1,0 +1,20 @@
+# Import changes from upstream master
+0001-Update-Hebrew-translation.patch
+0002-snap-the-pulseaudio-plug-has-been-replaced-by-the-au.patch
+0003-Update-Indonesian-translation.patch
+0004-meson-use-files-instead-of-lists.patch
+0006-Update-Chinese-Taiwan-translation.patch
+0007-Fix-build-warning.patch
+0008-Update-Esperanto-translation.patch
+0009-Updated-Danish-translation.patch
+0010-Simplified-the-language-in-instructions.patch
+0011-data-List-compatible-form-factors.patch
+0012-Update-Indonesian-translation.patch
+0013-Update-Ukrainian-translation.patch
+0014-Update-Polish-translation.patch
+0015-Updated-Czech-translation.patch
+0016-Update-Swedish-translation.patch
+0017-alarm-face-Save-active-changes-to-gsettings.patch
+0018-fix-build-due-to-nullability-update-on-gio.patch
+0001-stopwatch-only-update-labels-when-text-changes.patch
+0002-timer-item-only-emit-countdown_updated-event-the-tex.patch

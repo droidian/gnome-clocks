@@ -1,0 +1,37 @@
+From a81049403880731f5224503e2484e4b28a51d0c8 Mon Sep 17 00:00:00 2001
+From: Bilal Elmoussaoui <bil.elmoussaoui@gmail.com>
+Date: Sat, 21 Nov 2020 20:44:39 +0100
+Subject: [PATCH 18/18] fix build due to nullability update on gio
+
+fixes #157
+---
+ src/alarm-face.vala | 2 +-
+ src/window.vala     | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+Index: gnome-clocks/src/alarm-face.vala
+===================================================================
+--- gnome-clocks.orig/src/alarm-face.vala
++++ gnome-clocks/src/alarm-face.vala
+@@ -42,7 +42,7 @@ public class Face : Gtk.Stack, Clocks.Cl
+         alarms = new ContentStore ();
+         settings = new GLib.Settings ("org.gnome.clocks");
+ 
+-        var app = GLib.Application.get_default ();
++        var app = (!) GLib.Application.get_default ();
+         var action = (GLib.SimpleAction) app.lookup_action ("stop-alarm");
+         action.activate.connect ((action, param) => {
+             var a = alarms.find ((a) => {
+Index: gnome-clocks/src/window.vala
+===================================================================
+--- gnome-clocks.orig/src/window.vala
++++ gnome-clocks/src/window.vala
+@@ -182,7 +182,7 @@ public class Window : Hdy.ApplicationWin
+     }
+ 
+     private void on_show_primary_menu_activate (SimpleAction action) {
+-        var state = action.get_state ().get_boolean ();
++        var state = ((!) action.get_state ()).get_boolean ();
+         action.set_state (new Variant.boolean (!state));
+     }
+ 

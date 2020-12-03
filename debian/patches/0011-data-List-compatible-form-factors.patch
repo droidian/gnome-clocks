@@ -1,0 +1,37 @@
+From 36aad91c7332efaef9ccf0623bdb3cb93b67b6c7 Mon Sep 17 00:00:00 2001
+From: Adrien Plazas <kekun.plazas@laposte.net>
+Date: Fri, 6 Nov 2020 08:01:23 +0100
+Subject: [PATCH 11/18] data: List compatible form-factors
+
+This will allow the app to be available in Phosh and PureOS Store.
+---
+ data/org.gnome.clocks.desktop.in.in      | 2 ++
+ data/org.gnome.clocks.metainfo.xml.in.in | 4 ++++
+ 2 files changed, 6 insertions(+)
+
+diff --git a/data/org.gnome.clocks.desktop.in.in b/data/org.gnome.clocks.desktop.in.in
+index 58e6620..af1651f 100644
+--- a/data/org.gnome.clocks.desktop.in.in
++++ b/data/org.gnome.clocks.desktop.in.in
+@@ -15,3 +15,5 @@ StartupNotify=true
+ DBusActivatable=true
+ X-GNOME-UsesNotifications=true
+ X-Geoclue-Reason=Allows world clocks to be displayed for your time zone.
++# Translators: Do NOT translate or transliterate this text (these are enum types)!
++X-Purism-FormFactor=Workstation;Mobile;
+diff --git a/data/org.gnome.clocks.metainfo.xml.in.in b/data/org.gnome.clocks.metainfo.xml.in.in
+index 9bf0e67..715fd1d 100644
+--- a/data/org.gnome.clocks.metainfo.xml.in.in
++++ b/data/org.gnome.clocks.metainfo.xml.in.in
+@@ -96,4 +96,8 @@
+   <project_group>GNOME</project_group>
+   <translation type="gettext">gnome-clocks</translation>
+   <content_rating type="oars-1.0" />
++  <custom>
++    <value key="Purism::form_factor">workstation</value>
++    <value key="Purism::form_factor">mobile</value>
++  </custom>
+ </component>
+-- 
+2.29.2
+
