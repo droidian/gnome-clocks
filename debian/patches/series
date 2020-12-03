@@ -31,3 +31,6 @@
 # Don't show numpad when setting a new alarm/timer:
 # https://gitlab.gnome.org/GNOME/gnome-clocks/-/merge_requests/150
 0001-Don-t-show-numpad-when-setting-a-new-alarm-timer.patch
+# Autostart Clocks
+0001-add-option-to-start-hidden.patch
+0002-autostart-gnome-clocks.patch
