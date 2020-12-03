@@ -21,3 +21,5 @@
 #replace GSound with Libfeedback: https://gitlab.gnome.org/GNOME/gnome-clocks/-/merge_requests/151
 0001-timer-Use-name-that-can-be-added-to-the-event-naming.patch
 0001-Use-libfeedback-in-instead-of-GSound.patch
+# timers: Make timers persisted: https://gitlab.gnome.org/GNOME/gnome-clocks/-/merge_requests/148
+0001-timers-persist-running-timers.patch
