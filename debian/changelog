@@ -1,3 +1,9 @@
+gnome-clocks (3.38.0-2pureos+librem5.1) amber-phone; urgency=medium
+
+  * Use 3.38.0-2pureos+librem5.1 as version
+
+ -- Julian Sparber <julian.sparber@puri.sm>  Fri, 04 Dec 2020 16:47:57 +0100
+
 gnome-clocks (3.38.0-2) amber-phone; urgency=medium
 
   * ci: add gitlab ci
