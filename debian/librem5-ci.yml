@@ -1,38 +1,34 @@
 include:
  - 'https://source.puri.sm/Librem5/librem5-ci/raw/master/librem5-pipeline-definitions.yml'
 
+variables:
+  L5_DOCKER_IMAGE: "debian:bullseye"
+  L5_ADD_SCRATCH_CI: "false"
+
 stages:
  - package
  - test-package
 
-package:deb-debian-buster:
+package:deb-debian-bullseye:
   extends: .l5-build-debian-package
 
-package:deb-debian-buster:arm64:
+package:deb-debian-bullseye:arm64:
   tags:
     - librem5:arm64
   extends: .l5-build-debian-package
 
-package:check-tarball:
-  stage: package
-  tags: 
-    - librem5 
-  image: debian:bullseye
-  before_script:  
-    - apt update
-    - apt-get -y install build-essential git-buildpackage
-    - "rm -f ../*.orig.*"
-  script:
-    - gbp export-orig
-    - "md5sum ../*.orig.*"
-    - dpkg-buildpackage -uc -us -S -d -nc
-
-autopkgtest-debian-buster-package:
+autopkgtest-debian-bullseye-package:
   dependencies:
-    - package:deb-debian-buster
+    - package:deb-debian-bullseye
   extends: .l5-autopkgtest-debian-package
 
-lintian-debian-buster-package:
+lintian-debian-bullseye-package:
   dependencies:
-    - package:deb-debian-buster
+    - package:deb-debian-bullseye
   extends: .l5-lintian-debian-package
+
+check-tarball:
+  extends: .l5-check-tarball
+  only:
+    changes:
+      - "debian/changelog"
