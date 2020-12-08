@@ -13,6 +13,20 @@ package:deb-debian-buster:arm64:
     - librem5:arm64
   extends: .l5-build-debian-package
 
+package:check-tarball:
+  stage: package
+  tags: 
+    - librem5 
+  image: debian:bullseye
+  before_script:  
+    - apt update
+    - apt-get -y install build-essential git-buildpackage
+    - "rm -f ../*.orig.*"
+  script:
+    - gbp export-orig
+    - "md5sum ../*.orig.*"
+    - dpkg-buildpackage -uc -us -S -d -nc
+
 autopkgtest-debian-buster-package:
   dependencies:
     - package:deb-debian-buster
