@@ -1,3 +1,24 @@
+gnome-clocks (3.38.0-1pureos+librem5+byz1) byzantium; urgency=medium
+
+  [ Julian Sparber ]
+  * ci: add gitlab ci
+  * debian: add upstream changes as patches
+  * debian: add libfeedback patches
+  * debian/contorl: replace libgsound with libfeedback
+  * debian: add 'timers: Make timers persisted' patches
+  * debian: add 'missed_alarms' patches
+  * debian: add 'fix_keyboard_opening_upstream' patches
+  * debian: add autostart patches
+  * debian: Adjust gbp config for byzantium
+
+  [ Guido Günther ]
+  * debian: Add Librem5 CI
+  * librem5-ci: Check tarball generation
+  * Remove .gitlab-ci.yml
+  * Switch to Debian bullseye and use prefefined pipeline
+
+ -- Julian Sparber <julian.sparber@puri.sm>  Wed, 09 Dec 2020 14:34:58 +0100
+
 gnome-clocks (3.38.0-1) unstable; urgency=medium
 
   * New upstream release
