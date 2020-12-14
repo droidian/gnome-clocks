@@ -25,14 +25,23 @@ public class SetupDialog: Gtk.Dialog {
 
     public SetupDialog (Gtk.Window parent) {
         Object (modal: true, transient_for: parent, title: _("New Timer"), use_header_bar: 1);
-        this.set_default_size (640, 360);
 
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
         var create_button = add_button (_("Add"), Gtk.ResponseType.ACCEPT);
         create_button.get_style_context ().add_class ("suggested-action");
 
         timer_setup = new Setup ();
-        this.get_content_area ().add (timer_setup);
+        timer_setup.margin = 12;
+        var container = new Gtk.ScrolledWindow (null, null);
+        container.hexpand = true;
+        container.vexpand = true;
+        container.propagate_natural_height = true;
+        container.propagate_natural_width = true;
+        container.hscrollbar_policy = Gtk.PolicyType.NEVER;
+        container.border_width = 0;
+        container.visible = true;
+        container.add (timer_setup);
+        this.get_content_area ().add (container);
         timer_setup.duration_changed.connect ((duration) => {
             this.set_response_sensitive (Gtk.ResponseType.ACCEPT, duration != 0);
         });
