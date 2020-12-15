@@ -36,3 +36,10 @@
 0002-autostart-gnome-clocks.patch
 # Downgrade dependencies for amber 
 0001-downgrade-libgweather-to-3.27.2.patch
+# Allow clocks to be resized to small window heights a.k.a. Landscape mode on phones:
+# https://gitlab.gnome.org/GNOME/gnome-clocks/-/merge_requests/152
+0001-alarm-setup-dialog-Allow-much-smaller-heights-useing.patch
+0002-timer-setup-remove-unused-lables.patch
+0003-timer-Allow-much-smaller-heights-useing-a-ScrolledWi.patch
+0004-alarm-make-ringing-panel-fit-to-small-window-heights.patch
+0005-world-standalone-allow-smaller-window-heights.patch
