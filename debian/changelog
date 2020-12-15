@@ -1,3 +1,9 @@
+gnome-clocks (3.38.0-1pureos+librem5+byz2) byzantium; urgency=medium
+
+  * debian: add landscape patches
+
+ -- Julian Sparber <julian.sparber@puri.sm>  Tue, 15 Dec 2020 18:00:37 +0100
+
 gnome-clocks (3.38.0-1pureos+librem5+byz1) byzantium; urgency=medium
 
   [ Julian Sparber ]
