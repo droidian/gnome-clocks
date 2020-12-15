@@ -1,3 +1,9 @@
+gnome-clocks (3.38.0-2pureos+librem5.3) amber-phone; urgency=medium
+
+  * debian: add landscape patches
+
+ -- Julian Sparber <julian.sparber@puri.sm>  Tue, 15 Dec 2020 17:59:13 +0100
+
 gnome-clocks (3.38.0-2pureos+librem5.2) amber-phone; urgency=medium
 
   * ci: move gitlab ci file to debian folder
