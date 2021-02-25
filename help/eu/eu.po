@@ -1,29 +1,23 @@
-# Polish translation for gnome-clocks help.
-# Copyright © 2017-2020 the gnome-clocks authors.
-# This file is distributed under the same license as the gnome-clocks help.
-# Piotr Drąg <piotrdrag@gmail.com>, 2017-2020.
-# Aviary.pl <community-poland@mozilla.org>, 2017-2020.
+# Basque translation for gnome-clocks.
+# Copyright (C) 2021 gnome-clocks's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-clocks package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: gnome-clocks-help\n"
-"POT-Creation-Date: 2020-11-08 02:45+0000\n"
-"PO-Revision-Date: 2020-11-08 11:44+0200\n"
-"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
-"Language-Team: Polish <community-poland@mozilla.org>\n"
-"Language: pl\n"
+msgstr "Project-Id-Version: gnome-clocks master\n"
+"POT-Creation-Date: 2021-01-08 17:53+0000\n"
+"PO-Revision-Date: 2021-01-09 20:06+0000\n"
+"Last-Translator: Asier Sarasua Garmendia <asiersarasua@ni.eus>\n"
+"Language-Team: Basque <librezale@librezale.eus>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Language: eu\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr ""
-"Piotr Drąg <piotrdrag@gmail.com>, 2017-2020\n"
-"Aviary.pl <community-poland@mozilla.org>, 2017-2020"
+msgstr "translator-credits"
 
 #. (itstool) path: credit/name
 #: C/alarm-add.page:14 C/alarm-edit.page:14 C/alarm-remove.page:15
@@ -55,185 +49,167 @@ msgstr "Ekaterina Gerasimova"
 #. (itstool) path: info/desc
 #: C/alarm-add.page:24
 msgid "Use an alarm to set reminder for yourself."
-msgstr "Używanie budzika do ustawiania przypomnień."
+msgstr "Erabili alarma bat oroigarri bat ezartzeko."
 
 #. (itstool) path: page/title
 #: C/alarm-add.page:27
 msgid "Add an alarm"
-msgstr "Dodawanie budzika"
+msgstr "Gehitu alarma bat"
 
 #. (itstool) path: page/p
 #: C/alarm-add.page:29
 msgid ""
 "You can add an alarm for specific days of the week. It will go off "
 "regardless of whether <app>Clocks</app> is open or not."
-msgstr ""
-"Można dodać budzik dla podanych dni tygodnia. Budzik włączy się niezależnie "
-"od tego, czy program <app>Zegar</app> jest otwarty."
+msgstr "Asteko egun zehatzetarako alarmak ezarri daitezke. Berez piztuko da <app>Ordulariak</app> aplikazioa itxita egon arren."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:34
 msgid "Press <gui style=\"button\">Alarms</gui>."
-msgstr "Kliknij przycisk <gui style=\"button\">Budziki</gui>."
+msgstr "Sakatu <gui style=\"button\">Alarmak</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:37
 msgid "Press <gui style=\"button\">+</gui>."
-msgstr "Kliknij przycisk <gui style=\"button\">+</gui>."
+msgstr "Sakatu <gui style=\"button\">+</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:40
 msgid "Set the time when you want the alarm to go off."
-msgstr "Ustaw czas, kiedy budzik ma się włączyć."
+msgstr "Ezarri zein ordutan nahi duzun alarmak jo dezan."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:43
 msgid ""
 "Select the days on which you want the alarm to be repeated at the set time, "
 "or none if you only want the alarm to go off once."
-msgstr ""
-"Zaznacz dni, w których budzik ma być powtarzany o ustawionej godzinie, albo "
-"odznacz wszystkie, jeśli budzik ma włączyć się tylko raz."
+msgstr "Hautau zein egunetan nahi duzun alarma errepikatu dadin hemen ezarritako orduan, edo ez ezarri ezer alarmak behin bakarrik jo dezan nahi baduzu."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:47
 msgid "You can give your new alarm a name so that it is easier to identify."
-msgstr "Można nazwać dodany budzik, aby łatwiej go identyfikować."
+msgstr "Alarma berriari izen bat eman dakioke, horrela errazago identifikatu ahal izateko."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:51
 msgid "Press <gui style=\"button\">Add</gui> to finish adding the alarm."
-msgstr ""
-"Kliknij przycisk <gui style=\"button\">Dodaj</gui>, aby ukończyć dodawanie "
-"budzika."
+msgstr "Sakatu <gui style=\"button\">Gehitu</gui> alarmaren gehikuntza amaitzeko."
 
 #. (itstool) path: page/p
 #: C/alarm-add.page:55
 msgid ""
 "You can <link xref=\"alarm-edit\">temporarily disable your alarm</link> if "
 "you do not want to use it for a while."
-msgstr ""
-"Można <link xref=\"alarm-edit\">tymczasowo wyłączyć budzik</link>, jeśli nie "
-"ma być używany przez jakiś czas."
+msgstr "Alarma <link xref=\"alarm-edit\">aldi baterako desgaitu daiteke</link> tarte batean erabili nahi ez bada."
 
 #. (itstool) path: page/p
 #: C/alarm-add.page:58
 msgid "Your alarm will not go off if your computer is switched off."
-msgstr "Budzik się nie włączy, jeśli komputer jest wyłączony."
+msgstr "Alarma ez da piztuko ordenagailua itzalita badago."
 
 #. (itstool) path: info/desc
 #: C/alarm-edit.page:24
 msgid "Update your alarm or temporarily disable it."
-msgstr "Aktualizacja budzika lub jego tymczasowe wyłączenie."
+msgstr "Eguneratu alarma edo desgaitu aldi baterako."
 
 #. (itstool) path: page/title
 #: C/alarm-edit.page:27
 msgid "Edit an alarm"
-msgstr "Modyfikowanie budzika"
+msgstr "Editatu alarma bat"
 
 #. (itstool) path: page/p
 #: C/alarm-edit.page:29
 msgid "Edit your alarm to change when it goes off or to rename it."
-msgstr "Można zmodyfikować budzik, aby zmienić czas włączenia lub nazwę."
+msgstr "Editatu alarma, noiz joko duen aldatu nahi baduzu edo beste izen bat eman nahi badiozu."
 
 #. (itstool) path: item/p
 #: C/alarm-edit.page:33 C/alarm-edit.page:48 C/alarm-remove.page:34
 msgid "Press the <gui style=\"button\">Alarms</gui> button."
-msgstr "Kliknij przycisk <gui style=\"button\">Budziki</gui>."
+msgstr "Sakatu <gui style=\"button\">Alarmak</gui> botoia."
 
 #. (itstool) path: item/p
 #: C/alarm-edit.page:36
 msgid ""
 "Find the alarm you want to change and press <gui style=\"button\">Edit</gui>."
-msgstr ""
-"Znajdź budzik do zmiany i kliknij przycisk <gui style=\"button\">Modyfikuj</"
-"gui>."
+msgstr "Aurkitu aldatu nahi den alarma eta sakatu <gui style=\"button\">Editatu</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-edit.page:39
 msgid ""
 "Update the alarm and press <gui style=\"button\">Done</gui> to finish "
 "editing it."
-msgstr ""
-"Zaktualizuj budzik i kliknij przycisk <gui style=\"button\">Gotowe</gui>, "
-"aby ukończyć modyfikowanie."
+msgstr "Eguneratu alarman eta sakatu <gui style=\"button\">Egina</gui> bere edizioa amaitzeko."
 
 #. (itstool) path: page/p
 #: C/alarm-edit.page:44
 msgid "You can also temporarily disable an alarm."
-msgstr "Można także tymczasowo wyłączyć budzik."
+msgstr "Alarma aldi baterako desgaitu daiteke."
 
 #. (itstool) path: item/p
 #: C/alarm-edit.page:51
 msgid "Find the alarm you want to disable or enable and toggle the switch."
-msgstr "Znajdź budzik do wyłączenia lub włączenia i przełącz go."
+msgstr "Aurkitu desgaitu edo gaitu nahi den alarma eta sakatu aldagailua."
 
 #. (itstool) path: item/p
 #: C/alarm-edit.page:54
 msgid ""
 "When the alarm is disabled, it will not go off, but it can be enabled again "
 "later."
-msgstr ""
-"Po wyłączeniu budzik nie będzie działał, ale można go włączyć z powrotem "
-"później."
+msgstr "Alarmak ez du joko desgaituta badago, baina geroago berriro gaitu daiteke."
 
 #. (itstool) path: info/desc
 #: C/alarm-remove.page:25
 msgid "Delete an alarm which you no longer need."
-msgstr "Usuwanie niepotrzebnego budzika."
+msgstr "Ezabatu behar ez dituzun alarmak."
 
 #. (itstool) path: page/title
 #: C/alarm-remove.page:28
 msgid "Remove an alarm"
-msgstr "Usuwanie budzika"
+msgstr "Kendu alarma bat"
 
 #. (itstool) path: page/p
 #: C/alarm-remove.page:30
 msgid "You can delete alarms which you no longer need."
-msgstr "Można usuwać niepotrzebne budziki."
+msgstr "Berriro behar ez diren alarmak ezabatu egin daitezke."
 
 #. (itstool) path: item/p
 #: C/alarm-remove.page:37
 msgid "Press the <gui style=\"button\">Delete</gui> button to remove an alarm."
-msgstr "Kliknij przycisk <gui style=\"button\">Usuń</gui>, aby usunąć budzik."
+msgstr "Sakatu <gui style=\"button\">Ezabatu</gui> botoia alarma kentzeko."
 
 #. (itstool) path: info/desc
 #: C/alarm-snooze-stop.page:24
 msgid "Stop the alarm or set it to go off nine minutes later."
-msgstr "Zatrzymanie budzika lub ustawienie włączenia za dziewięć minut."
+msgstr "Gelditu alarma edo aldatu bederatzi minutu geroago piztu dadin."
 
 #. (itstool) path: page/title
 #: C/alarm-snooze-stop.page:27
 msgid "Stop or snooze your alarm"
-msgstr "Zatrzymanie budzika lub drzemka"
+msgstr "Gelditu edo ezarri errepikatu dadin"
 
 #. (itstool) path: page/p
 #: C/alarm-snooze-stop.page:29
 msgid ""
 "When your alarm goes off, you can either stop the alarm or snooze it. When "
 "you snooze the alarm, the alarm is reset to go off nine minutes later."
-msgstr ""
-"Kiedy budzik się włączy, można go zatrzymać lub włączyć drzemkę. Drzemka "
-"oznacza, że budzik włączy się jeszcze raz za dziewięć minut."
+msgstr "Alarmak jotzen duenean, hura gelditu egin daiteke edo errepikatu dadin ezarri daiteke. Alarma errepikatzeko ezartzen denean, bederatzi minutu geroago berriro jotzen du."
 
 #. (itstool) path: page/p
 #: C/alarm-snooze-stop.page:32
 msgid ""
 "When your alarm goes off, a notification will pop up from your notification "
 "tray. If you have <app>Clocks</app> open, you will also see the alarm there."
-msgstr ""
-"Kiedy budzik się włączy, pojawia się powiadomienie w obszarze powiadomień. "
-"Jeśli program <app>Zegar</app> jest otwarty, to budzik jest w nim widoczny."
+msgstr "Alarmak jotzen duenean, jakinarazpen bat agertzen da jakinarazpenen erretiluan. <app>Ordulariak</app> irekita badago, alarma hor bertan ere ikusi daiteke."
 
 #. (itstool) path: info/desc
 #: C/stopwatch.page:24
 msgid "Use the stopwatch to measure the time that you take to finish a task."
-msgstr "Używanie stopera do mierzenia czasu, jaki zajmuje ukończenie zadania."
+msgstr "Erabili kronometroa zeregin bat amaitzeko behar den denbora neurtzeko."
 
 #. (itstool) path: page/title
 #: C/stopwatch.page:28
 msgid "Clock your best times"
-msgstr "Mierzenie najlepszych czasów"
+msgstr "Neurtu zure denborarik onenak"
 
 #. (itstool) path: page/p
 #: C/stopwatch.page:30
@@ -244,38 +220,29 @@ msgid ""
 "taken to run each lap and the time taken to cover the entire distance. By "
 "timing each lap, they are able to tell if their speed changes from lap to "
 "lap."
-msgstr ""
-"Można używać stopera do mierzenia czasu, jaki zajmuje ukończenie różnych "
-"części zadania, jednocześnie mierząc całkowity czas wykonywania zdania. "
-"Stoper jest często używany przez sportowców do mierzenia czasu "
-"przebiegnięcia każdego okrążenia i czasu przebiegnięcia całej odległości. "
-"Mierzenie każdego okrążenia umożliwia stwierdzenie, czy ich szybkość zmienia "
-"się z okrążenia na okrążenie."
+msgstr "Erabili kronometroa zeregin baten atalak osatzeko behar den denbora neurtzeko, eta aldi berean zeregin osoa amaitzeko behar den denbora jakiteko. Sarritan atletek erabiltzen dute itzuli bakoitza egiteko behar izan duten denbora eta distantzia osoa egiteko behar izan dutena ezagutzeko. Itzuli bakoitza neurtuta, itzulien artean zein abiadura-desberdintasun izan duten ezagutu dezakete."
 
 #. (itstool) path: item/p
 #: C/stopwatch.page:38
 msgid "Press the <gui style=\"button\">Stopwatch</gui> button."
-msgstr "Kliknij przycisk <gui style=\"button\">Stoper</gui>."
+msgstr "Sakatu <gui style=\"button\">Kronometroa</gui> botoia."
 
 #. (itstool) path: item/p
 #: C/stopwatch.page:41
 msgid "Press <gui style=\"button\">Start</gui> to start the stopwatch."
-msgstr ""
-"Kliknij przycisk <gui style=\"button\">Rozpocznij</gui>, aby włączyć stoper."
+msgstr "Sakatu <gui style=\"button\">Hasi</gui> kronometroa abiarazteko."
 
 #. (itstool) path: item/p
 #: C/stopwatch.page:44
 msgid "After completing one phase of the task:"
-msgstr "Po ukończeniu jednej części zadania:"
+msgstr "Zereginaren ataletako bat amaitu ondoren:"
 
 #. (itstool) path: item/p
 #: C/stopwatch.page:47
 msgid ""
 "Press <gui style=\"button\">Lap</gui> to record the end of the first phase "
 "and to start timing the next phase."
-msgstr ""
-"Kliknij przycisk <gui style=\"button\">Okrążenie</gui>, aby zapisać koniec "
-"pierwszej części i zacząć mierzenie następnej."
+msgstr "Sakatu <gui style=\"button\">Itzulia</gui> lehen atalaren amaiera eta hurrengoaren hasiera erregistratzeko."
 
 #. (itstool) path: item/p
 #: C/stopwatch.page:51
@@ -283,8 +250,6 @@ msgid ""
 "Press <gui style=\"button\">Pause</gui> to pause the stopwatch and <gui "
 "style=\"button\">Resume</gui> when you are ready to resume timing the task."
 msgstr ""
-"Kliknij przycisk <gui style=\"button\">Wstrzymaj</gui>, aby wstrzymać stoper "
-"i przycisk <gui style=\"button\">Wznów</gui>, aby wznowić mierzenie czasu."
 
 #. (itstool) path: page/p
 #: C/stopwatch.page:59
@@ -292,8 +257,6 @@ msgid ""
 "You can use the <gui style=\"button\">Clear</gui> button to reset the "
 "stopwatch when it is paused."
 msgstr ""
-"Można użyć przycisku <gui style=\"button\">Wyczyść</gui>, aby zresetować "
-"stoper po jego wstrzymaniu."
 
 #. (itstool) path: note/p
 #: C/stopwatch.page:63
@@ -301,18 +264,16 @@ msgid ""
 "Your lap times and total time will be lost when you reset the stopwatch or "
 "restart <app>Clocks</app>."
 msgstr ""
-"Czasy okrążeń i całkowity czas zostaną utracone po zresetowaniu stopera lub "
-"wyłączeniu programu <app>Zegar</app>."
 
 #. (itstool) path: info/desc
 #: C/timer.page:24
 msgid "Use a countdown to be notified when a time period has elapsed."
-msgstr "Używanie odliczania do powiadamiania, kiedy minął podany czas."
+msgstr ""
 
 #. (itstool) path: page/title
 #: C/timer.page:27
 msgid "Set the timer"
-msgstr "Ustawianie minutnika"
+msgstr ""
 
 #. (itstool) path: page/p
 #: C/timer.page:29
@@ -320,30 +281,26 @@ msgid ""
 "Set the amount of time for the timer countdown. You will be notified when "
 "the countdown has finished."
 msgstr ""
-"Można ustawić czas do odliczenia. Po ukończeniu odliczania zostanie "
-"wyświetlone powiadomienie."
 
 #. (itstool) path: item/p
 #: C/timer.page:34
 msgid "Press the <gui style=\"button\">Timer</gui> button."
-msgstr "Kliknij przycisk <gui style=\"button\">Minutnik</gui>."
+msgstr ""
 
 #. (itstool) path: item/p
 #: C/timer.page:37
 msgid "Set your time for the countdown."
-msgstr "Ustaw czas do odliczenia."
+msgstr ""
 
 #. (itstool) path: item/p
 #: C/timer.page:40
 msgid "Press <gui style=\"button\">Start</gui> to commence the countdown."
 msgstr ""
-"Kliknij przycisk <gui style=\"button\">Rozpocznij</gui>, aby zacząć "
-"odliczanie."
 
 #. (itstool) path: page/p
 #: C/timer.page:44
 msgid "You will be notified when the countdown reaches zero."
-msgstr "Po osiągnięciu zera zostanie wyświetlone powiadomienie."
+msgstr ""
 
 #. (itstool) path: note/p
 #: C/timer.page:47
@@ -352,9 +309,6 @@ msgid ""
 "\"button\">Pause</gui> button to pause the timer. To reset the timer, press "
 "the <gui style=\"button\">Reset</gui> button."
 msgstr ""
-"Po rozpoczęciu odliczania można kliknąć przycisk <gui style=\"button"
-"\">Wstrzymaj</gui>, aby wstrzymać minutnik. Aby go zresetować, kliknij "
-"przycisk <gui style=\"button\">Resetuj</gui>."
 
 #. (itstool) path: credit/name
 #: C/world-add.page:24
@@ -364,12 +318,12 @@ msgstr "Michael Hill"
 #. (itstool) path: info/desc
 #: C/world-add.page:28
 msgid "Add a clock for a new city to your world clocks list."
-msgstr "Dodawanie zegara dla nowego miasta do listy zegarów światowych."
+msgstr ""
 
 #. (itstool) path: page/title
 #: C/world-add.page:31
 msgid "Add a new city clock"
-msgstr "Dodawanie nowego zegara światowego"
+msgstr ""
 
 #. (itstool) path: page/p
 #: C/world-add.page:33
@@ -378,14 +332,11 @@ msgid ""
 "city. You will also be able to <link xref=\"world-check\">check the sunrise "
 "and sunset times</link> for each of the cities that you have added."
 msgstr ""
-"Można dodać miasto do zegarów światowych, aby widzieć czas w tym mieście. "
-"Dzięki temu można także <link xref=\"world-check\">sprawdzać czas wschodu "
-"i zachodu słońca</link> dla każdego dodanego miasta."
 
 #. (itstool) path: item/p
 #: C/world-add.page:39 C/world-check.page:35 C/world-remove.page:33
 msgid "Press the <gui style=\"button\">World</gui> button."
-msgstr "Kliknij przycisk <gui style=\"button\">Świat</gui>."
+msgstr ""
 
 #. (itstool) path: item/p
 #: C/world-add.page:42
@@ -393,25 +344,21 @@ msgid ""
 "Press the <gui style=\"button\">+</gui> button or <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> to add a new city."
 msgstr ""
-"Kliknij przycisk <gui style=\"button\">+</gui> lub klawisze "
-"<keyseq><key>Ctrl</key><key>N</key></keyseq>, aby dodać nowe miasto."
 
 #. (itstool) path: item/p
 #: C/world-add.page:46
 msgid "Start typing the name of the city into the search."
-msgstr "Zacznij pisać nazwę miasta w polu wyszukiwania."
+msgstr ""
 
 #. (itstool) path: item/p
 #: C/world-add.page:49
 msgid "Select the correct city or the closest location to you from the list."
-msgstr "Wybierz właściwe miasto lub inne najbliższe położenie z listy."
+msgstr ""
 
 #. (itstool) path: item/p
 #: C/world-add.page:53
 msgid "Press <gui style=\"button\">Add</gui> to finish adding the city."
 msgstr ""
-"Kliknij przycisk <gui style=\"button\">Dodaj</gui>, aby ukończyć dodawanie "
-"miasta."
 
 #. (itstool) path: page/p
 #: C/world-add.page:57
@@ -420,9 +367,6 @@ msgid ""
 "this time. You should try adding the closest bigger city or the capital of "
 "your country instead."
 msgstr ""
-"Jeśli na liście nie ma miasta, to prawdopodobnie nie jest ono obecnie "
-"dostępne. Należy zamiast tego dodać najbliższe większe miasto lub stolicę "
-"kraju."
 
 #. (itstool) path: note/p
 #: C/world-add.page:62
@@ -432,19 +376,16 @@ msgid ""
 "you disconnect from the Internet and it will automatically update if you "
 "take your computer to a different city."
 msgstr ""
-"Jeśli połączono z Internetem, to zegar dla obecnego położenia zostanie "
-"dodany automatycznie. Nie będzie on wyświetlany po rozłączeniu i zostanie "
-"automatycznie zaktualizowany po zmianie położenia."
 
 #. (itstool) path: info/desc
 #: C/world-check.page:24
 msgid "Check the sunrise and sunset times for a city."
-msgstr "Sprawdzanie czasu wschodu i zachodu słońca dla miasta."
+msgstr ""
 
 #. (itstool) path: page/title
 #: C/world-check.page:27
 msgid "What else do world clocks show?"
-msgstr "Co jeszcze widać na zegarze światowym?"
+msgstr ""
 
 #. (itstool) path: page/p
 #: C/world-check.page:29
@@ -452,41 +393,38 @@ msgid ""
 "Apart from checking the time, you can also view the sunrise and sunset times "
 "for today. You will also see if the city is a day behind or ahead of you."
 msgstr ""
-"Oprócz obecnego czasu można także zobaczyć czas wschodu i zachodu słońca. "
-"Widać także, czy miasto jest dzień za lub przed użytkownikiem."
 
 #. (itstool) path: item/p
 #: C/world-check.page:38
 msgid "Select a city to view more information about it."
-msgstr "Wybierz miasto, aby wyświetlić o nim więcej informacji."
+msgstr ""
 
 #. (itstool) path: info/desc
 #: C/world-remove.page:24
 msgid "Delete a world clock which you no longer need."
-msgstr "Usuwanie niepotrzebnego zegara światowego."
+msgstr ""
 
 #. (itstool) path: page/title
 #: C/world-remove.page:27
 msgid "Remove a world clock"
-msgstr "Usuwanie zegara światowego"
+msgstr ""
 
 #. (itstool) path: page/p
 #: C/world-remove.page:29
 msgid "You can delete clocks which you no longer need."
-msgstr "Można usuwać niepotrzebne zegary światowe."
+msgstr ""
 
 #. (itstool) path: item/p
 #: C/world-remove.page:36
 msgid ""
 "Press the <gui style=\"button\">Delete</gui> button to remove a world clock."
 msgstr ""
-"Kliknij przycisk <gui style=\"button\">Usuń</gui>, aby usunąć zegar światowy."
 
 #. (itstool) path: info/title
 #: C/index.page:22
 msgctxt "link:seealso"
 msgid "Clocks Help"
-msgstr "Pomoc zegara"
+msgstr ""
 
 #. (itstool) path: info/desc
 #: C/index.page:24
@@ -494,13 +432,11 @@ msgid ""
 "Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
 "the time in different cities around the world."
 msgstr ""
-"Używanie programu <app>Zegar</app> jako stopera, minutnika, budzika "
-"i wyświetlania czasu w różnych miastach na całym świecie."
 
 #. (itstool) path: page/title
 #: C/index.page:28
 msgid "<_:media-1/>Clocks"
-msgstr "<_:media-1/> Zegar"
+msgstr ""
 
 #. (itstool) path: page/p
 #: C/index.page:30
@@ -508,13 +444,11 @@ msgid ""
 "Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
 "the time in different cities."
 msgstr ""
-"Można używać program <app>Zegar</app> jako stoper, minutnik, budzik i do "
-"wyświetlania czasu w różnych miastach."
 
 #. (itstool) path: section/title
 #: C/index.page:34
 msgid "World clocks"
-msgstr "Zegar światowy"
+msgstr ""
 
 #. (itstool) path: section/p
 #: C/index.page:36
@@ -523,46 +457,43 @@ msgid ""
 "check if it is still the same day in those cities, and the sunrise and "
 "sunset times."
 msgstr ""
-"Wyświetlanie czasu w miastach na całym świecie na jednym ekranie. Można "
-"także sprawdzać, czy w tych miastach jest jeszcze ten sam dzień oraz kiedy "
-"wschodzi i zachodzi słońce."
 
 #. (itstool) path: section/title
 #: C/index.page:43
 msgid "Alarm clocks"
-msgstr "Budziki"
+msgstr ""
 
 #. (itstool) path: section/p
 #: C/index.page:45
 msgid "Set customisable alarms to go off on specific days every week."
-msgstr "Ustawianie budzików włączających się w podane dni tygodnia."
+msgstr ""
 
 #. (itstool) path: section/title
 #: C/index.page:50
 msgid "Stopwatch"
-msgstr "Stoper"
+msgstr ""
 
 #. (itstool) path: section/p
 #: C/index.page:52
 msgid "Use the stopwatch to time how long something takes."
-msgstr "Można używać stopera do mierzenia czasu, jaki coś zajmuje."
+msgstr ""
 
 #. (itstool) path: section/title
 #: C/index.page:57
 msgid "Timer"
-msgstr "Minutnik"
+msgstr ""
 
 #. (itstool) path: section/p
 #: C/index.page:59
 msgid "Set a countdown in seconds, minutes or hours."
-msgstr "Można ustawić odliczanie w sekundach, minutach i godzinach."
+msgstr ""
 
 #. (itstool) path: p/link
 #: C/legal.xml:4
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
-msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported"
+msgstr ""
 
 #. (itstool) path: license/p
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
-msgstr "Na warunkach licencji <_:link-1/>."
+msgstr ""

@@ -30,27 +30,27 @@ public class Window : Hdy.ApplicationWindow {
     };
 
     [GtkChild]
-    private HeaderBar header_bar;
+    private unowned HeaderBar header_bar;
     [GtkChild]
-    private Hdy.Deck alarm_deck;
+    private unowned Hdy.Deck alarm_deck;
     [GtkChild]
-    private Hdy.Deck world_deck;
+    private unowned Hdy.Deck world_deck;
     [GtkChild]
-    private Gtk.Box main_view;
+    private unowned Gtk.Box main_view;
     [GtkChild]
-    private Gtk.Stack stack;
+    private unowned Gtk.Stack stack;
     [GtkChild]
-    private World.Face world;
+    private unowned World.Face world;
     [GtkChild]
-    private Alarm.Face alarm;
+    private unowned Alarm.Face alarm;
     [GtkChild]
-    private World.Standalone world_standalone;
+    private unowned World.Standalone world_standalone;
     [GtkChild]
-    private Alarm.RingingPanel alarm_ringing_panel;
+    private unowned Alarm.RingingPanel alarm_ringing_panel;
     [GtkChild]
-    private Stopwatch.Face stopwatch;
+    private unowned Stopwatch.Face stopwatch;
     [GtkChild]
-    private Timer.Face timer;
+    private unowned Timer.Face timer;
 
     private GLib.Settings settings;
 
@@ -67,6 +67,11 @@ public class Window : Hdy.ApplicationWindow {
 
         settings = new Settings ("org.gnome.clocks.state.window");
         settings.delay ();
+
+        // We need to set this manually, otherwise it fails in the devel version
+        var builder = new Gtk.Builder.from_resource ("/org/gnome/clocks/gtk/help-overlay.ui");
+        var dialog = (Gtk.ShortcutsWindow)builder.get_object ("help_overlay");
+        set_help_overlay (dialog);
 
         // GSettings gives us the nick, which matches the stack page name
         stack.visible_child_name = settings.get_string ("panel-id");
@@ -114,11 +119,6 @@ public class Window : Hdy.ApplicationWindow {
             stack.child_set_property (timer, "needs-attention", timer.is_running);
         });
 
-        // We need to set this manually, otherwise it fails in the devel version
-        var builder = new Gtk.Builder.from_resource ("/org/gnome/clocks/gtk/help-overlay.ui");
-        var dialog = (Gtk.ShortcutsWindow)builder.get_object ("help_overlay");
-        set_help_overlay (dialog);
-
         unowned Gtk.BindingSet binding_set = Gtk.BindingSet.by_class (get_class ());
 
         // plain ctrl+page_up/down is easten by the scrolled window...
@@ -132,6 +132,27 @@ public class Window : Hdy.ApplicationWindow {
                                      Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.MOD1_MASK,
                                      "change-page", 1,
                                      typeof (int), 1);
+
+        Gtk.BindingEntry.add_signal (binding_set,
+                                     Gdk.Key.@1,
+                                     Gdk.ModifierType.MOD1_MASK,
+                                     "set-page", 1,
+                                     typeof (string), "world");
+        Gtk.BindingEntry.add_signal (binding_set,
+                                     Gdk.Key.@2,
+                                     Gdk.ModifierType.MOD1_MASK,
+                                     "set-page", 1,
+                                     typeof (string), "alarm");
+        Gtk.BindingEntry.add_signal (binding_set,
+                                     Gdk.Key.@3,
+                                     Gdk.ModifierType.MOD1_MASK,
+                                     "set-page", 1,
+                                     typeof (string), "stopwatch");
+        Gtk.BindingEntry.add_signal (binding_set,
+                                     Gdk.Key.@4,
+                                     Gdk.ModifierType.MOD1_MASK,
+                                     "set-page", 1,
+                                     typeof (string), "timer");
 
         Gtk.StyleContext style = get_style_context ();
         if (Config.PROFILE == "Devel") {
@@ -181,8 +202,13 @@ public class Window : Hdy.ApplicationWindow {
         }
     }
 
+    [Signal (action = true)]
+    public virtual signal void set_page (string page) {
+        stack.visible_child_name = page;
+    }
+
     private void on_show_primary_menu_activate (SimpleAction action) {
-        var state = action.get_state ().get_boolean ();
+        var state = ((!) action.get_state ()).get_boolean ();
         action.set_state (new Variant.boolean (!state));
     }
 
@@ -263,7 +289,7 @@ public class Window : Hdy.ApplicationWindow {
 
     private void on_help_activate () {
         try {
-            Gtk.show_uri (get_screen (), "help:gnome-clocks", Gtk.get_current_event_time ());
+            Gtk.show_uri_on_window (this, "help:gnome-clocks", Gtk.get_current_event_time ());
         } catch (Error e) {
             warning (_("Failed to show help: %s"), e.message);
         }
