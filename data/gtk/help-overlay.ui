@@ -54,6 +54,34 @@
                 <property name="title" translatable="yes" context="shortcut window">Go to the previous section</property>
               </object>
             </child>
+             <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;alt&gt;1</property>
+                <property name="title" translatable="yes" context="shortcut window">Go to the World section</property>
+              </object>
+            </child>
+             <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;alt&gt;2</property>
+                <property name="title" translatable="yes" context="shortcut window">Go to the Alarms section</property>
+              </object>
+            </child>
+             <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;alt&gt;3</property>
+                <property name="title" translatable="yes" context="shortcut window">Go to the Stopwatch section</property>
+              </object>
+            </child>
+             <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;alt&gt;4</property>
+                <property name="title" translatable="yes" context="shortcut window">Go to the Timer section</property>
+              </object>
+            </child>
           </object>
         </child>
         <child>
