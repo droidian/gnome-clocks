@@ -1,3 +1,9 @@
+gnome-clocks (40~beta-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 25 Feb 2021 21:13:09 +0100
+
 gnome-clocks (3.38.0-1) unstable; urgency=medium
 
   * New upstream release
