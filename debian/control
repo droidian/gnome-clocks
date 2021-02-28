@@ -25,7 +25,9 @@ Build-Depends: appstream,
                libxml2-utils,
                meson (>= 0.50.0),
                pkg-config,
-               valac (>= 0.32.0)
+               valac (>= 0.32.0),
+               cmake,
+               libgsound-dev,
 Standards-Version: 4.5.0
 Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-clocks
 Vcs-Git: https://salsa.debian.org/gnome-team/gnome-clocks.git
