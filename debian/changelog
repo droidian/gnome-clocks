@@ -1,8 +1,8 @@
-gnome-clocks (40.0-1) UNRELEASED; urgency=medium
+gnome-clocks (40.0-1) experimental; urgency=medium
 
   * New upstream release
 
- -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Mon, 31 May 2021 19:02:16 +0200
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Mon, 31 May 2021 19:02:59 +0200
 
 gnome-clocks (40~beta-1) experimental; urgency=medium
 
