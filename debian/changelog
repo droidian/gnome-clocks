@@ -1,3 +1,9 @@
+gnome-clocks (3.38.0-2pureos+librem5.3+byz1) byzantium; urgency=medium
+
+  * Fix up version number to be higher than in amber-phone
+
+ -- Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>  Thu, 02 Sep 2021 03:54:24 +0200
+
 gnome-clocks (3.38.0-1pureos+librem5+byz2) byzantium; urgency=medium
 
   * debian: add landscape patches
