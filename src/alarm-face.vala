@@ -30,11 +30,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private ContentStore alarms;
     private GLib.Settings settings;
     [GtkChild]
-    private Gtk.Widget empty_view;
+    private unowned Gtk.Widget empty_view;
     [GtkChild]
-    private Gtk.ListBox listbox;
+    private unowned Gtk.ListBox listbox;
     [GtkChild]
-    private Gtk.ScrolledWindow list_view;
+    private unowned Gtk.ScrolledWindow list_view;
 
     construct {
         panel_id = ALARM;
@@ -42,7 +42,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         alarms = new ContentStore ();
         settings = new GLib.Settings ("org.gnome.clocks");
 
-        var app = GLib.Application.get_default ();
+        var app = (!) GLib.Application.get_default ();
         var action = (GLib.SimpleAction) app.lookup_action ("stop-alarm");
         action.activate.connect ((action, param) => {
             var a = alarms.find ((a) => {
@@ -66,6 +66,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         });
 
         listbox.bind_model (alarms, (item) => {
+            item.notify["active"].connect (save);
             return new Row ((Item) item, this);
         });
 

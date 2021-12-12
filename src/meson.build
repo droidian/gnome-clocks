@@ -1,8 +1,8 @@
-vapi_sources = [
+vapi_sources = files(
   'config.vapi',
-]
+)
 
-clocks_vala_sources = [
+clocks_vala_sources = files(
   'alarm-day-picker-row.vala',
   'alarm-face.vala',
   'alarm-item.vala',
@@ -33,12 +33,12 @@ clocks_vala_sources = [
   'world-row.vala',
   'world-shell-world-clocks.vala',
   'world-standalone.vala',
-]
+)
 
-clocks_c_sources = [
+clocks_c_sources = files(
   'cutils.c',
   'twilight.c',
-]
+)
 
 clocks_sources = [
   vapi_sources,
@@ -82,3 +82,37 @@ executable('gnome-clocks', clocks_sources,
   dependencies: clocks_dependencies,
   install: true
 )
+
+if get_option('docs')
+  valadoc = find_program('valadoc')
+  custom_target('docs',
+    input: clocks_vala_sources,
+    output: 'docs',
+    command: [
+      valadoc,
+      '--doclet=html',
+      '--force',
+      '--package-name=@0@'.format(meson.project_name()),
+      '--package-version=@0@'.format(meson.project_version()),
+      '--pkg=glib-2.0',
+      '--pkg=gio-2.0',
+      '--pkg=gio-unix-2.0',
+      '--pkg=gtk+-3.0',
+      '--pkg=gobject-2.0',
+      '--pkg=libhandy-1',
+      '--pkg=gsound',
+      '--pkg=gweather-3.0',
+      '--pkg=gnome-desktop-3.0',
+      '--pkg=geocode-glib-1.0',
+      '--pkg=libgeoclue-2.0',
+      '--pkg=config',
+      '--directory=@OUTDIR@/../docs',
+      '--vapidir=@0@'.format(meson.current_source_dir()),
+      '--use-svg-images',
+      '--internal',
+      '--private',
+      clocks_vala_sources
+    ],
+    build_by_default: true,
+  )
+endif

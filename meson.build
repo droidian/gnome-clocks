@@ -1,7 +1,7 @@
 project(
   'gnome-clocks',
   ['vala', 'c'],
-  version: '3.38.0',
+  version: '40.0',
   license: 'GPL2+',
   meson_version: '>= 0.50.0',
 )
@@ -21,6 +21,7 @@ geocodeglib = dependency('geocode-glib-1.0', version: '>=1.0')
 libgeoclue = dependency('libgeoclue-2.0', version: '>=2.4')
 libhandy = dependency ('libhandy-1', version: '>= 1.0.0', required: false)
 
+libhandy_subproj = libhandy
 if not libhandy.found()
   libhandy_subproj = subproject(
     'libhandy',
