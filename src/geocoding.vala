@@ -102,26 +102,27 @@ public class Info : Object {
             }
         }
 
-        var locations = location.get_children ();
-        for (int i = 0; i < locations.length; i++) {
-            if (locations[i].get_level () == GWeather.LocationLevel.CITY) {
-                if (locations[i].has_coords ()) {
+        var loc = location.next_child (null);
+        while (loc != null) {
+            if (loc.get_level () == GWeather.LocationLevel.CITY) {
+                if (loc.has_coords ()) {
                     double latitude, longitude, distance;
 
-                    locations[i].get_coords (out latitude, out longitude);
+                    loc.get_coords (out latitude, out longitude);
                     distance = get_distance (((GClue.Location) geo_location).latitude,
                                              ((GClue.Location) geo_location).longitude,
                                              latitude,
                                              longitude);
 
                     if (distance < minimal_distance) {
-                        found_location = locations[i];
+                        found_location = loc;
                         minimal_distance = distance;
                     }
                 }
             }
 
-            yield search_locations (locations[i]);
+            yield search_locations (loc);
+            loc = location.next_child (loc);
         }
     }
 

@@ -164,11 +164,14 @@ private class LocationDialog : Gtk.Dialog {
             default:
                 break;
         }
-        foreach (var child in location.get_children ()) {
-            query_locations (child, search);
+
+        var loc = location.next_child (null);
+        while (loc != null) {
+            query_locations (loc, search);
             if (locations.get_n_items () >= RESULT_COUNT_LIMIT) {
                 return;
             }
+            loc = location.next_child (loc);
         }
     }
 }
