@@ -143,7 +143,7 @@ private class LocationDialog : Gtk.Dialog {
                 string? timezone_name = null;
                 var timezone = location.get_timezone ();
                 if (timezone != null) {
-                    timezone_name = ((GWeather.Timezone) timezone).get_name ();
+                    timezone_name = timezone.get_identifier ();
                     if (timezone_name != null) {
                         timezone_name = ((string) timezone_name).normalize ().casefold ();
                     }

@@ -45,8 +45,10 @@ public class Face : Gtk.Stack, Clocks.Clock {
         settings = new GLib.Settings ("org.gnome.clocks");
 
         locations.set_sorting ((item1, item2) => {
-            var offset1 = ((GWeather.Timezone) ((Item) item1).location.get_timezone ()).get_offset ();
-            var offset2 = ((GWeather.Timezone) ((Item) item2).location.get_timezone ()).get_offset ();
+            var interval1 = ((Item) item1).location.get_timezone ().find_interval (GLib.TimeType.UNIVERSAL, Gdk.CURRENT_TIME);
+            var offset1 = ((Item) item1).location.get_timezone ().get_offset (interval1);
+            var interval2 = ((Item) item2).location.get_timezone ().find_interval (GLib.TimeType.UNIVERSAL, Gdk.CURRENT_TIME);
+            var offset2 = ((Item) item2).location.get_timezone ().get_offset (interval2);
             if (offset1 < offset2)
                 return -1;
             if (offset1 > offset2)
