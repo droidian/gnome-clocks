@@ -1,10 +1,9 @@
-From c97304d42b0e39bb52892301b5e5dbb69b59fef7 Mon Sep 17 00:00:00 2001
 From: Julian Sparber <julian@sparber.net>
 Date: Tue, 15 Dec 2020 14:23:43 +0100
 Subject: [PATCH 4/5] alarm: make ringing panel fit to small window heights
 
 ---
- data/ui/alarm-ringing-panel.ui | 181 ++++++++++++++++-----------------
+ data/ui/alarm-ringing-panel.ui | 181 ++++++++++++++++++++---------------------
  1 file changed, 90 insertions(+), 91 deletions(-)
 
 diff --git a/data/ui/alarm-ringing-panel.ui b/data/ui/alarm-ringing-panel.ui
@@ -221,6 +220,3 @@ index df04bc7..76ead33 100644
              </child>
            </object>
          </child>
--- 
-2.29.2
-

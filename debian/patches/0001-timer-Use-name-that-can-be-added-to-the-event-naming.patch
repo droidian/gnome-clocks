@@ -1,19 +1,16 @@
-From b34034d39c546ca92747ab34db3da1122cf68667 Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?Guido=20G=C3=BCnther?= <agx@sigxcpu.org>
+From: =?utf-8?q?Guido_G=C3=BCnther?= <agx@sigxcpu.org>
 Date: Mon, 24 Feb 2020 13:00:59 +0100
 Subject: [PATCH] timer: Use name that can be added to the event naming spec
 
 ---
- src/main.vala       | 4 ++--
  src/timer-face.vala | 2 +-
- src/utils.vala      | 8 ++++----
- 3 files changed, 7 insertions(+), 7 deletions(-)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Index: gnome-clocks/src/timer-face.vala
-===================================================================
---- gnome-clocks.orig/src/timer-face.vala
-+++ gnome-clocks/src/timer-face.vala
-@@ -71,7 +71,7 @@ public class Face : Gtk.Stack, Clocks.Cl
+diff --git a/src/timer-face.vala b/src/timer-face.vala
+index 5cad12f..8ee6732 100644
+--- a/src/timer-face.vala
++++ b/src/timer-face.vala
+@@ -71,7 +71,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
              save ();
          });
  
@@ -21,4 +18,4 @@ Index: gnome-clocks/src/timer-face.vala
 +        bell = new Utils.Bell ("timeout-completed");
          notification = new GLib.Notification (_("Time is up!"));
          notification.set_body (_("Timer countdown finished"));
- 
+         notification.set_priority (HIGH);

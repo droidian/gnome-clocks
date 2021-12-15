@@ -1,4 +1,3 @@
-From c0a0f14bc39982fe670fe6fa4677fd87326abdd0 Mon Sep 17 00:00:00 2001
 From: Julian Sparber <julian@sparber.net>
 Date: Thu, 26 Nov 2020 16:45:49 +0100
 Subject: [PATCH] timers: persist running timers
@@ -7,12 +6,12 @@ Persist timer state between app starts by storing the remaining
 time and the timestamp of when it was started.
 ---
  src/timer-face.vala |  2 ++
- src/timer-item.vala | 69 +++++++++++++++++++++++++++++++++++++--------
- src/timer-row.vala  | 15 ++++++++--
+ src/timer-item.vala | 69 ++++++++++++++++++++++++++++++++++++++++++++---------
+ src/timer-row.vala  | 15 +++++++++---
  3 files changed, 72 insertions(+), 14 deletions(-)
 
 diff --git a/src/timer-face.vala b/src/timer-face.vala
-index 95aac80..581042f 100644
+index 8ee6732..1e8e650 100644
 --- a/src/timer-face.vala
 +++ b/src/timer-face.vala
 @@ -56,6 +56,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
@@ -163,10 +162,10 @@ index b226d83..e2a55a5 100644
  }
  
 diff --git a/src/timer-row.vala b/src/timer-row.vala
-index d26ebce..b6d6847 100644
+index bec09e7..b5d7302 100644
 --- a/src/timer-row.vala
 +++ b/src/timer-row.vala
-@@ -75,7 +75,18 @@ public class Row : Gtk.ListBoxRow {
+@@ -78,7 +78,18 @@ public class Row : Gtk.ListBoxRow {
          item.reset.connect (() => this.reset ());
          delete_button.clicked.connect (() => deleted ());
  
@@ -186,7 +185,7 @@ index d26ebce..b6d6847 100644
      }
  
      [GtkCallback]
-@@ -102,8 +113,6 @@ public class Row : Gtk.ListBoxRow {
+@@ -105,8 +116,6 @@ public class Row : Gtk.ListBoxRow {
          countdown_label.get_style_context ().remove_class ("timer-running");
          start_stack.visible_child_name = "start";
          name_stack.visible_child_name = "edit";
@@ -195,6 +194,3 @@ index d26ebce..b6d6847 100644
      }
  
      private void start () {
--- 
-2.29.2
-

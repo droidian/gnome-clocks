@@ -1,4 +1,3 @@
-From c350d331d5b58548912e01b94b57ff76e0477882 Mon Sep 17 00:00:00 2001
 From: Julian Sparber <julian@sparber.net>
 Date: Mon, 16 Nov 2020 11:36:29 +0100
 Subject: [PATCH 1/2] alarm: remove edit property
@@ -9,7 +8,7 @@ Subject: [PATCH 1/2] alarm: remove edit property
  2 files changed, 3 insertions(+), 10 deletions(-)
 
 diff --git a/src/alarm-face.vala b/src/alarm-face.vala
-index d2f7b7e..2552149 100644
+index cf9a592..9cf1207 100644
 --- a/src/alarm-face.vala
 +++ b/src/alarm-face.vala
 @@ -110,11 +110,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
@@ -37,7 +36,7 @@ index d2f7b7e..2552149 100644
            alarm.active = true;
              if (response == Gtk.ResponseType.OK) {
 diff --git a/src/alarm-item.vala b/src/alarm-item.vala
-index df6631f..dd44b15 100644
+index 26f655f..9febf63 100644
 --- a/src/alarm-item.vala
 +++ b/src/alarm-item.vala
 @@ -34,7 +34,8 @@ private class Item : Object, ContentItem {
@@ -50,7 +49,7 @@ index df6631f..dd44b15 100644
  
      public string id { get; construct set; }
  
-@@ -183,7 +184,7 @@ private class Item : Object, ContentItem {
+@@ -184,7 +185,7 @@ private class Item : Object, ContentItem {
      }
  
      private bool compare_with_item (Item i) {
@@ -59,6 +58,3 @@ index df6631f..dd44b15 100644
      }
  
      public bool check_duplicate_alarm (List<Item> alarms) {
--- 
-2.29.2
-

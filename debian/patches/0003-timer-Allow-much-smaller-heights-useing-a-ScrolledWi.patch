@@ -1,12 +1,12 @@
-From b437907b7a197d14ac7acd7f7ab31759141efc60 Mon Sep 17 00:00:00 2001
 From: Julian Sparber <julian@sparber.net>
 Date: Mon, 14 Dec 2020 18:34:46 +0100
-Subject: [PATCH 3/5] timer: Allow much smaller heights useing a ScrolledWindow
+Subject: [PATCH 3/5] timer: Allow much smaller heights useing a
+ ScrolledWindow
 
 ---
- data/ui/timer-face.ui       | 81 +++++++++++++++++++++----------------
+ data/ui/timer-face.ui       | 81 +++++++++++++++++++++++++--------------------
  data/ui/timer-setup.ui      |  1 -
- src/timer-setup-dialog.vala | 13 +++++-
+ src/timer-setup-dialog.vala | 13 ++++++--
  3 files changed, 57 insertions(+), 38 deletions(-)
 
 diff --git a/data/ui/timer-face.ui b/data/ui/timer-face.ui
@@ -116,7 +116,7 @@ index 123a8c5..87331ec 100644
        </object>
        <packing>
 diff --git a/data/ui/timer-setup.ui b/data/ui/timer-setup.ui
-index d12056f..e3bcda8 100644
+index 588aedb..37a181d 100644
 --- a/data/ui/timer-setup.ui
 +++ b/data/ui/timer-setup.ui
 @@ -198,7 +198,6 @@
@@ -125,7 +125,7 @@ index d12056f..e3bcda8 100644
                  <property name="margin_top">12</property>
 -                <property name="margin_bottom">12</property>
                  <child>
-                   <object class="GtkGrid">
+                   <object class="GtkGrid" id="time_grid">
                      <property name="visible">True</property>
 diff --git a/src/timer-setup-dialog.vala b/src/timer-setup-dialog.vala
 index e360ad8..6e94b90 100644
@@ -157,6 +157,3 @@ index e360ad8..6e94b90 100644
          timer_setup.duration_changed.connect ((duration) => {
              this.set_response_sensitive (Gtk.ResponseType.ACCEPT, duration != 0);
          });
--- 
-2.29.2
-

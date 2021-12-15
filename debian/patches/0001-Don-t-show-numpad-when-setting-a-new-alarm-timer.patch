@@ -1,4 +1,3 @@
-From b0ff9b3e5d5df9978deff5791c59e382100facda Mon Sep 17 00:00:00 2001
 From: Julian Sparber <julian@sparber.net>
 Date: Wed, 2 Dec 2020 16:57:31 +0100
 Subject: [PATCH] Don't show numpad when setting a new alarm/timer
@@ -9,10 +8,10 @@ Fixes https://source.puri.sm/Librem5/gnome-clocks/-/issues/26
  src/timer-setup.vala        | 4 ++++
  2 files changed, 8 insertions(+)
 
-Index: gnome-clocks/src/alarm-setup-dialog.vala
-===================================================================
---- gnome-clocks.orig/src/alarm-setup-dialog.vala
-+++ gnome-clocks/src/alarm-setup-dialog.vala
+diff --git a/src/alarm-setup-dialog.vala b/src/alarm-setup-dialog.vala
+index 2d826d0..0d83499 100644
+--- a/src/alarm-setup-dialog.vala
++++ b/src/alarm-setup-dialog.vala
 @@ -159,6 +159,10 @@ private class SetupDialog : Gtk.Dialog {
              am_pm_stack.add (am_pm_button);
              am_pm_stack.visible_child = am_pm_button;
@@ -24,14 +23,14 @@ Index: gnome-clocks/src/alarm-setup-dialog.vala
  
          set_from_alarm ();
      }
-Index: gnome-clocks/src/timer-setup.vala
-===================================================================
---- gnome-clocks.orig/src/timer-setup.vala
-+++ gnome-clocks/src/timer-setup.vala
-@@ -44,6 +44,10 @@ public class Setup : Gtk.Box {
-         });
-         actions.add_action (set_duration_action);
+diff --git a/src/timer-setup.vala b/src/timer-setup.vala
+index 69129f9..4f460ce 100644
+--- a/src/timer-setup.vala
++++ b/src/timer-setup.vala
+@@ -49,6 +49,10 @@ public class Setup : Gtk.Box {
          insert_action_group ("timer-setup", actions);
+ 
+         time_grid.set_direction (Gtk.TextDirection.LTR);
 +
 +        h_spinbutton.set ("im-module", "gtk-im-context-none", null);
 +        m_spinbutton.set ("im-module", "gtk-im-context-none", null);

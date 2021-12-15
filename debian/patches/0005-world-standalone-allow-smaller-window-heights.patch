@@ -1,4 +1,3 @@
-From 8b43e42cfa61c4eedd5617e557870014639e5df7 Mon Sep 17 00:00:00 2001
 From: Julian Sparber <julian@sparber.net>
 Date: Tue, 15 Dec 2020 14:31:12 +0100
 Subject: [PATCH 5/5] world-standalone: allow smaller window heights
@@ -34,6 +33,3 @@ index 46667d7..8f7acff 100644
          <child>
            <object class="GtkLabel" id="time_label">
              <property name="visible">True</property>
--- 
-2.29.2
-

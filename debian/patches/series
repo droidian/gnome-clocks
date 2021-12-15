@@ -1,44 +1,14 @@
-# Import changes from upstream master
-0001-Update-Hebrew-translation.patch
-0002-snap-the-pulseaudio-plug-has-been-replaced-by-the-au.patch
-0003-Update-Indonesian-translation.patch
-0004-meson-use-files-instead-of-lists.patch
-0006-Update-Chinese-Taiwan-translation.patch
-0007-Fix-build-warning.patch
-0008-Update-Esperanto-translation.patch
-0009-Updated-Danish-translation.patch
-0010-Simplified-the-language-in-instructions.patch
-0011-data-List-compatible-form-factors.patch
-0012-Update-Indonesian-translation.patch
-0013-Update-Ukrainian-translation.patch
-0014-Update-Polish-translation.patch
-0015-Updated-Czech-translation.patch
-0016-Update-Swedish-translation.patch
-0017-alarm-face-Save-active-changes-to-gsettings.patch
-0018-fix-build-due-to-nullability-update-on-gio.patch
-0001-stopwatch-only-update-labels-when-text-changes.patch
-0002-timer-item-only-emit-countdown_updated-event-the-tex.patch
-#replace GSound with Libfeedback: https://gitlab.gnome.org/GNOME/gnome-clocks/-/merge_requests/151
 0001-timer-Use-name-that-can-be-added-to-the-event-naming.patch
 0001-Use-libfeedback-in-instead-of-GSound.patch
-# timers: Make timers persisted: https://gitlab.gnome.org/GNOME/gnome-clocks/-/merge_requests/148
 0001-timers-persist-running-timers.patch
-# Make alarms persisted and add missed alarms notation:
-# https://gitlab.gnome.org/GNOME/gnome-clocks/-/merge_requests/145
 0001-alarm-item-Make-sure-that-the-time-property-is-alway.patch
 0002-alarm-remove-edit-property.patch
 0003-alarms-Make-alarms-persisted-and-add-missed-alarms-n.patch
-# Don't show numpad when setting a new alarm/timer:
-# https://gitlab.gnome.org/GNOME/gnome-clocks/-/merge_requests/150
 0001-Don-t-show-numpad-when-setting-a-new-alarm-timer.patch
-# Autostart Clocks
 0001-add-option-to-start-hidden.patch
 0002-autostart-gnome-clocks.patch
-# Allow clocks to be resized to small window heights a.k.a. Landscape mode on phones:
-# https://gitlab.gnome.org/GNOME/gnome-clocks/-/merge_requests/152
 0001-alarm-setup-dialog-Allow-much-smaller-heights-useing.patch
 0002-timer-setup-remove-unused-lables.patch
 0003-timer-Allow-much-smaller-heights-useing-a-ScrolledWi.patch
 0004-alarm-make-ringing-panel-fit-to-small-window-heights.patch
 0005-world-standalone-allow-smaller-window-heights.patch
-

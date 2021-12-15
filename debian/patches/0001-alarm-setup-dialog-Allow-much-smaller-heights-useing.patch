@@ -1,11 +1,10 @@
-From 76b9ed1d5e425e18b15918f7ece040bfe2ae947d Mon Sep 17 00:00:00 2001
 From: Julian Sparber <julian@sparber.net>
 Date: Mon, 14 Dec 2020 17:56:13 +0100
 Subject: [PATCH 1/5] alarm-setup-dialog: Allow much smaller heights useing a
  ScrolledWindow
 
 ---
- data/ui/alarm-setup-dialog.ui | 298 ++++++++++++++++++----------------
+ data/ui/alarm-setup-dialog.ui | 298 ++++++++++++++++++++++--------------------
  1 file changed, 154 insertions(+), 144 deletions(-)
 
 diff --git a/data/ui/alarm-setup-dialog.ui b/data/ui/alarm-setup-dialog.ui
@@ -354,6 +353,3 @@ index f332c4a..2429ce5 100644
                  </child>
                </object>
              </child>
--- 
-2.29.2
-

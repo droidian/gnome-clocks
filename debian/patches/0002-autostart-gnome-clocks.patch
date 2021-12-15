@@ -1,4 +1,3 @@
-From 90e7b1783e2da8ee804a43f0c5516aacf7edc87d Mon Sep 17 00:00:00 2001
 From: Julian Sparber <julian@sparber.net>
 Date: Fri, 27 Nov 2020 18:47:34 +0100
 Subject: [PATCH 2/2] autostart gnome-clocks
@@ -56,6 +55,3 @@ index 0000000..49187ca
 +StartupNotify=false
 +NoDisplay=true
 +X-GNOME-AutoRestart=true
--- 
-2.29.2
-

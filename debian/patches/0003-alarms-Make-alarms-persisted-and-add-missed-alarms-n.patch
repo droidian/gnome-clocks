@@ -1,4 +1,3 @@
-From 20b8eded022854ec3aea8d326b26fe5f079f1c63 Mon Sep 17 00:00:00 2001
 From: Julian Sparber <julian@sparber.net>
 Date: Fri, 13 Nov 2020 17:59:06 +0100
 Subject: [PATCH 2/2] alarms: Make alarms persisted and add missed alarms
@@ -18,14 +17,14 @@ is reopend within "ring-time" after an alarm or snooze the alarm starts
 ringing again.
 ---
  src/alarm-face.vala         |   5 +-
- src/alarm-item.vala         | 218 +++++++++++++++++++++++-------------
- src/alarm-setup-dialog.vala |  12 +-
+ src/alarm-item.vala         | 218 +++++++++++++++++++++++++++++---------------
+ src/alarm-setup-dialog.vala |  12 +--
  src/application.vala        |   5 +-
  src/window.vala             |   3 +
  5 files changed, 156 insertions(+), 87 deletions(-)
 
 diff --git a/src/alarm-face.vala b/src/alarm-face.vala
-index 2552149..2caa602 100644
+index 9cf1207..8654e76 100644
 --- a/src/alarm-face.vala
 +++ b/src/alarm-face.vala
 @@ -66,7 +66,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
@@ -53,7 +52,7 @@ index 2552149..2caa602 100644
                  ((SetupDialog) dialog).apply_to_alarm ();
                  alarms.add (alarm);
 diff --git a/src/alarm-item.vala b/src/alarm-item.vala
-index dd44b15..5e995ee 100644
+index 9febf63..ab9ca9b 100644
 --- a/src/alarm-item.vala
 +++ b/src/alarm-item.vala
 @@ -20,15 +20,9 @@
@@ -185,7 +184,7 @@ index dd44b15..5e995ee 100644
                  time: time,
                  days: days);
      }
-@@ -121,24 +140,39 @@ private class Item : Object, ContentItem {
+@@ -122,24 +141,39 @@ private class Item : Object, ContentItem {
          notification.add_button (_("Snooze"), "app.snooze-alarm::".concat (id));
      }
  
@@ -233,7 +232,7 @@ index dd44b15..5e995ee 100644
              // Alarm without days.
              if (dt.compare (now) <= 0) {
                  // Time already passed, ring tomorrow.
-@@ -147,16 +181,13 @@ private class Item : Object, ContentItem {
+@@ -148,16 +182,13 @@ private class Item : Object, ContentItem {
          } else {
              // Alarm with at least one day set.
              // Find the next possible day for ringing
@@ -253,7 +252,7 @@ index dd44b15..5e995ee 100644
      }
  
      public virtual signal void ring () {
-@@ -166,30 +197,43 @@ private class Item : Object, ContentItem {
+@@ -167,30 +198,43 @@ private class Item : Object, ContentItem {
      }
  
      private void start_ringing (GLib.DateTime now) {
@@ -304,7 +303,7 @@ index dd44b15..5e995ee 100644
          foreach (var item in alarms) {
              if (this.compare_with_item (item)) {
                  return true;
-@@ -198,11 +242,21 @@ private class Item : Object, ContentItem {
+@@ -199,11 +243,21 @@ private class Item : Object, ContentItem {
          return false;
      }
  
@@ -327,7 +326,7 @@ index dd44b15..5e995ee 100644
              return false;
          }
  
-@@ -211,17 +265,28 @@ private class Item : Object, ContentItem {
+@@ -212,17 +266,28 @@ private class Item : Object, ContentItem {
          var wallclock = Utils.WallClock.get_default ();
          var now = wallclock.date_time;
  
@@ -367,7 +366,7 @@ index dd44b15..5e995ee 100644
          }
  
          return state != last_state;
-@@ -231,9 +296,10 @@ private class Item : Object, ContentItem {
+@@ -232,9 +297,10 @@ private class Item : Object, ContentItem {
          builder.open (new GLib.VariantType ("a{sv}"));
          builder.add ("{sv}", "name", new GLib.Variant.string ((string) name));
          builder.add ("{sv}", "id", new GLib.Variant.string (id));
@@ -381,7 +380,7 @@ index dd44b15..5e995ee 100644
          builder.add ("{sv}", "days", ((Utils.Weekdays) days).serialize ());
          builder.add ("{sv}", "snooze_minutes", new GLib.Variant.int32 (snooze_minutes));
          builder.add ("{sv}", "ring_minutes", new GLib.Variant.int32 (ring_minutes));
-@@ -245,9 +311,9 @@ private class Item : Object, ContentItem {
+@@ -246,9 +312,9 @@ private class Item : Object, ContentItem {
          Variant val;
          string? name = null;
          string? id = null;
@@ -394,7 +393,7 @@ index dd44b15..5e995ee 100644
          int snooze_minutes = 10;
          int ring_minutes = 5;
          Utils.Weekdays? days = null;
-@@ -258,12 +324,12 @@ private class Item : Object, ContentItem {
+@@ -259,12 +325,12 @@ private class Item : Object, ContentItem {
                  name = (string) val;
              } else if (key == "id") {
                  id = (string) val;
@@ -413,7 +412,7 @@ index dd44b15..5e995ee 100644
              } else if (key == "days") {
                  days = Utils.Weekdays.deserialize (val);
              } else if (key == "snooze_minutes") {
-@@ -273,12 +339,14 @@ private class Item : Object, ContentItem {
+@@ -274,12 +340,14 @@ private class Item : Object, ContentItem {
              }
          }
  
@@ -432,7 +431,7 @@ index dd44b15..5e995ee 100644
          } else {
              warning ("Invalid alarm %s", name != null ? (string) name : "[unnamed]");
 diff --git a/src/alarm-setup-dialog.vala b/src/alarm-setup-dialog.vala
-index 1e9a696..7e8a883 100644
+index d20ec61..2d826d0 100644
 --- a/src/alarm-setup-dialog.vala
 +++ b/src/alarm-setup-dialog.vala
 @@ -165,8 +165,8 @@ private class SetupDialog : Gtk.Dialog {
@@ -486,10 +485,10 @@ index 2e67046..92aba34 100644
  
      private void withdraw_notifications () {
 diff --git a/src/window.vala b/src/window.vala
-index fe954b7..a32186e 100644
+index 55c7f2e..5c35967 100644
 --- a/src/window.vala
 +++ b/src/window.vala
-@@ -137,6 +137,9 @@ public class Window : Hdy.ApplicationWindow {
+@@ -158,6 +158,9 @@ public class Window : Hdy.ApplicationWindow {
          if (Config.PROFILE == "Devel") {
              style.add_class ("devel");
          }
@@ -499,6 +498,3 @@ index fe954b7..a32186e 100644
      }
  
      [Signal (action = true)]
--- 
-2.29.2
-

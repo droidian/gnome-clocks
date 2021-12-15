@@ -1,4 +1,3 @@
-From 0f95e65c9deb715b97cf20ee2ba08c32359608b3 Mon Sep 17 00:00:00 2001
 From: Julian Sparber <julian@sparber.net>
 Date: Thu, 12 Nov 2020 13:38:07 +0100
 Subject: [PATCH] alarm-item: Make sure that the time property is always set
@@ -6,13 +5,13 @@ Subject: [PATCH] alarm-item: Make sure that the time property is always set
 The time property for an AlarmItem isn't nullable therefore it needs to
 be set during construction.
 ---
- src/alarm-face.vala         | 18 +++++++----
- src/alarm-item.vala         | 12 ++++----
- src/alarm-setup-dialog.vala | 59 +++++++++++--------------------------
+ src/alarm-face.vala         | 18 ++++++++++----
+ src/alarm-item.vala         | 12 ++++-----
+ src/alarm-setup-dialog.vala | 59 +++++++++++++--------------------------------
  3 files changed, 36 insertions(+), 53 deletions(-)
 
 diff --git a/src/alarm-face.vala b/src/alarm-face.vala
-index 6000739..d2f7b7e 100644
+index 0fe77cb..cf9a592 100644
 --- a/src/alarm-face.vala
 +++ b/src/alarm-face.vala
 @@ -108,7 +108,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
@@ -57,7 +56,7 @@ index 6000739..d2f7b7e 100644
                  save ();
              }
 diff --git a/src/alarm-item.vala b/src/alarm-item.vala
-index 8c86f78..df6631f 100644
+index 6103342..26f655f 100644
 --- a/src/alarm-item.vala
 +++ b/src/alarm-item.vala
 @@ -104,9 +104,12 @@ private class Item : Object, ContentItem {
@@ -75,7 +74,7 @@ index 8c86f78..df6631f 100644
      }
  
      private void setup_bell () {
-@@ -270,11 +273,8 @@ private class Item : Object, ContentItem {
+@@ -271,11 +274,8 @@ private class Item : Object, ContentItem {
          }
  
          if (hour >= 0 && minute >= 0) {
@@ -89,7 +88,7 @@ index 8c86f78..df6631f 100644
              alarm.snooze_minutes = snooze_minutes;
              alarm.reset ();
 diff --git a/src/alarm-setup-dialog.vala b/src/alarm-setup-dialog.vala
-index 75d6baa..1e9a696 100644
+index 97cde1f..d20ec61 100644
 --- a/src/alarm-setup-dialog.vala
 +++ b/src/alarm-setup-dialog.vala
 @@ -75,6 +75,7 @@ private class DurationModel : ListModel, Object {
@@ -98,7 +97,7 @@ index 75d6baa..1e9a696 100644
      private Utils.WallClock.Format format;
 +    public Item alarm { get; set; }
      [GtkChild]
-     private Gtk.Grid time_grid;
+     private unowned Gtk.Grid time_grid;
      [GtkChild]
 @@ -103,20 +104,21 @@ private class SetupDialog : Gtk.Dialog {
          typeof (DayPickerRow).ensure ();
@@ -209,6 +208,3 @@ index 75d6baa..1e9a696 100644
  
          var duplicate = alarm.check_duplicate_alarm (other_alarms);
          this.set_response_sensitive (Gtk.ResponseType.OK, !duplicate);
--- 
-2.29.2
-

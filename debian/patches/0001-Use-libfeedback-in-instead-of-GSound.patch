@@ -1,5 +1,4 @@
-From 97d70fbc40edfe4e73b0e879fd680c2ba9d5f033 Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?Guido=20G=C3=BCnther?= <agx@sigxcpu.org>
+From: =?utf-8?q?Guido_G=C3=BCnther?= <agx@sigxcpu.org>
 Date: Sat, 22 Feb 2020 18:51:42 +0100
 Subject: [PATCH] Use libfeedback in instead of GSound
 
@@ -13,7 +12,7 @@ feedback on top of audio.
  4 files changed, 32 insertions(+), 29 deletions(-)
 
 diff --git a/meson.build b/meson.build
-index f30fd0b..01cd631 100644
+index 91e34cd..d60ab9d 100644
 --- a/meson.build
 +++ b/meson.build
 @@ -14,7 +14,7 @@ glib = dependency('glib-2.0', version: '>= 2.58')
@@ -69,10 +68,10 @@ index 4c51188..e5b0edd 100644
    libhandy,
    math
 diff --git a/src/utils.vala b/src/utils.vala
-index eebad84..21c1914 100644
+index d5594e7..1b38fba 100644
 --- a/src/utils.vala
 +++ b/src/utils.vala
-@@ -382,44 +382,31 @@ public class Weekdays {
+@@ -392,44 +392,31 @@ public class Weekdays {
  }
  
  public class Bell : Object {
@@ -129,7 +128,7 @@ index eebad84..21c1914 100644
          }
      }
  
-@@ -432,7 +419,15 @@ public class Bell : Object {
+@@ -442,7 +429,15 @@ public class Bell : Object {
      }
  
      public void stop () {
@@ -146,6 +145,3 @@ index eebad84..21c1914 100644
      }
  }
  
--- 
-2.29.2
-
