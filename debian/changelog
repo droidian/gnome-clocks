@@ -1,3 +1,28 @@
+gnome-clocks (40.0-2pureos1) byzantium; urgency=medium
+
+  [ Steve Stevens ]
+  * Merge in version 40.0-2 from Debian unstable, remaining changes:
+  - 0001-Don-t-show-numpad-when-setting-a-new-alarm-timer.patch
+  - 0001-Use-libfeedback-in-instead-of-GSound.patch
+  - 0001-add-option-to-start-hidden.patch
+  - 0001-alarm-item-Make-sure-that-the-time-property-is-alway.patch
+  - 0001-alarm-setup-dialog-Allow-much-smaller-heights-useing.patch
+  - 0001-timer-Use-name-that-can-be-added-to-the-event-naming.patch
+  - 0001-timers-persist-running-timers.patch
+  - 0002-alarm-remove-edit-property.patch
+  - 0002-autostart-gnome-clocks.patch
+  - 0002-timer-setup-remove-unused-lables.patch
+  - 0003-alarms-Make-alarms-persisted-and-add-missed-alarms-n.patch
+  - 0003-timer-Allow-much-smaller-heights-useing-a-ScrolledWi.patch
+  - 0004-alarm-make-ringing-panel-fit-to-small-window-heights.patch
+  - 0005-world-standalone-allow-smaller-window-heights.patch
+
+  [ Carsten Schoenert]
+  * d/control: Remove Uploaders field
+  * d/control: Adjust Maintainer/Vcs to PureOS fork
+
+ -- Carsten Schoenert <carsten.schoenert@puri.sm>  Tue, 04 Jan 2022 18:56:00 +0100
+
 gnome-clocks (40.0-2) unstable; urgency=medium
 
   * Bump debhelper-compat to 13
