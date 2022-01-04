@@ -50,6 +50,7 @@ gnome-clocks (3.38.0-1pureos+librem5+byz1) byzantium; urgency=medium
   * Switch to Debian bullseye and use prefefined pipeline
 
  -- Julian Sparber <julian.sparber@puri.sm>  Wed, 09 Dec 2020 14:34:58 +0100
+
 gnome-clocks (3.38.0-1) unstable; urgency=medium
 
   * New upstream release
