@@ -1,7 +1,8 @@
 Source: gnome-clocks
 Section: gnome
 Priority: optional
-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Maintainer: PureOS Maintainers <pureos-project@lists.puri.sm>
+XBSC-Oiginal-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Build-Depends: appstream,
                appstream-util <!nocheck>,
                debhelper-compat (= 13),
@@ -22,8 +23,10 @@ Build-Depends: appstream,
                pkg-config,
                valac (>= 0.32.0)
 Standards-Version: 4.5.0
-Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-clocks
-Vcs-Git: https://salsa.debian.org/gnome-team/gnome-clocks.git
+Vcs-Browser: https://source.puri.sm/Librem5/debs/gnome-clocks
+Vcs-Git: https://source.puri.sm/Librem5/debs/gnome-clocks.git
+XBSC-Oiginal-Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-clocks
+XBSC-Oiginal-Vcs-Git: https://salsa.debian.org/gnome-team/gnome-clocks.git
 Homepage: https://wiki.gnome.org/Apps/Clocks
 
 Package: gnome-clocks
