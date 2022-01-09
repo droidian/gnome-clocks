@@ -99,6 +99,7 @@ private class SetupDialog : Gtk.Dialog {
     private unowned Gtk.Button delete_button;
     private List<Item> other_alarms;
     private DurationModel duration_model;
+    private bool lock_notify = true;
 
     static construct {
         typeof (DayPickerRow).ensure ();
@@ -192,6 +193,8 @@ private class SetupDialog : Gtk.Dialog {
         if (alarm.days != null) {
             repeats.load ((Utils.Weekdays) alarm.days);
         }
+        lock_notify = false;
+        avoid_duplicate_alarm ();
     }
 
     // Sets alarm according to the current dialog settings.
@@ -224,6 +227,9 @@ private class SetupDialog : Gtk.Dialog {
     }
 
     private void avoid_duplicate_alarm () {
+        if (lock_notify) {
+            return;
+        }
         apply_to_alarm ();
 
         var duplicate = alarm.check_duplicate_alarm (other_alarms);
