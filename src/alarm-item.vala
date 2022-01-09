@@ -198,8 +198,10 @@ private class Item : Object, ContentItem {
     }
 
     private void start_ringing (GLib.DateTime now) {
-        state = State.RINGING;
-        ring ();
+        if ( state != State.RINGING ) {
+            state = State.RINGING;
+            ring ();
+        }
     }
 
     public void snooze () {
