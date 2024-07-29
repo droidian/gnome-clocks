@@ -18,6 +18,7 @@ Build-Depends: appstream,
                libgtk-4-dev (>= 4.5),
                libgweather-4-dev (>= 4.1),
                libxml2-utils,
+               libfeedback-dev,
                meson (>= 0.59.0),
                pkg-config,
                valac (>= 0.56.4)
