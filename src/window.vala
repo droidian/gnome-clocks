@@ -240,20 +240,19 @@ public class Window : Adw.ApplicationWindow {
             null
         };
 
-        var about = new Adw.AboutWindow () {
-            transient_for = this,
+        var about = new Adw.AboutDialog () {
             application_name = _("Clocks"),
             application_icon = Config.APP_ID,
             developer_name = _("The GNOME Project"),
             version = Config.VERSION,
             copyright = COPYRIGHT,
             developers = DEVELOPERS,
-            issue_url = "https://gitlab.gnome.org/GNOME/gnome-clocks/-/issues/new",
+            issue_url = "https://gitlab.gnome.org/GNOME/gnome-clocks/-/issues/",
             license_type = Gtk.License.GPL_2_0,
             translator_credits = _("translator-credits")
         };
 
-        about.present ();
+        about.present (this);
     }
 
     [GtkCallback]

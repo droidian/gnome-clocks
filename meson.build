@@ -1,7 +1,7 @@
 project(
   'gnome-clocks',
   ['vala', 'c'],
-  version: '46.0',
+  version: '47.0',
   license: 'GPL-2.0-or-later',
   meson_version: '>= 0.59.0',
 )
@@ -23,7 +23,7 @@ else
 endif
 gnomedesktop = dependency('gnome-desktop-4')
 libgeoclue = dependency('libgeoclue-2.0', version: '>=2.4')
-libadwaita = dependency ('libadwaita-1', version: '>=1.4.alpha')
+libadwaita = dependency ('libadwaita-1', version: '>=1.5')
 
 cc = meson.get_compiler('c')
 math = cc.find_library('m', required: false)

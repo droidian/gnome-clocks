@@ -1,554 +1,548 @@
-# Polish translation for gnome-clocks.
-# Copyright © 2012-2024 the gnome-clocks authors.
+# Kabyle translation for gnome-clocks.
+# Copyright (C) 2024 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-# Piotr Drąg <piotrdrag@gmail.com>, 2012-2024.
-# Paweł Żołnowski <pawel@zolnowski.name>, 2014.
-# Aviary.pl <community-poland@mozilla.org>, 2012-2024.
+# Rachida SACI <rgebbid@gmail.com>, 2024.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-clocks\n"
+"Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-08-31 14:18+0000\n"
-"PO-Revision-Date: 2024-08-31 16:19+0200\n"
-"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
-"Language-Team: Polish <community-poland@mozilla.org>\n"
-"Language: pl\n"
+"POT-Creation-Date: 2024-03-18 00:20+0000\n"
+"PO-Revision-Date: 2024-03-21 12:50+0100\n"
+"Last-Translator: sa\n"
+"Language-Team: Kabyle <kab@li.org>\n"
+"Language: kab\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:244 src/window.vala:299
+#: src/main.vala:25 src/window.vala:245 src/window.vala:300
 #: src/world-standalone.vala:24
 msgid "Clocks"
-msgstr "Zegar"
+msgstr "Timrilin"
 
 #: data/org.gnome.clocks.desktop.in.in:5
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Zegar światowy, budzik, stoper i minutnik"
+msgstr "Timrilin i yimakuden n umaḍal, tingedwiyin, akrunumetr akked umakud"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in.in:7
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "czas;minutnik;timer;budzik;alarm;zegar światowy;stoper;strefa czasowa;"
+msgstr "akud;amakud;tamrilt n umaḍal;akrunumetr;izḍi usrid;"
 
 #: data/org.gnome.clocks.desktop.in.in:17
 msgid "Allows world clocks to be displayed for your time zone."
-msgstr "Umożliwia wyświetlanie zegara dla strefy czasowej użytkownika."
+msgstr "Yessirig timrilin n umaḍal i wakken ad ttwaskanent deg yizṣi-k usrig."
 
 #: data/org.gnome.clocks.gschema.xml.in:5
 msgid "Configured world clocks"
-msgstr "Skonfigurowane zegary światowe"
+msgstr "Timrilin n umaḍal yettusbadun"
 
 #: data/org.gnome.clocks.gschema.xml.in:6
 msgid "List of world clocks to show."
-msgstr "Lista wyświetlanych zegarów światowych."
+msgstr "Tabdart n temrilin n umaḍal ara yettwaskanen."
 
 #: data/org.gnome.clocks.gschema.xml.in:12
 msgid "Configured alarms"
-msgstr "Skonfigurowane budziki"
+msgstr "Tingedwiyin yettusbadun"
 
 #: data/org.gnome.clocks.gschema.xml.in:13
 msgid "List of alarms set."
-msgstr "Lista ustawionych budzików."
+msgstr "Tabdart n tengedwiyin yettusbadun."
 
 #: data/org.gnome.clocks.gschema.xml.in:19
 msgid "Configured Timers"
-msgstr "Skonfigurowane minutniki"
+msgstr "Imakuden yettusewlen"
 
 #: data/org.gnome.clocks.gschema.xml.in:20
 msgid "List of timers set."
-msgstr "Lista ustawionych minutników."
+msgstr "Tabdart n yimakuden yettusbadun."
 
 #: data/org.gnome.clocks.gschema.xml.in:26
 msgid "Geolocation support"
-msgstr "Obsługa geolokalizacji"
+msgstr "Asefrek n usideg arakal"
 
 #: data/org.gnome.clocks.gschema.xml.in:27
 msgid "Turn geolocation support on and off."
-msgstr "Włącza lub wyłącza obsługę geolokalizacji."
+msgstr "Rmed/Sens asefrek n usideg arakal."
 
 #: data/org.gnome.clocks.gschema.xml.in:44
 msgid "Window maximized"
-msgstr "Zmaksymalizowane okno"
+msgstr "Asfaylu meqqren"
 
 #: data/org.gnome.clocks.gschema.xml.in:45
 msgid "Whether the window is maximized."
-msgstr "Czy okno jest zmaksymalizowane."
+msgstr "Ma yella asfaylu meqqer."
 
 #: data/org.gnome.clocks.gschema.xml.in:51
 msgid "Window width and height"
-msgstr "Szerokość i wysokość okna"
+msgstr "Tahri akked teɣzi n usfaylu"
 
 #: data/org.gnome.clocks.gschema.xml.in:52
 msgid "Width and height of the window."
-msgstr "Szerokość i wysokość okna."
+msgstr "Tehri akked teɣzi n usfaylu."
 
 #: data/org.gnome.clocks.gschema.xml.in:58
 msgid "Panel state"
-msgstr "Stan panelu"
+msgstr "Addad n ugalis"
 
 #: data/org.gnome.clocks.gschema.xml.in:59
 msgid "Current clock panel."
-msgstr "Bieżący panel zegara."
+msgstr "Agalis n temrilin timiranin."
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:7
 msgid "Keep track of time"
-msgstr "Zarządzanie czasem"
+msgstr "Qqim teṭṭafareḍ akud"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch, and timers."
 msgstr ""
-"Prosty i elegancki program zegara, obejmujący zegary światowe, budzik, "
-"stoper i minutnik."
+"Asnas n termilt afessas, i icebḥen. Deg-s tirmilin n umaḍal, tingedwiyin, "
+"akrunumetr akked yimakuden."
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:14
 msgid "Show the time in different cities around the world"
-msgstr "Podawanie czasu w różnych miastach na całym świecie"
+msgstr "Sken akud deg meṛṛa timdinin n umaḍal"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:15
 msgid "Set alarms to wake you up"
-msgstr "Ustawianie budzika"
+msgstr "Sbadu tingedwiyin ara k-id-issakin"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:16
 msgid "Measure elapsed time with an accurate stopwatch"
-msgstr "Dokładne mierzenie czasu stoperem"
+msgstr "Sket akud i iεeddan s ukrunumetr usdid"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:17
 msgid "Set timers to properly cook your food"
-msgstr "Ustawianie minutnika, aby właściwie przygotować potrawy"
+msgstr "Sbadu imakuden i usewwi iwatan n tgelliwin"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:39
 msgid "Initial screen"
-msgstr "Zegar światowy"
+msgstr "Agdil amezwaru"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:43
 msgid "Alarms screen"
-msgstr "Budziki"
+msgstr "Agdil n tengediwiyin"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:47
 msgid "Stopwatch screen"
-msgstr "Stoper"
+msgstr "Agdil n ukrunumetr"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:51
 msgid "Timer screen"
-msgstr "Minutnik"
+msgstr "Agdil n umakud"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
+#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
 msgid "The GNOME Project"
-msgstr "Projekt GNOME"
+msgstr "Asenfar n GNOME"
 
 #: data/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr "Ogólne"
+msgstr "Amatu"
 
 #: data/gtk/help-overlay.ui:15
 msgctxt "shortcut window"
 msgid "Show Help"
-msgstr "Wyświetlenie pomocy"
+msgstr "Sken-d tallalt"
 
 #: data/gtk/help-overlay.ui:21
 msgctxt "shortcut window"
 msgid "Open Menu"
-msgstr "Otwarcie menu"
+msgstr "Ldi umuɣ"
 
 #: data/gtk/help-overlay.ui:27
 msgctxt "shortcut window"
 msgid "Keyboard Shortcuts"
-msgstr "Skróty klawiszowe"
+msgstr "Inegzumen n unasiw"
 
 #: data/gtk/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "Zakończenie działania"
+msgstr "Ffeɣ"
 
 #: data/gtk/help-overlay.ui:39
 msgctxt "shortcut window"
 msgid "Go to the Next Section"
-msgstr "Przejście do następnej sekcji"
+msgstr "Ddu ɣer tefrayt tefrant"
 
 #: data/gtk/help-overlay.ui:45
 msgctxt "shortcut window"
 msgid "Go to the Previous Section"
-msgstr "Przejście do poprzedniej sekcji"
+msgstr "Ddu ɣer tefrant tudfirt"
 
 #: data/gtk/help-overlay.ui:51
 msgctxt "shortcut window"
 msgid "Go to the World Section"
-msgstr "Przejście do zegara światowego"
+msgstr "Ddu ɣer tefrant n umaḍal"
 
 #: data/gtk/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Go to the Alarms Section"
-msgstr "Przejście do budzików"
+msgstr "Ddu ɣer tefrayt n tengedwiyin"
 
 #: data/gtk/help-overlay.ui:63
 msgctxt "shortcut window"
 msgid "Go to the Stopwatch Section"
-msgstr "Przejście do stopera"
+msgstr "Ddu ɣer tefrant n ukrunumetr"
 
 #: data/gtk/help-overlay.ui:69
 msgctxt "shortcut window"
 msgid "Go to the Timer Section"
-msgstr "Przejście do minutnika"
+msgstr "Ddu ɣer tefrant n umakud"
 
 #: data/gtk/help-overlay.ui:77
 msgctxt "shortcut window"
 msgid "World Clocks"
-msgstr "Zegar światowy"
+msgstr "Timrilin n umaḍal"
 
 #: data/gtk/help-overlay.ui:81
 msgctxt "shortcut window"
 msgid "Add a World Clock"
-msgstr "Dodanie zegara światowego"
+msgstr "Rnu tamrilt n umaḍal"
 
 #: data/gtk/help-overlay.ui:89
 msgctxt "shortcut window"
 msgid "Alarm"
-msgstr "Budzik"
+msgstr "Tangedwit"
 
 #: data/gtk/help-overlay.ui:93
 msgctxt "shortcut window"
 msgid "Add an Alarm"
-msgstr "Dodanie budzika"
+msgstr "Rnu tangedwit"
 
 #: data/gtk/help-overlay.ui:101
 msgctxt "shortcut window"
 msgid "Stopwatch"
-msgstr "Stoper"
+msgstr "Akrunumetr"
 
 #: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
 msgid "Pause All"
-msgstr "Wstrzymanie wszystkich"
+msgstr "Seḥbes kullec"
 
 #: data/gtk/help-overlay.ui:113
 msgctxt "shortcut window"
 msgid "Timer"
-msgstr "Minutnik"
+msgstr "Amakud"
 
 #: data/gtk/help-overlay.ui:117
 msgctxt "shortcut window"
 msgid "Reset"
-msgstr "Resetowanie"
+msgstr "Wennez"
 
 #: data/gtk/help-overlay.ui:123
 msgctxt "shortcut window"
 msgid "New Timer"
-msgstr "Nowy minutnik"
+msgstr "Amakud amaynut"
 
 #: data/ui/alarm-day-picker-row.ui:17
 msgid "Repeat"
-msgstr "Powtarzanie"
+msgstr "Ales"
 
 #: data/ui/alarm-face.ui:14
 msgid "Add A_larm…"
-msgstr "_Dodaj budzik…"
+msgstr "Rnu tamrilt (_l)"
 
 #: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
 msgid "Stop"
-msgstr "Zatrzymaj"
+msgstr "Seḥbes"
 
 #: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:196
 msgid "Snooze"
-msgstr "Drzemka"
+msgstr "Sgen"
 
 #: data/ui/alarm-row.ui:47
 msgid "Repeats"
-msgstr "Powtarza się"
+msgstr "Tettales"
 
 #: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
-msgstr "Usuń"
+msgstr "Kkes"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:110
+#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:111
 msgid "New Alarm"
-msgstr "Nowy budzik"
+msgstr "Tamrilt tamaynut"
 
-#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
 msgid "_Cancel"
-msgstr "_Anuluj"
+msgstr "Sefsex (_C)"
 
-#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
 msgid "_Add"
-msgstr "_Dodaj"
-
-#: data/ui/alarm-setup-dialog.ui:113
-msgid "Name"
-msgstr "Nazwa"
-
-#: data/ui/alarm-setup-dialog.ui:120
-msgid "Ring Duration"
-msgstr "Czas trwania dzwonka"
+msgstr "Rnu (_A)"
 
 #: data/ui/alarm-setup-dialog.ui:126
+msgid "Name"
+msgstr "Isem"
+
+#: data/ui/alarm-setup-dialog.ui:133
+msgid "Ring Duration"
+msgstr "Tanzagt n usûni"
+
+#: data/ui/alarm-setup-dialog.ui:139
 msgid "Snooze Duration"
-msgstr "Czas trwania drzemki"
+msgstr "Tanzagt n tguni"
 
-#: data/ui/alarm-setup-dialog.ui:138
+#: data/ui/alarm-setup-dialog.ui:151
 msgid "You already have an alarm for this time."
-msgstr "Istnieje już taki sam budzik."
+msgstr "Tesεiḍ yakan tangedwit i wakud-a."
 
-#: data/ui/alarm-setup-dialog.ui:145
+#: data/ui/alarm-setup-dialog.ui:158
 msgid "R_emove Alarm"
-msgstr "_Usuń budzik"
+msgstr "Kkes tangedwit (_e)"
 
 #: data/ui/header-bar.ui:6
 msgid "_Keyboard Shortcuts"
-msgstr "_Skróty klawiszowe"
+msgstr "Inegzumen n unasiw (_K)"
 
 #: data/ui/header-bar.ui:10
 msgid "_Help"
-msgstr "Pomo_c"
+msgstr "Tallalt (_H)"
 
 #: data/ui/header-bar.ui:14
 msgid "_About Clocks"
-msgstr "_O programie"
+msgstr "Γef temrilin (_A)"
 
 #: data/ui/header-bar.ui:56
 msgid "Main Menu"
-msgstr "Menu główne"
+msgstr "Umuɣ agejdan"
 
 #: data/ui/stopwatch-face.ui:100
 msgid "_Start"
-msgstr "_Rozpocznij"
+msgstr "_Sekker"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
 msgid "Clear"
-msgstr "Wyczyść"
+msgstr "Sfeḍ"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
-msgstr "Czas"
+msgstr "Akud"
 
 #: data/ui/stopwatch-laps-row.ui:25
 msgid "Difference"
-msgstr "Różnica"
+msgstr "Amgired"
 
 #: data/ui/timer-face.ui:27
 msgid "St_art"
-msgstr "_Rozpocznij"
+msgstr "Bdu (a)"
 
 #: data/ui/timer-row.ui:32
 msgid "Title…"
-msgstr "Tytuł…"
+msgstr "Azwel…"
 
 #: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
 msgid "Pause"
-msgstr "Wstrzymaj"
+msgstr "Seḥbes"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
 #: src/stopwatch-face.vala:202
 msgid "Start"
-msgstr "Rozpocznij"
+msgstr "Bdu"
 
 #: data/ui/timer-row.ui:119
 msgid "Reset"
-msgstr "Resetuj"
+msgstr "Wennez"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
 msgid "New Timer"
-msgstr "Nowy minutnik"
+msgstr "Amakud amaynut"
 
 #: data/ui/timer-setup.ui:31
 msgid "Quick Start"
-msgstr "Szybki start"
+msgstr "Asenkar arurad"
 
 #: data/ui/timer-setup.ui:47
 msgid "1 m"
-msgstr "1 min"
+msgstr "1 tsd"
 
 #: data/ui/timer-setup.ui:58
 msgid "2 m"
-msgstr "2 min"
+msgstr "2 tsd"
 
 #: data/ui/timer-setup.ui:69
 msgid "3 m"
-msgstr "3 min"
+msgstr "3 tsd"
 
 #: data/ui/timer-setup.ui:80
 msgid "5 m"
-msgstr "5 min"
+msgstr "5 tsd"
 
 #: data/ui/timer-setup.ui:91
 msgid "30 m"
-msgstr "30 min"
+msgstr "30tsd"
 
 #: data/ui/timer-setup.ui:102
 msgid "15 m"
-msgstr "15 min"
+msgstr "15 tsd"
 
 #: data/ui/timer-setup.ui:113
 msgid "45 m"
-msgstr "45 min"
+msgstr "45 tsd"
 
 #: data/ui/timer-setup.ui:124
 msgid "1 h"
-msgstr "1 godz."
+msgstr "1 srg"
 
 #: data/ui/timer-setup.ui:137
 msgid "Set Timer"
-msgstr "Ustaw minutnik"
+msgstr "Sbadu amakud"
 
 #: data/ui/timer-setup.ui:163 data/ui/timer-setup.ui:195
 #: data/ui/timer-setup.ui:228
 msgid "0"
 msgstr "0"
 
-#: data/ui/timer-setup.ui:264
-msgid "Title"
-msgstr "Tytuł"
-
 #: data/ui/window.ui:44
 msgid "_World"
-msgstr "Ś_wiat"
+msgstr "Amaḍal (_W)"
 
 #: data/ui/window.ui:55
 msgid "Ala_rms"
-msgstr "_Budziki"
+msgstr "Tingedwiyin (_r)"
 
 #: data/ui/window.ui:66
 msgid "_Stopwatch"
-msgstr "_Stoper"
+msgstr "Akrunumetr (_S)"
 
 #: data/ui/window.ui:77
 msgid "_Timer"
-msgstr "_Minutnik"
+msgstr "Amakud (_T)"
 
 #: data/ui/window.ui:98
 msgid "Clock"
-msgstr "Zegar"
+msgstr "Tamrint"
 
 #: data/ui/window.ui:106
 msgid "Alarm Ringing"
-msgstr "Dzwoni budzik"
+msgstr "Taṣanit n tengedwit"
 
 #: data/ui/world-face.ui:15
 msgid "_Add World Clock…"
-msgstr "_Dodaj zegar światowy…"
+msgstr "Rnu tamrilt n umaḍal… (_A)"
 
 #: data/ui/world-location-dialog.ui:4
 msgid "Add a New World Clock"
-msgstr "Dodanie nowego zegara światowego"
+msgstr "Rnu tamrilt n umaḍal tamaynut"
 
-#: data/ui/world-location-dialog.ui:52
+#: data/ui/world-location-dialog.ui:65
 msgid "Search for a City"
-msgstr "Wyszukiwanie miasta"
+msgstr "Nadi ɣef temdint"
 
 #: data/ui/world-standalone.ui:97
 msgid "Sunrise"
-msgstr "Wschód słońca"
+msgstr "Alluy n yiṭṭij"
 
 #: data/ui/world-standalone.ui:109
 msgid "Sunset"
-msgstr "Zachód słońca"
+msgstr "Aɣelluy n yiṭij"
 
 #: src/alarm-face.vala:157
 #, c-format
 msgid "Alarm set for %s from now"
-msgstr "Ustawiono budzik na %s od teraz"
+msgstr "Tettusbadu temrilt i %s seg tura"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
 msgid "Alarm"
-msgstr "Budzik"
+msgstr "Tangedwit"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
 #: src/alarm-row.vala:97
 #, c-format
 msgid "%s: Snoozed until %s"
-msgstr "%s: drzemka do %s"
+msgstr "%s: Tgen alamma%s"
 
 #. Translators: %s is a time
 #: src/alarm-row.vala:100
 #, c-format
 msgid "Snoozed until %s"
-msgstr "Drzemka do %s"
+msgstr "Tgen alamma%s"
 
 #. Translators: The alarm titled %s was "missed"
 #: src/alarm-row.vala:107
 #, c-format
 msgid "Alarm %s was missed"
-msgstr "Pominięto budzik „%s”"
+msgstr "Tamrilt %s txuṣṣ"
 
 #: src/alarm-row.vala:109
 msgid "Alarm was missed"
-msgstr "Pominięto budzik"
+msgstr "Txuṣṣ temrilt"
 
 #: src/alarm-setup-dialog.vala:41
 msgid "1 minute"
-msgstr "1 minuta"
+msgstr "1 n tesdat"
 
 #: src/alarm-setup-dialog.vala:42
 msgid "5 minutes"
-msgstr "5 minut"
+msgstr "5 n tesdatin"
 
 #: src/alarm-setup-dialog.vala:43
 msgid "10 minutes"
-msgstr "10 minut"
+msgstr "10 n tesdatin"
 
 #: src/alarm-setup-dialog.vala:44
 msgid "15 minutes"
-msgstr "15 minut"
+msgstr "15 n tesdatin"
 
 #: src/alarm-setup-dialog.vala:45
 msgid "20 minutes"
-msgstr "20 minut"
+msgstr "20 n tisdatin"
 
 #: src/alarm-setup-dialog.vala:46
 msgid "30 minutes"
-msgstr "30 minut"
+msgstr "30 n tesdatin"
 
-#: src/alarm-setup-dialog.vala:110
+#: src/alarm-setup-dialog.vala:111
 msgid "Edit Alarm"
-msgstr "Modyfikacja budzika"
+msgstr "Ẓreg tangedwit"
 
-#: src/alarm-setup-dialog.vala:113
+#: src/alarm-setup-dialog.vala:114
 msgid "_Done"
-msgstr "_Gotowe"
+msgstr "Immed (_D)"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
-msgstr "Wyświetla informację o wersji i kończy działanie"
+msgstr "Siggez talɣut n lqem syen ffeɣ"
 
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
 msgid "Lap"
-msgstr "Okrążenie"
+msgstr "Lap"
 
 #: src/stopwatch-face.vala:181
 msgid "Resume"
-msgstr "Wznów"
+msgstr "Kemmel"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
 msgid "Lap %i"
-msgstr "%i. okrążenie"
+msgstr "Lap %i"
 
 #: src/timer-face.vala:82
 msgid "Time is up!"
-msgstr "Czas minął!"
+msgstr "Ifukk wakud!"
 
 #: src/timer-face.vala:83
 msgid "Timer countdown finished"
-msgstr "Ukończono odliczanie minutnika"
+msgstr "Amessiḍan d akessar ifukk"
 
 #. Translators: The time is the same as the local time
 #: src/utils.vala:67
 msgid "Current timezone"
-msgstr "Obecna strefa czasowa"
+msgstr "Izḍi usrig amiran"
 
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
@@ -556,9 +550,8 @@ msgstr "Obecna strefa czasowa"
 #, c-format
 msgid "%s hour behind"
 msgid_plural "%s hours behind"
-msgstr[0] "%s godzina do tyłu"
-msgstr[1] "%s godziny do tyłu"
-msgstr[2] "%s godzin do tyłu"
+msgstr[0] "%s srg n ugellel"
+msgstr[1] "%s srgn n ugellel"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
@@ -566,145 +559,138 @@ msgstr[2] "%s godzin do tyłu"
 #, c-format
 msgid "%s hour ahead"
 msgid_plural "%s hours ahead"
-msgstr[0] "%s godzina do przodu"
-msgstr[1] "%s godziny do przodu"
-msgstr[2] "%s godzin do przodu"
+msgstr[0] "%s srg yuẓan"
+msgstr[1] "%s srgn yuẓan"
 
 #: src/utils.vala:103
 #, c-format
 msgid "%s day"
 msgid_plural "%s days"
-msgstr[0] "%s dzień"
-msgstr[1] "%s dni"
-msgstr[2] "%s dni"
+msgstr[0] "%s n wass"
+msgstr[1] "%s n wussan"
 
 #: src/utils.vala:105 src/utils.vala:112
 msgid " and "
-msgstr " i "
+msgstr " akked "
 
 #: src/utils.vala:110
 #, c-format
 msgid "%s hour"
 msgid_plural "%s hours"
-msgstr[0] "%s godzinę"
-msgstr[1] "%s godziny"
-msgstr[2] "%s godzin"
+msgstr[0] "%s n usrag"
+msgstr[1] "%s n isragen"
 
 #: src/utils.vala:117
 #, c-format
 msgid "%s minute"
 msgid_plural "%s minutes"
-msgstr[0] "%s minutę"
-msgstr[1] "%s minuty"
-msgstr[2] "%s minut"
+msgstr[0] "%s n tesdidt"
+msgstr[1] "%s n tesdidin"
 
 #. Translators: This is used in the repeat toggle for Monday
 #: src/utils.vala:277
 msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
-msgstr "P"
+msgstr "Ari"
 
 #. Translators: This is used in the repeat toggle for Tuesday
 #: src/utils.vala:279
 msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
-msgstr "W"
+msgstr "Ara"
 
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:281
 msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
-msgstr "Ś"
+msgstr "Ah"
 
 #. Translators: This is used in the repeat toggle for Thursday
 #: src/utils.vala:283
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
-msgstr "C"
+msgstr "Amh"
 
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:285
 msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
-msgstr "P"
+msgstr "Sem"
 
 #. Translators: This is used in the repeat toggle for Saturday
 #: src/utils.vala:287
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
-msgstr "S"
+msgstr "Sed"
 
 #. Translators: This is used in the repeat toggle for Sunday
 #: src/utils.vala:289
 msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
-msgstr "N"
+msgstr "Ac"
 
 #: src/utils.vala:303
 msgid "Mondays"
-msgstr "Poniedziałki"
+msgstr "Ussan n warim"
 
 #: src/utils.vala:304
 msgid "Tuesdays"
-msgstr "Wtorki"
+msgstr "Ussan n waram"
 
 #: src/utils.vala:305
 msgid "Wednesdays"
-msgstr "Środy"
+msgstr "Ussan n wahad"
 
 #: src/utils.vala:306
 msgid "Thursdays"
-msgstr "Czwartki"
+msgstr "Ussan n wamhad"
 
 #: src/utils.vala:307
 msgid "Fridays"
-msgstr "Piątki"
+msgstr "Ussan n sem"
 
 #: src/utils.vala:308
 msgid "Saturdays"
-msgstr "Soboty"
+msgstr "Ussan n sed"
 
 #: src/utils.vala:309
 msgid "Sundays"
-msgstr "Niedziele"
+msgstr "Ussan n wacer"
 
 #: src/utils.vala:435
 msgid "Every Day"
-msgstr "Codziennie"
+msgstr "Yal ass"
 
 #: src/utils.vala:437
 msgid "Weekdays"
-msgstr "Dni robocze"
+msgstr "Ussan n umalas"
 
 #: src/utils.vala:439
 msgid "Weekends"
-msgstr "Weekendy"
+msgstr "Imalasen"
 
-#: src/window.vala:252
+#: src/window.vala:253
 msgid "translator-credits"
-msgstr ""
-"Piotr Drąg <piotrdrag@gmail.com>, 2012-2024\n"
-"Paweł Żołnowski <pawel@zolnowski.name>, 2014\n"
-"Aviary.pl <community-poland@mozilla.org>, 2012-2024"
+msgstr "amsuqqel-isemdan"
 
 #. Translators: Tooltip for the + button
 #: src/world-face.vala:29
 msgid "Add Location"
-msgstr "Dodaje położenie"
+msgstr "Rnu adig"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
 #: src/world-item.vala:177 src/world-item.vala:181
 msgid "Tomorrow"
-msgstr "Jutro"
+msgstr "Azekka"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
 #: src/world-item.vala:177 src/world-item.vala:181
 msgid "Yesterday"
-msgstr "Wczoraj"
+msgstr "Iḍelli"
 
 #. Translators: This clock represents the local time
 #: src/world-row.vala:47
 msgid "Current location"
-msgstr "Obecne położenie"
+msgstr "Adig amiran"
