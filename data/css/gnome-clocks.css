@@ -77,7 +77,7 @@
 
 .running-stopwatch .seconds-label,
 .running-stopwatch .miliseconds-label {
-	color: @accent_color;
+	color: var(--accent-color);
 }
 
 .stopped-stopwatch .miliseconds-label,
@@ -100,25 +100,22 @@
 	font-size: 2em;
 	padding: 0.2em 0.5em;
 	border-radius: 1em;
+	color: oklab(from var(--pill-color) var(--standalone-color-oklab));
+	background-color: color-mix(in srgb, var(--pill-color) 25%, transparent);
 }
 
-.none .clock-time {
-	background: alpha(currentColor, 0.2);
+.none {
+	--pill-color: var(--card-fg-color);
 }
 
-.night .clock-time {
-	color: @blue_4;
-	background-color: alpha(@blue_3, 0.25);
+.night {
+	--pill-color: var(--blue-3);
 }
 
-.naut .clock-time,
-.astro .clock-time {
-	color: @orange_5;
-	background-color: alpha(@orange_4, 0.25);
+.naut, .astro {
+	--pill-color: var(--orange-3);
 }
 
-.civil .clock-time,
-.day .clock-time {
-	color: #ae7b03;
-	background: alpha(@yellow_5, 0.25);
+.civil, .day {
+	--pill-color: var(--yellow-5);
 }
