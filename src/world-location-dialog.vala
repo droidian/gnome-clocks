@@ -20,7 +20,7 @@ namespace Clocks {
 namespace World {
 
 private class ClockLocation : Object {
-    public GWeather.Location location { get; construct set; }
+    public GWeather.Location location { get; construct; }
     public bool selected { get; set; }
 
     public ClockLocation (GWeather.Location location, bool selected) {
@@ -34,6 +34,8 @@ private class LocationDialog : Adw.Dialog {
     private unowned Gtk.Stack stack;
     [GtkChild]
     private unowned Gtk.Widget empty_search;
+    [GtkChild]
+    private unowned Gtk.Widget no_search_results;
     [GtkChild]
     private unowned Gtk.Widget search_results;
     [GtkChild]
@@ -122,7 +124,7 @@ private class LocationDialog : Adw.Dialog {
         query_locations ((GWeather.Location) world_location, search);
 
         if (locations.get_n_items () == 0) {
-            stack.visible_child = empty_search;
+            stack.visible_child = no_search_results;
             return;
         }
         locations.sort ((a, b) => {

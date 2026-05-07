@@ -27,18 +27,34 @@ public class Row : Gtk.ListBoxRow {
             return _item;
         }
 
-        construct set {
+        construct {
+            if (_item == value)
+                return;
+
+            if (_item != null) {
+                _item.countdown_updated.disconnect (this.update_countdown);
+                _item.notify["state"].disconnect (this.update_state);
+                name_binding.unbind ();
+                entry_binding.unbind ();
+            }
+
             _item = value;
 
-            title.text = (string) _item.name;
-            title.bind_property ("text", _item, "name");
-            timer_name.label = (string) _item.name;
-            title.bind_property ("text", timer_name, "label");
+            if (_item != null) {
+                _item.countdown_updated.connect (this.update_countdown);
+                _item.notify["state"].connect (this.update_state);
+                name_binding = _item.bind_property ("name", timer_name, "label",
+                                                    BindingFlags.SYNC_CREATE);
+                entry_binding = _item.bind_property ("name", title, "text",
+                                                     BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+            }
 
-            _item.notify["name"].connect (() => edited ());
+            update_state ();
         }
     }
     private Item _item;
+    private Binding name_binding;
+    private Binding entry_binding;
     private Adw.TimedAnimation paused_animation;
 
 
@@ -66,19 +82,11 @@ public class Row : Gtk.ListBoxRow {
     private unowned Gtk.Entry title;
 
     public signal void deleted ();
-    public signal void edited ();
 
-    public Row (Item item) {
-        Object (item: item);
-
+    construct {
         // Force LTR since we do not want to reverse [hh] : [mm] : [ss]
         countdown_label.set_direction (Gtk.TextDirection.LTR);
 
-        item.countdown_updated.connect (this.update_countdown);
-        item.ring.connect (() => this.ring ());
-        item.start.connect (() => this.start ());
-        item.pause.connect (() => this.pause ());
-        item.reset.connect (() => this.reset ());
         delete_button.clicked.connect (() => deleted ());
 
         var target = new Adw.CallbackAnimationTarget (animation_target);
@@ -86,86 +94,74 @@ public class Row : Gtk.ListBoxRow {
         paused_animation.repeat_count = Adw.DURATION_INFINITE;
         paused_animation.easing = Adw.Easing.LINEAR;
 
-        if (item.state == RUNNING)
-            start ();
-        else if (item.state == PAUSED)
-            pause ();
-        else
-            reset ();
+        update_state ();
+    }
+
+    public Row (Item item) {
+        Object (item: item);
     }
 
     [GtkCallback]
     private void on_start_button_clicked () {
-        item.start ();
+        if (item != null) {
+            item.state = Item.State.RUNNING;
+        }
     }
 
     [GtkCallback]
     private void on_pause_button_clicked () {
-        item.pause ();
+        if (item != null) {
+            item.state = Item.State.PAUSED;
+        }
     }
 
     [GtkCallback]
     private void on_reset_button_clicked () {
-        item.reset ();
+        if (item != null) {
+            item.state = Item.State.STOPPED;
+        }
     }
 
-    private void reset () {
-        reset_stack.visible_child_name = "empty";
-        delete_stack.visible_child_name = "button";
+    private void update_state () {
+        if (item == null || item.state == STOPPED) {
+            delete_stack.visible_child_name = "button";
+            name_revealer.reveal_child = true;
+            name_stack.visible_child_name = "edit";
+            reset_stack.visible_child_name = "empty";
+            start_stack.visible_child_name = "start";
 
-        countdown_label.remove_css_class ("accent");
-        countdown_label.add_css_class ("dim-label");
+            countdown_label.add_css_class ("dimmed");
+            countdown_label.remove_css_class ("accent");
+        } else if (item.state == PAUSED) {
+            delete_stack.visible_child_name = "button";
+            name_revealer.reveal_child = (timer_name.label != "");
+            name_stack.visible_child_name = "display";
+            reset_stack.visible_child_name = "button";
+            start_stack.visible_child_name = "start";
+        } else if (item.state == RUNNING) {
+            delete_stack.visible_child_name = "empty";
+            name_revealer.reveal_child = (timer_name.label != "");
+            name_stack.visible_child_name = "display";
+            reset_stack.visible_child_name = "empty";
+            start_stack.visible_child_name = "pause";
 
-        paused_animation.pause ();
+            countdown_label.add_css_class ("accent");
+            countdown_label.remove_css_class ("dimmed");
+        }
 
-        start_stack.visible_child_name = "start";
-        name_revealer.reveal_child = true;
-        name_stack.visible_child_name = "edit";
+        if (paused_animation != null) {
+            if (item != null && item.state == Item.State.PAUSED) {
+                paused_animation.play ();
+            } else {
+                paused_animation.pause ();
+            }
+        }
 
-        update_countdown (item.hours, item.minutes, item.seconds);
-    }
-
-    private void start () {
-        countdown_label.add_css_class ("accent");
-        countdown_label.remove_css_class ("dim-label");
-
-        paused_animation.pause ();
-
-        reset_stack.visible_child_name = "empty";
-        delete_stack.visible_child_name = "empty";
-
-        start_stack.visible_child_name = "pause";
-        name_revealer.reveal_child = (timer_name.label != "");
-        name_stack.visible_child_name = "display";
-
-        update_countdown (
-            item.get_stored_hour (),
-            item.get_stored_minute (),
-            item.get_stored_second ()
-        );
-    }
-
-    private void ring () {
-        paused_animation.pause ();
-
-        countdown_label.remove_css_class ("accent");
-        countdown_label.add_css_class ("dim-label");
-    }
-
-    private void pause () {
-        paused_animation.play ();
-
-        reset_stack.visible_child_name = "button";
-        delete_stack.visible_child_name = "button";
-        start_stack.visible_child_name = "start";
-        name_revealer.reveal_child = (timer_name.label != "");
-        name_stack.visible_child_name = "display";
-
-        update_countdown (
-            item.get_stored_hour (),
-            item.get_stored_minute (),
-            item.get_stored_second ()
-        );
+        if (item != null) {
+            update_countdown (item.get_stored_hour (), item.get_stored_minute (), item.get_stored_second ());
+        } else {
+            update_countdown (0, 0, 0);
+        }
     }
 
     private void update_countdown (int h, int m, int s ) {
@@ -174,11 +170,11 @@ public class Row : Gtk.ListBoxRow {
 
     private void animation_target (double val) {
         if (val < 1.0) {
-            countdown_label.add_css_class ("dim-label");
+            countdown_label.add_css_class ("dimmed");
             countdown_label.remove_css_class ("accent");
         } else {
             countdown_label.add_css_class ("accent");
-            countdown_label.remove_css_class ("dim-label");
+            countdown_label.remove_css_class ("dimmed");
         }
     }
 }

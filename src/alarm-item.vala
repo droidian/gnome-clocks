@@ -50,11 +50,13 @@ private class Item : Object, ContentItem {
         MISSED
     }
 
-    public string id { get; construct set; }
+    public string id { get; construct; }
 
     public int snooze_minutes { get; set; default = 10; }
 
     public int ring_minutes { get; set; default = 5; }
+
+    public File sound_file { get; set; default = SoundModel.build_default_file (); }
 
     public string? name {
         get {
@@ -182,9 +184,14 @@ private class Item : Object, ContentItem {
     private Utils.Bell bell;
     private GLib.Notification notification;
 
+    construct {
+        if (id == null) {
+            id = GLib.DBus.generate_guid ();
+        }
+    }
+
     public Item (string? id = null) {
-        var guid = id != null ? (string) id : GLib.DBus.generate_guid ();
-        Object (id: guid);
+        Object (id: id);
     }
 
     private void setup_bell () {
@@ -303,6 +310,7 @@ private class Item : Object, ContentItem {
         builder.add ("{sv}", "days", ((Utils.Weekdays) days).serialize ());
         builder.add ("{sv}", "snooze_minutes", new GLib.Variant.int32 (snooze_minutes));
         builder.add ("{sv}", "ring_minutes", new GLib.Variant.int32 (ring_minutes));
+        builder.add ("{sv}", "sound_uri", new GLib.Variant.take_string (sound_file.get_uri ()));
         builder.close ();
     }
 
@@ -317,6 +325,7 @@ private class Item : Object, ContentItem {
         GLib.DateTime? ring_time = null;
         int snooze_minutes = 10;
         int ring_minutes = 5;
+        File? sound_file = null;
         Utils.Weekdays? days = null;
 
         var iter = alarm_variant.iterator ();
@@ -339,6 +348,8 @@ private class Item : Object, ContentItem {
                 snooze_minutes = (int32) val;
             } else if (key == "ring_minutes") {
                 ring_minutes = (int32) val;
+            } else if (key == "sound_uri") {
+                sound_file = File.new_for_uri ((string) val);
             }
         }
 
@@ -355,6 +366,9 @@ private class Item : Object, ContentItem {
             alarm.days = days;
             alarm.ring_minutes = ring_minutes;
             alarm.snooze_minutes = snooze_minutes;
+            // Prior to 50 alarms only had one sound. If there is no
+            // sound stored, fall back to it.
+            alarm.sound_file = sound_file ?? SoundModel.build_fallback_file ();
             return alarm;
         } else {
             warning ("Invalid alarm %s", name != null ? (string) name : "[unnamed]");

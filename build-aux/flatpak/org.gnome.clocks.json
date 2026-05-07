@@ -50,11 +50,24 @@
               "-Dtests=false",
               "-Dgtk_doc=false"
             ],
+            "modules": [
+                {
+                    "name" : "gweather-locations",
+                    "buildsystem" : "meson",
+                    "sources" : [
+                        {
+                            "type" : "git",
+                            "url" : "https://gitlab.gnome.org/GNOME/gweather-locations",
+                            "branch" : "main"
+                        }
+                    ]
+                }
+            ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/libgweather.git",
-                    "branch": "gnome-49"
+                    "branch": "main"
                 }
             ]
         },
@@ -73,6 +86,17 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gnome-desktop.git"
+                }
+            ]
+        },
+        {
+            "name": "vorbis-tools",
+            "buildsystem": "autotools",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.3.tar.gz",
+                    "sha256": "a1fe3ddc6777bdcebf6b797e7edfe0437954b24756ffcc8c6b816b63e0460dde"
                 }
             ]
         },

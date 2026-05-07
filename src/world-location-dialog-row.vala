@@ -21,7 +21,7 @@ namespace World {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world-location-dialog-row.ui")]
 private class LocationDialogRow : Gtk.ListBoxRow {
-    public ClockLocation data { get; construct set; }
+    public ClockLocation data { get; construct; }
 
     public string? clock_name { get; set; default = null; }
     public string? clock_location { get; set; default = null; }
@@ -56,6 +56,13 @@ private class LocationDialogRow : Gtk.ListBoxRow {
         sensitive = !data.selected;
 
         data.bind_property ("selected", this, "clock-selected", SYNC_CREATE);
+
+        notify["clock-selected"].connect (update_accessibility);
+        update_accessibility ();
+    }
+
+    private void update_accessibility () {
+        update_state (Gtk.AccessibleState.SELECTED, clock_selected);
     }
 }
 

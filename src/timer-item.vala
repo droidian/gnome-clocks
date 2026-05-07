@@ -27,12 +27,24 @@ public class Item : Object, ContentItem {
         PAUSED
     }
 
-    public State state { get; private set; default = State.STOPPED; }
+    private State _state;
+    public State state {
+        get { return _state; }
+
+        set {
+            if (_state == value) {
+                return;
+            }
+
+            _state = value;
+            update_state ();
+        }
+    }
 
     public string? name { get ; set; }
-    public int hours { get; set; default = 0; }
-    public int minutes { get; set; default = 0; }
-    public int seconds { get; set; default = 0; }
+    public int hours { get; construct; }
+    public int minutes { get; construct; }
+    public int seconds { get; construct; }
 
     private double span;
     private GLib.Timer timer;
@@ -45,7 +57,12 @@ public class Item : Object, ContentItem {
     public signal void ring ();
     public signal void countdown_updated (int hours, int minutes, int seconds);
 
-    public int get_total_seconds () {
+    construct {
+        timer = new GLib.Timer ();
+        update_state ();
+    }
+
+    private int get_total_seconds () {
         return hours * 3600 + minutes * 60 + seconds;
     }
 
@@ -80,57 +97,79 @@ public class Item : Object, ContentItem {
     }
 
     public Item.from_seconds (int seconds, string? name) {
-
-        int rest = 0;
         int h = seconds / 3600;
-        rest = seconds - h * 3600;
-        int m = rest / 60;
-        int s = rest - m * 60;
-
-        this (h, m, s, name);
+        int m = (seconds / 60) % 60;
+        int s = seconds % 60;
+        Object (hours: h, minutes: m, seconds: s, name: name);
     }
 
     public Item (int h, int m, int s, string? name) {
-        Object (name: name);
-        hours = h;
-        minutes = m;
-        seconds = s;
-
-        span = get_total_seconds ();
-        timer = new GLib.Timer ();
-
-        timeout_id = 0;
+        Object (hours: h, minutes: m, seconds: s, name: name);
     }
 
-    public virtual signal void start () {
-        state = State.RUNNING;
-        timeout_id = GLib.Timeout.add (100, () => {
-            var e = timer.elapsed ();
-            if (state != State.RUNNING) {
-                return false;
-            }
-            if (e >= span) {
-                reset ();
-                ring ();
-                timeout_id = 0;
-                return false;
-            }
-            var elapsed = Math.ceil (span - e);
-            int h;
-            int m;
-            int s;
-            double r;
-            Utils.time_to_hms (elapsed, out h, out m, out s, out r);
+    ~Item () {
+        if (timeout_id != 0) {
+            Source.remove (timeout_id);
+            timeout_id = 0;
+        }
+    }
 
-            if (stored_hour != h || stored_minute != m || stored_second != s) {
-                stored_hour = h;
-                stored_minute = m;
-                stored_second = s;
-                countdown_updated (h, m, s);
-            }
-            return true;
-        });
-        timer.start ();
+    private void update_state () {
+        if (timeout_id != 0) {
+            Source.remove (timeout_id);
+            timeout_id = 0;
+        }
+
+        switch (_state) {
+        case State.STOPPED:
+            stored_hour = hours;
+            stored_minute = minutes;
+            stored_second = seconds;
+            span = get_total_seconds ();
+            timer.reset ();
+            countdown_updated (stored_hour, stored_minute, stored_second);
+            break;
+        case State.PAUSED:
+            span -= timer.elapsed ();
+            timer.stop ();
+            break;
+        case State.RUNNING:
+            timeout_id = GLib.Timeout.add (100, tick_cb);
+            timer.start ();
+            countdown_updated (stored_hour, stored_minute, stored_second);
+            break;
+        }
+    }
+
+    private bool tick_cb () {
+        if (state != State.RUNNING) {
+            timeout_id = 0;
+            return Source.REMOVE;
+        }
+
+        var e = timer.elapsed ();
+        if (e >= span) {
+            timeout_id = 0;
+            state = Item.State.STOPPED;
+            ring ();
+            return Source.REMOVE;
+        }
+
+        var elapsed = Math.ceil (span - e);
+        int h;
+        int m;
+        int s;
+        double r;
+        Utils.time_to_hms (elapsed, out h, out m, out s, out r);
+
+        if (stored_hour != h || stored_minute != m || stored_second != s) {
+            stored_hour = h;
+            stored_minute = m;
+            stored_second = s;
+            countdown_updated (h, m, s);
+        }
+
+        return Source.CONTINUE;
     }
 
     public int get_stored_hour () {
@@ -143,19 +182,6 @@ public class Item : Object, ContentItem {
 
     public int get_stored_second () {
         return stored_second;
-    }
-
-    public virtual signal void pause () {
-        state = State.PAUSED;
-        span -= timer.elapsed ();
-        timer.stop ();
-    }
-
-    public virtual signal void reset () {
-        state = State.STOPPED;
-        span = get_total_seconds ();
-        timer.reset ();
-        timeout_id = 0;
     }
 
     public static int compare (Item a, Item b) {

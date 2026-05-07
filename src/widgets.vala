@@ -26,7 +26,7 @@ public interface ContentItem : GLib.Object {
 public class ContentStore : GLib.Object, GLib.ListModel {
     private ListStore store;
 
-    public ContentStore () {
+    construct {
         store = new ListStore (typeof (ContentItem));
         store.items_changed.connect ((position, removed, added) => {
             items_changed (position, removed, added);
@@ -49,23 +49,10 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         store.append (item);
     }
 
-    public int get_index (ContentItem item) {
-        int position = -1;
-        var n = store.get_n_items ();
-        for (int i = 0; i < n; i++) {
-            var compared_item = (ContentItem) store.get_object (i);
-            if (compared_item == item) {
-                position = i;
-                break;
-            }
-        }
-        return position;
-    }
-
     public void remove (ContentItem item) {
-        var index = get_index (item);
-        if (index != -1) {
-            store.remove (index);
+        uint position = Gtk.INVALID_LIST_POSITION;
+        if (store.find (item, out position)) {
+            store.remove (position);
         }
     }
 
@@ -73,7 +60,7 @@ public class ContentStore : GLib.Object, GLib.ListModel {
 
     public void foreach (ForeachFunc func) {
         var n = store.get_n_items ();
-        for (int i = 0; i < n; i++) {
+        for (uint i = 0; i < n; i++) {
             func ((ContentItem) store.get_object (i));
         }
     }
@@ -81,32 +68,17 @@ public class ContentStore : GLib.Object, GLib.ListModel {
     public delegate bool FindFunc (ContentItem item);
 
     public ContentItem? find (FindFunc func) {
-        var n = store.get_n_items ();
-        for (int i = 0; i < n; i++) {
-            var item = (ContentItem) store.get_object (i);
-            if (func (item)) {
-                return item;
-            }
+        uint position = Gtk.INVALID_LIST_POSITION;
+        if (store.find_with_equal_func_full (null, (item) => func ((ContentItem) item), out position)) {
+            return (ContentItem) store.get_object (position);
         }
         return null;
-    }
-
-    public void delete_item (ContentItem item) {
-        var n = store.get_n_items ();
-        for (int i = 0; i < n; i++) {
-            var o = store.get_object (i);
-            if (o == item) {
-                store.remove (i);
-
-                return;
-            }
-        }
     }
 
     public Variant serialize () {
         var builder = new GLib.VariantBuilder (new VariantType ("aa{sv}"));
         var n = store.get_n_items ();
-        for (int i = 0; i < n; i++) {
+        for (uint i = 0; i < n; i++) {
             ((ContentItem) store.get_object (i)).serialize (builder);
         }
         return builder.end ();

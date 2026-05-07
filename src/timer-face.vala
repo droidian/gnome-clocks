@@ -28,11 +28,11 @@ public class Face : Adw.Bin, Clocks.Clock {
     [GtkChild]
     private unowned Gtk.Button start_button;
     [GtkChild]
-    private unowned Gtk.Stack stack;
+    private unowned Adw.ViewStack stack;
     [GtkChild]
     private unowned Adw.Bin timer_bin;
 
-    public PanelId panel_id { get; construct set; }
+    public PanelId panel_id { get { return TIMER; } }
     public ButtonMode button_mode { get; set; default = NONE; }
     public bool is_running { get; set; default = false; }
     // Translators: Tooltip for the + button
@@ -45,7 +45,6 @@ public class Face : Adw.Bin, Clocks.Clock {
     private GLib.Notification notification;
 
     construct {
-        panel_id = TIMER;
         timer_setup = new Setup ();
 
         settings = new GLib.Settings ("org.gnome.clocks");
@@ -59,11 +58,6 @@ public class Face : Adw.Bin, Clocks.Clock {
         timers_list.bind_model (sorted_timers, (timer) => {
             var row = new Row ((Item) timer);
             row.deleted.connect (() => remove_timer ((Item) timer));
-            row.edited.connect (() => save ());
-            ((Item)timer).ring.connect (() => ring ());
-            ((Item)timer).notify["state"].connect (() => {
-                this.is_running = this.get_total_active_timers () != 0;
-            });
             return row;
         });
 
@@ -76,6 +70,7 @@ public class Face : Adw.Bin, Clocks.Clock {
                 this.button_mode = NONE;
             }
             save ();
+            this.is_running = this.get_total_active_timers () != 0;
         });
 
         bell = new Utils.Bell ("timeout-completed");
@@ -95,14 +90,14 @@ public class Face : Adw.Bin, Clocks.Clock {
             this.timers.add (timer);
             connect_item (timer);
 
-            timer.start ();
+            timer.state = Item.State.RUNNING;
         });
         start_button.clicked.connect (() => {
             var timer = this.timer_setup.get_timer ();
             this.timers.add (timer);
             connect_item (timer);
 
-            timer.start ();
+            timer.state = Item.State.RUNNING;
         });
         load ();
     }
@@ -127,13 +122,18 @@ public class Face : Adw.Bin, Clocks.Clock {
             var timer = ((SetupDialog) dialog).timer_setup.get_timer ();
             this.timers.add (timer);
             connect_item (timer);
-            timer.start ();
+            timer.state = Item.State.RUNNING;
             dialog.close ();
         });
-        dialog.present (get_root ());
+        dialog.present (this);
     }
 
     private void connect_item (Item item) {
+        item.notify["name"].connect (() => save ());
+        item.ring.connect (() => ring ());
+        item.notify["state"].connect (() => {
+            this.is_running = this.get_total_active_timers () != 0;
+        });
         item.notify["hours"].connect (() => {
             sorted_timers.sorter.changed (DIFFERENT);
         });
@@ -159,8 +159,12 @@ public class Face : Adw.Bin, Clocks.Clock {
     }
 
     public virtual signal void ring () {
-        var app = (Clocks.Application) GLib.Application.get_default ();
-        app.send_notification ("timer-is-up", notification);
+        var window = (Clocks.Window) get_root ();
+        // Don't send a notification if the window is focused.
+        if (!window.is_active) {
+            var app = (Clocks.Application) GLib.Application.get_default ();
+            app.send_notification ("timer-is-up", notification);
+        }
         bell.ring_once ();
     }
 
@@ -178,7 +182,7 @@ public class Face : Adw.Bin, Clocks.Clock {
         this.timers.foreach ((item) => {
                 var timer = (Item) item;
                 if (timer.state == Item.State.RUNNING) {
-                    timer.pause ();
+                    timer.state = Item.State.PAUSED;
                     res = true;
                 }
             });

@@ -22,7 +22,7 @@ namespace Alarm {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm-row.ui")]
 private class Row : Gtk.ListBoxRow {
-    public Item alarm { get; construct set; }
+    public Item alarm { get; construct; }
 
     [GtkChild]
     private unowned Gtk.Switch toggle;
@@ -84,7 +84,7 @@ private class Row : Gtk.ListBoxRow {
 
         var label = alarm.name;
 
-        // Prior to 3.36 unamed alarms would just be called "Alarm",
+        // Prior to 3.36 unnamed alarms would just be called "Alarm",
         // pretend alarms called "Alarm" don't have a name (of course
         // this fails if the language/translation has since changed)
         if (alarm.name == _("Alarm")) {

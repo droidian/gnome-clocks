@@ -74,6 +74,13 @@ private class DurationModel : ListModel, Object {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm-setup-dialog.ui")]
 private class SetupDialog : Adw.Dialog {
+    public enum Response {
+        CANCEL,
+        ADD,
+    }
+
+    public Sound sound { get; set; }
+
     private Utils.WallClock.Format format;
     [GtkChild]
     private unowned Gtk.Box time_box;
@@ -83,6 +90,8 @@ private class SetupDialog : Adw.Dialog {
     private unowned Gtk.SpinButton m_spinbutton;
     [GtkChild]
     private unowned Adw.EntryRow name_entry;
+    [GtkChild]
+    private unowned Adw.ActionRow sound_row;
     [GtkChild]
     private unowned Adw.ComboRow snooze_duration;
     [GtkChild]
@@ -98,12 +107,21 @@ private class SetupDialog : Adw.Dialog {
     private unowned Adw.PreferencesGroup delete_group;
     [GtkChild]
     private unowned Gtk.Button ok_button;
+    [GtkChild]
+    private unowned SoundChooser sound_chooser;
     private List<Item> other_alarms;
     private DurationModel duration_model;
 
     static construct {
         typeof (DayPickerRow).ensure ();
         typeof (Duration).ensure ();
+        typeof (SoundChooser).ensure ();
+        typeof (SoundModel).ensure ();
+    }
+
+    construct {
+        notify["sound"].connect (() => update_accessibility ());
+        update_accessibility ();
     }
 
     public SetupDialog (Item? alarm, ListModel all_alarms) {
@@ -148,14 +166,14 @@ private class SetupDialog : Adw.Dialog {
 
         if (format == Utils.WallClock.Format.TWENTYFOUR) {
             h_spinbutton.set_range (0, 23);
-            am_pm_bin.hide ();
+            am_pm_bin.visible = false;
         } else {
             h_spinbutton.set_range (1, 12);
             am_pm_button.hexpand = false;
             am_pm_button.vexpand = false;
             am_pm_button.halign = Gtk.Align.CENTER;
             am_pm_button.valign = Gtk.Align.CENTER;
-            am_pm_bin.show ();
+            am_pm_bin.visible = true;
             am_pm_bin.set_child (am_pm_button);
         }
 
@@ -174,6 +192,7 @@ private class SetupDialog : Adw.Dialog {
         int minute;
         int snooze_minutes;
         int ring_minutes;
+        File sound_file;
         unowned Utils.Weekdays? days;
 
         if (alarm == null) {
@@ -186,6 +205,7 @@ private class SetupDialog : Adw.Dialog {
             active = true;
             ring_minutes = 5;
             snooze_minutes = 10;
+            sound_file = SoundModel.build_default_file ();
         } else {
             name = ((Item) alarm).name;
             hour = ((Item) alarm).time.hour;
@@ -194,6 +214,7 @@ private class SetupDialog : Adw.Dialog {
             active = ((Item) alarm).active;
             ring_minutes = ((Item) alarm).ring_minutes;
             snooze_minutes = ((Item) alarm).snooze_minutes;
+            sound_file = ((Item) alarm).sound_file;
         }
 
         // Set the time.
@@ -221,6 +242,26 @@ private class SetupDialog : Adw.Dialog {
         if (days != null) {
             repeats.load ((Utils.Weekdays) days);
         }
+
+        // Set the silent sound.
+        var silent_sound = sound_chooser.silent_sound;
+        if (sound_file.equal (silent_sound.file)) {
+            sound = silent_sound;
+            return;
+        }
+
+        // Set the sound from the model.
+        var sound_model = sound_chooser.model as SoundModel;
+        assert (sound_model != null);
+        sound = sound_model.find_by_file (sound_file);
+        if (sound != null) {
+            return;
+        }
+
+        critical ("Couldn't find alarm sound object for \"%s\".", sound_file.get_uri ());
+        sound_file = SoundModel.build_default_file ();
+        sound = sound_model.find_by_file (sound_file);
+        assert (sound != null);
     }
 
     // Sets alarm according to the current dialog settings.
@@ -251,6 +292,7 @@ private class SetupDialog : Adw.Dialog {
         alarm.days = days;
         alarm.snooze_minutes = snooze_item.minutes;
         alarm.ring_minutes = ring_item.minutes;
+        alarm.sound_file = (sound != null && sound.file != null) ? sound.file : SoundModel.build_default_file ();
 
         // Force update of ring_time before notifying the changes
         alarm.reset ();
@@ -265,6 +307,10 @@ private class SetupDialog : Adw.Dialog {
         var duplicate = alarm.check_duplicate_alarm (other_alarms);
         ok_button.sensitive = !duplicate;
         banner.set_revealed (duplicate);
+    }
+
+    private void update_accessibility () {
+        sound_row.update_property (Gtk.AccessibleProperty.VALUE_TEXT, sound != null ? sound.label : "");
     }
 
     [GtkCallback]
@@ -295,15 +341,15 @@ private class SetupDialog : Adw.Dialog {
 
     [GtkCallback]
     private void add () {
-        response (Gtk.ResponseType.OK);
+        response (Response.ADD);
     }
 
     [GtkCallback]
     private void cancel () {
-        response (Gtk.ResponseType.CANCEL);
+        response (Response.CANCEL);
     }
 
-    public signal void response (int response);
+    public signal void response (Response response);
 }
 
 } // namespace Alarm

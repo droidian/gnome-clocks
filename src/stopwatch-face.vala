@@ -36,10 +36,7 @@ public class Face : Gtk.Box, Clocks.Clock {
 
     private ListStore laps;
 
-    public string label { get; construct set; }
-    public string icon_name { get; construct set; }
-    public HeaderBar header_bar { get; construct set; }
-    public PanelId panel_id { get; construct set; }
+    public PanelId panel_id { get { return STOPWATCH; } }
     public ButtonMode button_mode { get; set; default = NONE; }
     public string? new_label { get; default = null; }
 
@@ -50,7 +47,7 @@ public class Face : Gtk.Box, Clocks.Clock {
     private int stored_hour;
     private int stored_minute;
     private int stored_second;
-    double stored_milisecond;
+    double stored_millisecond;
     private int current_lap;
 
     [GtkChild]
@@ -60,7 +57,7 @@ public class Face : Gtk.Box, Clocks.Clock {
     [GtkChild]
     private unowned Gtk.Label seconds_label;
     [GtkChild]
-    private unowned Gtk.Label miliseconds_label;
+    private unowned Gtk.Label milliseconds_label;
     [GtkChild]
     private unowned Gtk.Box time_container;
 
@@ -78,8 +75,6 @@ public class Face : Gtk.Box, Clocks.Clock {
     private unowned Gtk.ListBox laps_list;
 
     construct {
-        panel_id = STOPWATCH;
-
         laps = new GLib.ListStore (typeof (Lap));
 
         timer = new GLib.Timer ();
@@ -91,7 +86,9 @@ public class Face : Gtk.Box, Clocks.Clock {
             var total_items = laps.get_n_items ();
             Lap? before = null;
             if (total_items > 1) {
-                before = (Lap)laps.get_item (total_items - 1); // Get the latest item
+                // Get the previous item, which is at index 1 as they
+                // are stored in reverse order.
+                before = (Lap)laps.get_item (1);
             }
             var lap_row = new LapsRow ((Lap)lap, before);
             return lap_row;
@@ -100,10 +97,8 @@ public class Face : Gtk.Box, Clocks.Clock {
         laps.items_changed.connect (() => {
             if (laps.get_n_items () == 0) {
                 this.container.valign = CENTER;
-                this.container.margin_top = 0;
             } else {
                 this.container.valign = FILL;
-                this.container.margin_top = 36;
             }
         });
 
@@ -270,9 +265,9 @@ public class Face : Gtk.Box, Clocks.Clock {
             seconds_label.label = "%02i".printf (s);
             stored_second = s;
         }
-        if (stored_milisecond != ds) {
-            miliseconds_label.label = "%i".printf (ds);
-            stored_milisecond = ds;
+        if (stored_millisecond != ds) {
+            milliseconds_label.label = "%i".printf (ds);
+            stored_millisecond = ds;
         }
 
         return true;

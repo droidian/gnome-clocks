@@ -30,23 +30,39 @@
   </requires>
   <screenshots>
     <screenshot type="default">
-      <image>https://gitlab.gnome.org/GNOME/gnome-clocks/raw/master/data/appdata/world.png</image>
+      <image>https://static.gnome.org/appdata/gnome-47/clocks/world.png</image>
       <caption>Initial screen</caption>
     </screenshot>
     <screenshot>
-      <image>https://gitlab.gnome.org/GNOME/gnome-clocks/raw/master/data/appdata/alarm.png</image>
+      <image>https://static.gnome.org/appdata/gnome-47/clocks/alarm.png</image>
       <caption>Alarms screen</caption>
     </screenshot>
     <screenshot>
-      <image>https://gitlab.gnome.org/GNOME/gnome-clocks/raw/master/data/appdata/stopwatch.png</image>
+      <image>https://static.gnome.org/appdata/gnome-47/clocks/stopwatch.png</image>
       <caption>Stopwatch screen</caption>
     </screenshot>
     <screenshot>
-      <image>https://gitlab.gnome.org/GNOME/gnome-clocks/raw/master/data/appdata/timer.png</image>
+      <image>https://static.gnome.org/appdata/gnome-47/clocks/timer.png</image>
       <caption>Timer screen</caption>
     </screenshot>
   </screenshots>
   <releases>
+    <release version="50.0" date="2026-03-11">
+      <description>
+        <p>A new release of Clocks</p>
+        <ul>
+          <li>use oggenc from vorbis-tools instead of ffmpeg</li>
+          <li>New alarms default to the Toys sound</li>
+          <li>Fix duplicate timer notifications</li>
+          <li>Fix timers going off immediately</li>
+          <li>General improvements and bug fixes</li>
+          <li>Port shortcuts dialog to AdwShortcutsDialog</li>
+          <li>Add support for customizing the alarm bell</li>
+          <li>UI improvements for the stopwatch view</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="49.0" date="2025-09-12">
       <description>
         <p>A new release of Clocks</p>
@@ -209,4 +225,3 @@
   <translation type="gettext">gnome-clocks</translation>
   <content_rating type="oars-1.0" />
 </component>
-

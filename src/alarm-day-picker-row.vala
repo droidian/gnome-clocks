@@ -107,7 +107,7 @@ public class DayPickerRow : Adw.PreferencesRow {
     private unowned Gtk.Box box;
 
     construct {
-        // Create actions to control propeties from menu items
+        // Create actions to control properties from menu items
         var group = new SimpleActionGroup ();
         group.add_action (new PropertyAction ("day-0", this, "monday"));
         group.add_action (new PropertyAction ("day-1", this, "tuesday"));
@@ -128,6 +128,13 @@ public class DayPickerRow : Adw.PreferencesRow {
             buttons[i].tooltip_text = day.name ();
             buttons[i].add_css_class ("circular");
             buttons[i].halign = Gtk.Align.START;
+
+            // Accessibility: Use days names rather than symbols and names, as
+            // symbols are used as a graphical detail.
+            buttons[i].get_first_child ().set_accessible_role (Gtk.AccessibleRole.PRESENTATION);
+            buttons[i].reset_relation (Gtk.AccessibleRelation.LABELLED_BY);
+            buttons[i].update_property (Gtk.AccessibleProperty.LABEL, day.name (),
+                                        Gtk.AccessibleProperty.DESCRIPTION, "");
         }
 
         // Add the items, starting with the first day of the week

@@ -22,7 +22,7 @@ namespace Alarm {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm-face.ui")]
 public class Face : Adw.Bin, Clocks.Clock {
-    public PanelId panel_id { get; construct set; }
+    public PanelId panel_id { get { return ALARM; } }
     public ButtonMode button_mode { get; set; default = NEW; }
     // Translators: Tooltip for the + button
     public string? new_label { get; default = _("New Alarm"); }
@@ -42,8 +42,6 @@ public class Face : Adw.Bin, Clocks.Clock {
     private Alarm.Item? ring_time_toast_alarm;
 
     construct {
-        panel_id = ALARM;
-
         alarms = new ContentStore ();
         settings = new GLib.Settings ("org.gnome.clocks");
 
@@ -84,7 +82,7 @@ public class Face : Adw.Bin, Clocks.Clock {
             });
 
             row.remove_alarm.connect (() => {
-                alarms.delete_item ((Item) item);
+                alarms.remove ((Item) item);
                 if (ring_time_toast != null && item == ring_time_toast_alarm) {
                     ring_time_toast_alarm = null;
                     ring_time_toast.dismiss ();
@@ -96,8 +94,8 @@ public class Face : Adw.Bin, Clocks.Clock {
         });
 
         listbox.row_activated.connect ((row) => {
-           var alarm = ((Row) row).alarm;
-           this.edit (alarm);
+            var alarm = ((Row) row).alarm;
+            this.edit (alarm);
         });
 
         load ();
@@ -147,7 +145,9 @@ public class Face : Adw.Bin, Clocks.Clock {
 
         var window = (Clocks.Window) get_root ();
         var now = new GLib.DateTime.now ();
-        var time_left_string = Utils.format_time_span (alarm.ring_time.difference (now));
+        // Round the time left up to the next minute.
+        var time_left = Utils.ceil_time_span (alarm.ring_time.difference (now), GLib.TimeSpan.MINUTE);
+        var time_left_string = Utils.format_time_span (time_left, false);
         if (ring_time_toast == null) {
             ring_time_toast = new Adw.Toast ("");
         } else {
@@ -181,18 +181,18 @@ public class Face : Adw.Bin, Clocks.Clock {
         var dialog = new SetupDialog (alarm, alarms);
 
         dialog.response.connect ((dialog, response) => {
-            if (response == Gtk.ResponseType.OK) {
+            if (response == SetupDialog.Response.ADD) {
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
                 // Activate the alarm after editing it
                 alarm.active = true;
                 save ();
             } else if (response == DELETE_ALARM) {
-                alarms.delete_item (alarm);
+                alarms.remove (alarm);
                 save ();
             }
             dialog.close ();
         });
-        dialog.present (get_root ());
+        dialog.present (this);
     }
 
     private void reset_view () {
@@ -202,7 +202,7 @@ public class Face : Adw.Bin, Clocks.Clock {
     public void activate_new () {
         var dialog = new SetupDialog (null, alarms);
         dialog.response.connect ((dialog, response) => {
-            if (response == Gtk.ResponseType.OK) {
+            if (response == SetupDialog.Response.ADD) {
                 var alarm = new Item ();
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
                 alarms.add (alarm);
@@ -213,7 +213,7 @@ public class Face : Adw.Bin, Clocks.Clock {
             }
             dialog.close ();
         });
-        dialog.present (get_root ());
+        dialog.present (this);
     }
 }
 
