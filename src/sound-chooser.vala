@@ -60,7 +60,7 @@ private class SoundChooser : Adw.NavigationPage {
 
     private void ring_bell () {
         if (sound.uri != SILENT_SOUND_URI) {
-            bell = new Utils.Bell (GLib.File.new_for_uri (sound.uri));
+            bell = new Utils.Bell ("alarm-clock-elapsed");
             bell.ring ();
         }
     }
